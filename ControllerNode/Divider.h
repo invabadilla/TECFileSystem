@@ -75,7 +75,14 @@ public:
                 bin.push_back('0');
                 val /= 2;
             }
-
+            if(bin.size() < 7 && bin.size()!=0){
+                int ajuste = 7-bin.size();
+                string strajuste = "";
+                for (int j = 0; j < ajuste; ++j) {
+                    strajuste += "0";
+                }
+                bin += strajuste;
+            }
 
             reverse(bin.begin(), bin.end());
             tot += bin + " ";
@@ -140,6 +147,25 @@ public:
         toRead.close();
         delete[] datos;
         return output;
+    }
+
+    string XoR(string first, string second){
+        string final = "";
+
+        if (first.size() == second.size()) {
+            for (int i = 0; i < first.size(); ++i) {
+                char first_bit = first[i];
+                char second_bit = second[i];
+                if(first_bit == '1' && second_bit == '1'){final += "0";}
+                else if(first_bit == '1' && second_bit == '0'){final += "1";}
+                else if(first_bit == '0' && second_bit == '0'){final += "0";}
+                else if(first_bit == '0' && second_bit == '1'){final += "1";}
+                else if(first_bit == ' ' && second_bit == ' '){final += " ";}
+            }
+        } else{
+
+        }
+        return final;
     }
 };
 

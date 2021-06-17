@@ -1,6 +1,12 @@
 #include <iostream>
+#include <algorithm>
+#include <iterator>
+#include <numeric>
+#include "functional"
+
 #include "RAID_5.h"
 #include "ControllerNode/Divider.h"
+
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -38,6 +44,17 @@ int main() {
     convertido += divider.readData("Dat3.dat");
     convertido.pop_back();
     cout<<convertido<<endl;
+
+    divider.strToBin(divider.result.at(0));
+    string first = divider.tot;
+    divider.strToBin(divider.result.at(1));
+    string second = divider.tot;
+    divider.strToBin(divider.result.at(2));
+    string third = divider.tot;
+
+    string paridad = divider.XoR(first, second);
+    paridad = divider.XoR(paridad, third);
+    cout<<"Bit de paridad: " <<paridad<<endl;
 
     return 0;
 }
