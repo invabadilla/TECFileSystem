@@ -8,18 +8,17 @@
 
 RAID_5::RAID_5() {
     for (int i = 0; i < 4; i++){
+        DiskNode *node = new DiskNode(4096, 1024, 1, true);
         if (firstDisk == nullptr){
-            DiskNode *node = new DiskNode(4096, 1024, 1, true);
             TECFSDisk(node);
             setFirstDisk(node);
-            cout << node->GetParameters() <<endl;
         }
         else{
-            DiskNode *node = new DiskNode(4096, 1024, 1, true);
             TECFSDisk(node);
             node->setNext(firstDisk);
             setFirstDisk(node);
         }
+        cout << node->GetParameters() <<endl;
     }
 }
 
