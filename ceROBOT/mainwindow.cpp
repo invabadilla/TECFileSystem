@@ -37,3 +37,8 @@ void MainWindow::on_actionAbrir_triggered()
         ui->label->setText("Error al insertar los libros.");
     }
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    // insertar metodo para las busquedas
+}
