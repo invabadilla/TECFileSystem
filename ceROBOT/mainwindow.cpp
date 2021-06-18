@@ -23,21 +23,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionAbrir_triggered()
 {
-    QFile file;
-    QTextStream io;
     QString fileName;
+    bool insertStatus = true;
     fileName = QFileDialog::getExistingDirectory(this, "Abrir");
 
     cout << fileName.toStdString() << endl;
-//    file.setFileName(fileName);
-//    file.open(QIODevice::ReadOnly | QIODevice::Text);
-//    if (!file.isOpen())
-//    {
-//        QMessageBox::critical(this, "Error", file.errorString());
-//        return;
-//    }
-//    io.setDevice(&file);
-//    ui->plainTextEdit->setPlainText(io.readAll());
-//    file.flush();
-//    file.close();
+
+    // insertar metodo que inserte todos los libros en el RAID
+
+    if (insertStatus){
+        ui->label->setText("Se han insertado los libros exitosamente!");
+    } else {
+        ui->label->setText("Error al insertar los libros.");
+    }
 }
