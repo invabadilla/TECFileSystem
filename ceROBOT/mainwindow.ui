@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>TEC file System</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="iconos.qrc">
+    <normaloff>:/iconos/iconoPrincipal.png</normaloff>:/iconos/iconoPrincipal.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
@@ -99,6 +103,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="iconos.qrc"/>
+ </resources>
  <connections/>
 </ui>
