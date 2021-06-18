@@ -8,20 +8,21 @@
 #include "IMemoryBlock.h"
 #include <vector>
 #include "List.h"
+#include <iostream>
 
-using namespace std;
 namespace MemPool {
 
     /**
      * Struct para la creacion de cada Chunk del Pool de memoria
      */
     typedef struct MemoryBlock {
-        List <string> path_meta;
+        std::string path_block;
+        List <std::string> path_meta;
         TByte *Data;
         size_t DataSize;
         size_t UsedSize;
         bool IsAllocationChunk;
         MemoryBlock *Next;
-    } SMemoryChunk;
+    } MemoryBlock;
 }
 #endif //SERVER_SMEMORYCHUNK_H

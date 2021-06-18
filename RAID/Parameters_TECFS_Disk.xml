@@ -3,5 +3,5 @@
 <Parameters>
     <ip>127.0.0.1</ip>
     <port>54000</port>
-    <path>/home/usuario/Proyectos/TECFileSystem/DiskNodes</path>
+    <path>/home/usuario/Proyectos/TECFileSystem/RAID/DiskNodes</path>
 </Parameters>

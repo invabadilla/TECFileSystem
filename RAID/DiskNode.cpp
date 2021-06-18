@@ -41,8 +41,8 @@ namespace MemPool {
         m_uiObjectCount = 0 ;
 
         m_bSetMemoryData = bSetMemoryData ;
-
         AllocateMemory(sInitialMemoryPoolSize) ;
+
     }
 
     /**
@@ -239,6 +239,7 @@ namespace MemPool {
         for(unsigned int i = 0; i < uiChunkCount; i++){
             if(!m_ptrFirstChunk){
                 m_ptrFirstChunk = SetChunkDefaults(&(ptrNewChunks[0])) ;
+
                 m_ptrLastChunk = m_ptrFirstChunk ;
                 m_ptrCursorChunk = m_ptrFirstChunk ;
             }
@@ -256,6 +257,7 @@ namespace MemPool {
                 bAllocationChunkAssigned = true ;
             }
         }
+
         return RecalcChunkMemorySize(m_ptrFirstChunk, m_uiMemoryChunkCount) ;
     }
 
@@ -293,7 +295,8 @@ namespace MemPool {
             ptrChunk->DataSize = 0 ;
             ptrChunk->UsedSize = 0 ;
             ptrChunk->IsAllocationChunk = false ;
-            ptrChunk->Next = NULL ;
+            ptrChunk->Next = NULL;
+            ptrChunk->path_block = "DEFAULT";
         }
         return ptrChunk ;
     }
@@ -304,8 +307,8 @@ namespace MemPool {
      */
     void DiskNode::SetChunktoDefault(MemoryBlock *ptrChunk){
         if(ptrChunk){
-            ptrChunk->UsedSize = 0 ;
-            ptrChunk->IsAllocationChunk = false ;
+            ptrChunk->UsedSize = 0;
+            ptrChunk->IsAllocationChunk = false;
         }
     }
 
@@ -441,10 +444,17 @@ namespace MemPool {
 //        m_ptrCursorChunk = m_ptrFirstChunk;
 //    }
 
-void DiskNode::SetParameters(string ip_, int port_, string path_){
+void DiskNode::SetParameters(string ip_, int port_, string path_, List<string> path_blocks){
     ip = ip_;
     port = port_;
     path = path_;
+    MemoryBlock *ptrChunk = m_ptrFirstChunk ;
+        for (int i = 0; i<4; i++){
+            string path_block = path_blocks.find(i)->getValue();
+            std::cout << path_block << std::endl;
+            ptrChunk->path_block = path_block;
+            ptrChunk = ptrChunk->Next;
+        }
 }
 
 string DiskNode::GetParameters(){

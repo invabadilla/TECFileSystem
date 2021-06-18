@@ -9,6 +9,7 @@
 #include <vector>
 #include "IMemoryBlock.h"
 #include "MemoryBlock.h"
+#include "List.h"
 
 namespace MemPool
 {
@@ -41,6 +42,7 @@ namespace MemPool
         void FreeAllAllocatedMemory();
 
         void SetParameters(string ip_, int port_, string path_);
+        void SetParameters(string ip_, int port_, string path_, List<string> path_block_);
         string GetParameters();
         //void Freeinscope(int deap);
 
