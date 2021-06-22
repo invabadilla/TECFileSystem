@@ -7,18 +7,27 @@
 #include "TECFS-Disk.h"
 
 RAID_5::RAID_5() {
+    DiskNode *node0 = new DiskNode(40960, 10240, 1, true);
+    DiskNode *node1 = new DiskNode(40960, 10240, 1, true);
+    DiskNode *node2 = new DiskNode(40960, 10240, 1, true);
+    DiskNode *node3 = new DiskNode(40960, 10240, 1, true);
+
+    TECFSDisk(node0);
+    setFirstDisk(node0);
+
+    TECFSDisk(node1);
+    node0->setNext(node1);
+
+    TECFSDisk(node2);
+    node1->setNext(node2);
+
+    TECFSDisk(node3);
+    node2->setNext(node3);
+
+    DiskNode *node = getFirstDisk();
     for (int i = 0; i < 4; i++){
-        DiskNode *node = new DiskNode(4096, 1024, 1, true);
-        if (firstDisk == nullptr){
-            TECFSDisk(node);
-            setFirstDisk(node);
-        }
-        else{
-            TECFSDisk(node);
-            node->setNext(firstDisk);
-            setFirstDisk(node);
-        }
         cout << node->GetParameters() <<endl;
+        node = node->getNext();
     }
 }
 
