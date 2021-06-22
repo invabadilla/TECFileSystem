@@ -28,6 +28,7 @@ void TECFSDisk(DiskNode *node){
     string ip_ = ip->GetText();
     string port_ = port->GetText();
     string path_ = path->GetText();
+    create_directory(path_);
     path_ += "/DiskNode"+ to_string(iteration);
     create_directory(path_);
     List<string> path_blocks;
