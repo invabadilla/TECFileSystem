@@ -465,4 +465,8 @@ namespace MemPool {
         return result;
     }
 
+    int DiskNode::getPort() const {
+        return port;
+    }
+
 }
