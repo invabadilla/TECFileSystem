@@ -4,12 +4,21 @@
 #include <iterator>
 #include <numeric>
 #include <fstream>
+#include <filesystem>
 #include "functional"
 #include "Divider.h"
+#include "tinyxml2.h"
+
+using namespace tinyxml2;
+using namespace filesystem;
+
+int globalPort;
 
 
 int main() {
-    ifstream input("/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt", ios::binary);
+
+    //ifstream input("/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt", ios::binary);
+    ifstream input("/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt", ios::binary);
     vector<char> bytes(
             (istreambuf_iterator<char>(input)),
             (istreambuf_iterator<char>()));
@@ -23,13 +32,11 @@ int main() {
 
     divider divider;
 
-//**************************************************************************************************//
 
 
     // Print 3 equal parts of the string
     divider.divideString(const_cast<char *>(texto.c_str()), 3, texto);
 
-//**************************************************************************************************//
     divider.createDat();
 
     string convertido = "";
@@ -52,6 +59,17 @@ int main() {
     string paridad = divider.XoR(first, second);
     paridad = divider.XoR(paridad, third);
     cout<<"Bit de paridad: " <<paridad<<endl;
+
+
+    XMLDocument xml_doc;
+    path temp = current_path().parent_path().parent_path();
+    string dn =temp.string()+"/RAID/Parameters_TECFS_Disk.xml"; const char *
+            document_name = dn.c_str();
+    XMLError eResult = xml_doc.LoadFile(document_name);
+    XMLNode* root = xml_doc.FirstChildElement("Parameters");
+    XMLElement *port = root->FirstChildElement("port");
+    globalPort = stoi(port->GetText());
+    cout<<"Port: "<<globalPort<<endl;
 
     return 0;
 }
