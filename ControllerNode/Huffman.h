@@ -13,7 +13,7 @@
 using namespace std;
 
 // Function to allocate a new tree node
-Tree_Node* getNode(char ch, int freq, Tree_Node* left, Tree_Node* right)
+Tree_Node* getNode(string ch, int freq, Tree_Node* left, Tree_Node* right)
 {
     Tree_Node* node = new Tree_Node();
 
@@ -38,7 +38,7 @@ struct comp
 // traverse the Huffman Tree and store Huffman Codes
 // in a map.
 void encode(Tree_Node* root, string str,
-            unordered_map<char, string> &huffmanCode)
+            unordered_map<string, string> &huffmanCode)
 {
     if (root == nullptr)
         return;
@@ -53,7 +53,7 @@ void encode(Tree_Node* root, string str,
 }
 
 // traverse the Huffman Tree and decode the encoded string
-void decode(Tree_Node* root, int &index, string str)
+void decode(Tree_Node* root, int &index, string str, string*strDecode)
 {
     if (root == nullptr) {
         return;
@@ -62,16 +62,16 @@ void decode(Tree_Node* root, int &index, string str)
     // found a leaf node
     if (!root->left && !root->right)
     {
-        cout << root->ch;
+        *strDecode += root->ch;
         return;
     }
 
     index++;
 
     if (str[index] =='0')
-        decode(root->left, index, str);
+        decode(root->left, index, str, strDecode);
     else
-        decode(root->right, index, str);
+        decode(root->right, index, str, strDecode);
 }
 
 
@@ -81,6 +81,7 @@ void preOrden(Tree_Node* node, string *str)
         return;
     }
     *str += node->ch;
+    *str += "$";
     preOrden(node->left, str);
     preOrden(node->right,str);
 }
@@ -91,26 +92,27 @@ void inOrden(Tree_Node* node, string *str)
     }
     inOrden(node->left, str);
     *str += node->ch;
+    *str += "$";
     inOrden(node->right,str);
 }
-int search(string arr, int strt, int end, char value)
+int search(List<string>  arr, int strt, int end, string value)
 {
     int i;
     for (i = strt; i <= end; i++)
     {
-        if (arr[i] == value)
+        if (arr.find(i)->getValue() == value)
             return i;
     }
 }
 
-Tree_Node* buildTree(string in, string pre, int inStrt, int inEnd)
+Tree_Node* buildTree(List<string> in, List<string> pre, int inStrt, int inEnd)
 {
     static int preIndex = 0;
 
     if (inStrt > inEnd)
         return NULL;
 
-    Tree_Node* tNode = getNode(pre[preIndex++], 0, nullptr, nullptr);
+    Tree_Node* tNode = getNode(pre.find(preIndex++)->getValue(), 0, nullptr, nullptr);
 
     if (inStrt == inEnd)
         return tNode;
@@ -128,11 +130,12 @@ List<string> buildHuffmanTree(string text)
 {
     // count frequency of appearance of each character
     // and store it in a map
-    unordered_map<char, int> freq;
-    for (char ch: text) {
+    unordered_map<string, int> freq;
+    for (int i = 0; i< text.size(); i++) {
+        string ch="";
+        ch.push_back(text[i]);
         freq[ch]++;
     }
-
     // Create a priority queue to store live nodes of
     // Huffman tree;
     List<Tree_Node *> pq;
@@ -144,7 +147,7 @@ List<string> buildHuffmanTree(string text)
         pq.insertPriority(getNode(pair.first, pair.second, nullptr, nullptr));
     }
     // do till there is more than one node in the queue
-
+    int chr = 0;
     while (pq.getSize() != 1) {
         // Remove the two nodes of highest priority
         // (lowest frequency) from the queue
@@ -157,7 +160,9 @@ List<string> buildHuffmanTree(string text)
         // of the two nodes' frequencies. Add the new node
         // to the priority queue.
         int sum = left->freq + right->freq;
-        pq.insertPriority(getNode('\0', sum, left, right));
+        string char_ = "N"+to_string(chr);
+        pq.insertPriority(getNode(char_, sum, left, right));
+        chr++;
     }
 
     // root stores pointer to root of Huffman Tree
@@ -165,16 +170,17 @@ List<string> buildHuffmanTree(string text)
 
     // traverse the Huffman Tree and store Huffman Codes
     // in a map. Also prints them
-    unordered_map<char, string> huffmanCode;
+    unordered_map<string, string> huffmanCode;
     encode(root, "", huffmanCode);
 
     // print encoded string
     string str = "";
-    for (char ch: text) {
+    for (int i = 0; i< text.size(); i++) {
+        string ch="";
+        ch.push_back(text[i]);
         str += huffmanCode[ch];
     }
     List <string> toSend;
-
 
     string pre;
     preOrden(root, &pre);
@@ -185,6 +191,7 @@ List<string> buildHuffmanTree(string text)
     toSend.insertLast(str);
     toSend.insertLast(pre);
     toSend.insertLast(in);
+
     return toSend;
 }
 
@@ -192,4 +199,3 @@ List<string> buildHuffmanTree(string text)
 
 
 #endif //CONTROLLERNODE_HUFFMAN_H
-}

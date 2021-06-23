@@ -8,6 +8,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <cstring>
+#include <iostream>
 
 Client *Client::singleton = nullptr;
 
@@ -103,6 +104,8 @@ void Client::sendJson(std::string jsonStr)
     std::string msg = jsonStr;
 
     send(this->serverSocket, msg.c_str(), msg.length(), 0);
+
+    std::string messageR = getServerMsg();
 }
 
 //! Essentially executes a read of the socket, call only if expecting the server to send a message back after a request or during a protocol

@@ -11,7 +11,23 @@
 //#include "Tree_Node.h"
 
 using json = nlohmann::json;
-int StartListenign(int port){
+List<string> StoL (string text){
+    string insert;
+    List<string> result;
+    for (int i = 0; i< text.size(); i++) {
+        if (text[i]=='$'){
+            result.insertLast(insert);
+            insert ="";
+        }
+        else{
+            insert.push_back(text[i]);
+        }
+    }
+    return result;
+}
+
+
+int StartListenign(int port, RAID_5* raid5){
     int listening = socket(AF_INET, SOCK_STREAM, 0);
     if (listening == -1)
     {
@@ -63,44 +79,20 @@ int StartListenign(int port){
         string messageR = string(buf, 0, bytesReceived);
         json jmessageR = json::parse(messageR);
         string key = jmessageR.value("key", "oops");
-        if (key == "key"){
+        if (key == "save"){
 
             string message = jmessageR.value("message", "oops");
             string pre = jmessageR.value("pre", "oops");
             string in = jmessageR.value("in", "oops");
-            int asccii = 123;
-            cout<<pre<<" "<<pre.size()<<endl;
-            for (int i = 0; i < pre.size(); i++) {
-                if(isalpha(pre.at(i))){
-                    cout<<"es alpha"<<endl;
-                    continue;
-                }
-                else{
-                    cout<<char(asccii)<<endl;
-                    pre[i]=char(asccii);
-                    asccii++;
-                    if (asccii >= 254){asccii=123;}
-                }
-            }
-            for (int i = 0; i < in.size(); i++) {
-                if(isalpha(in.at(i))){
-                    cout<<"es alpha"<<endl;
-                    continue;
-                }
-                else{
-                    cout<<char(asccii)<<endl;
-                    in[i]=char(asccii);
-                    asccii++;
-                    if (asccii >= 254){asccii=123;}
-                }
-            }
-
 
             cout<<"message: "<<message<<endl;
             cout<<"pre: "<<pre<<endl;
             cout<<"in: "<<in<<endl;
 
-            Tree_Node *root = buildTree(in, pre, 0, message.size()-1);
+            List<string> pre_list = StoL(pre);
+            List<string> in_list = StoL(in);
+
+            Tree_Node *root = buildTree(in_list, pre_list, 0, in_list.getSize()-1);
 
             int index = -1;
             string strDecode;
@@ -125,6 +117,6 @@ int StartListenign(int port){
 }
 int main() {
     RAID_5 *raid = new RAID_5();
-    StartListenign(raid->getFirstDisk()->getPort());
+    StartListenign(raid->getFirstDisk()->getPort(), raid);
     return 0;
 }

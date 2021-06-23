@@ -13,7 +13,7 @@
 
 using namespace tinyxml2;
 using namespace filesystem;
-int iteration =1;
+int iteration =0;
 
 void TECFSDisk(DiskNode *node){
 

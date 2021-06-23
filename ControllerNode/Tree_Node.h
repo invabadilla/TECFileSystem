@@ -9,7 +9,7 @@
 class Tree_Node
 {
 public:
-    char ch;
+    string ch;
     int freq;
     Tree_Node *left, *right;
 };

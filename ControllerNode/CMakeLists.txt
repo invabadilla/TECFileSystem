@@ -3,8 +3,5 @@ project(ControllerNode)
 
 set(CMAKE_CXX_STANDARD 17)
 
-<<<<<<< HEAD
-add_executable(ControllerNode main.cpp Divider.h Client.cpp Client.h tinyxml2.cpp tinyxml2.h Huffman.h List.h Node.h Tree_Node.h json.hpp)
-=======
-add_executable(ControllerNode main.cpp Divider.h Client.cpp Client.h tinyxml2.cpp tinyxml2.h Huffman.h List.h Node.h Tree_Node.h Server.cpp Server.h)
->>>>>>> main
+
+add_executable(ControllerNode main.cpp Divider.h Client.cpp Client.h tinyxml2.cpp tinyxml2.h Huffman.h List.h Node.h Tree_Node.h Server.cpp Server.h json.hpp)

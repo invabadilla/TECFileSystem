@@ -55,6 +55,17 @@ public:
         }
         //cout<<endl;
         result.push_back(temp);
+        strToBin(result.at(0));
+        string first = tot;
+        strToBin(result.at(1));
+        string second = tot;
+        strToBin(result.at(2));
+        string third = tot;
+
+        string paridad = XoR(first, second);
+        paridad = XoR(paridad, third);
+        result.push_back(paridad);
+
     }
 
     void strToBin(string s)
@@ -92,26 +103,25 @@ public:
 
     }
 
-    void createDat(){
+    void createDatcopy(string path, string name){
         std::fstream toWrite;
-
-        toWrite.open("Dat1.dat", std::ios::out | std::ios::binary);
-        strToBin(result.at(0));
-        toWrite.write(tot.c_str(), tot.size());
-        //Ahora cierro el archivo
-        toWrite.close();
-
-        toWrite.open("Dat2.dat", std::ios::out | std::ios::binary);
-        strToBin(result.at(1));
-        toWrite.write(tot.c_str(), tot.size());
-        //Ahora cierro el archivo
-        toWrite.close();
-
-        toWrite.open("Dat3.dat", std::ios::out | std::ios::binary);
-        strToBin(result.at(2));
-        toWrite.write(tot.c_str(), tot.size());
-        //Ahora cierro el archivo
-        toWrite.close();
+        for (int i=0; i < 4;i++){
+            toWrite.open(path+name+to_string(i)+".dat", std::ios::out | std::ios::binary);
+            strToBin(result.at(i));
+            toWrite.write(tot.c_str(), tot.size());
+            //Ahora cierro el archivo
+            toWrite.close();
+        }
+    }
+    void createDat(string path, string name, int j){
+        std::fstream toWrite;
+        for (int i=0; i < 4;i++){
+            toWrite.open(path+to_string(i)+"/Block"+to_string(j)+name+to_string(i)+".dat", std::ios::out | std::ios::binary);
+            strToBin(result.at(i));
+            toWrite.write(tot.c_str(), tot.size());
+            //Ahora cierro el archivo
+            toWrite.close();
+        }
     }
 
     string readData(string Path){
