@@ -32,8 +32,8 @@ json parseJson (List<string> toSend, string key){
 
 int main() {
 
-    //ifstream input("/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt", ios::binary);
-    ifstream input("/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt", ios::binary);
+    ifstream input("/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt", ios::binary);
+    //ifstream input("/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt", ios::binary);
     vector<char> bytes(
             (istreambuf_iterator<char>(input)),
             (istreambuf_iterator<char>()));
@@ -84,17 +84,6 @@ int main() {
     XMLNode* root = xml_doc.FirstChildElement("Parameters");
     XMLElement *port = root->FirstChildElement("port");
     globalPort = stoi(port->GetText());
-
-    List<string> toSend = buildHuffmanTree("hola");
-    for (int i = 0; i < toSend.getSize(); ++i) {
-        cout<<toSend.find(i)<<" ";
-    }
-    cout<<endl;
-    json JsonToSend = parseJson(toSend, "key");
-
-    Client *client = Client::getInstance(globalPort);
-    client->sendJson(to_string(JsonToSend));
-
 
     return 0;
 }
