@@ -9,17 +9,31 @@
 #include "Divider.h"
 #include "tinyxml2.h"
 #include "Huffman.h"
+#include "json.hpp"
+#include "Client.h"
 
 using namespace tinyxml2;
 using namespace filesystem;
+using json = nlohmann::json;
 
 int globalPort;
 
+json parseJson (List<string> toSend, string key){
+    json mymessage =
+            {
+                    {"key", key},
+                    {"message", toSend.find(0)->getValue()},
+                    {"pre", toSend.find(1)->getValue()},
+                    {"in", toSend.find(2)->getValue()},
+
+            };
+    return mymessage;
+}
 
 int main() {
 
-    ifstream input("/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt", ios::binary);
-    //ifstream input("/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt", ios::binary);
+    //ifstream input("/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt", ios::binary);
+    ifstream input("/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt", ios::binary);
     vector<char> bytes(
             (istreambuf_iterator<char>(input)),
             (istreambuf_iterator<char>()));
@@ -70,8 +84,17 @@ int main() {
     XMLNode* root = xml_doc.FirstChildElement("Parameters");
     XMLElement *port = root->FirstChildElement("port");
     globalPort = stoi(port->GetText());
-    cout<<"Port: "<<globalPort<<endl;
-    cout<<buildHuffmanTree("holaa")<<endl;
+
+    List<string> toSend = buildHuffmanTree("hola");
+    for (int i = 0; i < toSend.getSize(); ++i) {
+        cout<<toSend.find(i)<<" ";
+    }
+    cout<<endl;
+    json JsonToSend = parseJson(toSend, "key");
+
+    Client *client = Client::getInstance(globalPort);
+    client->sendJson(to_string(JsonToSend));
+
 
     return 0;
 }

@@ -7,6 +7,6 @@ add_executable(TECFileSystem main.cpp
                 IMemoryBlock.h
                 DiskNode.h DiskNode.cpp
                 MemoryBlock.h
-                List.h Node.h
+        Node.h
                 RAID_5.h RAID_5.cpp TECFS-Disk.h
                 tinyxml2.h tinyxml2.cpp json.hpp)

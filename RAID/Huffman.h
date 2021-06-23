@@ -12,6 +12,8 @@
 #include <unordered_map>
 using namespace std;
 
+List<int> globalList;
+
 // Function to allocate a new tree node
 Tree_Node* getNode(char ch, int freq, Tree_Node* left, Tree_Node* right)
 {
@@ -53,7 +55,7 @@ void encode(Tree_Node* root, string str,
 }
 
 // traverse the Huffman Tree and decode the encoded string
-void decode(Tree_Node* root, int &index, string str)
+void decode(Tree_Node* root, int &index, string str, string *strDecode)
 {
     if (root == nullptr) {
         return;
@@ -62,16 +64,16 @@ void decode(Tree_Node* root, int &index, string str)
     // found a leaf node
     if (!root->left && !root->right)
     {
-        cout << root->ch;
+        *strDecode += root->ch;
         return;
     }
 
     index++;
 
     if (str[index] =='0')
-        decode(root->left, index, str);
+        decode(root->left, index, str, strDecode);
     else
-        decode(root->right, index, str);
+        decode(root->right, index, str, strDecode);
 }
 
 
@@ -96,10 +98,20 @@ void inOrden(Tree_Node* node, string *str)
 int search(string arr, int strt, int end, char value)
 {
     int i;
+    bool flag = true;
     for (i = strt; i <= end; i++)
     {
-        if (arr[i] == value)
+        for (int j = 0; j < globalList.getSize(); ++j) {
+            if(i == globalList.find(j)->getValue()){
+                cout<<"falso"<<endl;
+                flag = false;
+            }
+
+        }
+        if (arr[i] == value && flag) {
+            globalList.insertLast(i);
             return i;
+        }
     }
 }
 
@@ -112,7 +124,7 @@ Tree_Node* buildTree(string in, string pre, int inStrt, int inEnd)
 
     Tree_Node* tNode = getNode(pre[preIndex++], 0, nullptr, nullptr);
 
-    if (inStrt == inEnd)
+    if (inStrt == inEnd && isalpha(tNode->ch))
         return tNode;
 
     int inIndex = search(in, inStrt, inEnd, tNode->ch);

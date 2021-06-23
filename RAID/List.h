@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Node.h"
+#include "Tree_Node.h"
 
 
 using namespace std;
@@ -84,6 +85,32 @@ public:
         size++;
     };
 
+    void insertPriority(Tree_Node* data_){
+
+        Node<Tree_Node*> *new_node = new Node<Tree_Node*> (data_);
+        if (isEmpty()) {
+            head = new_node;
+        }
+        else{
+            Node<Tree_Node*> *temp = head;
+            if (new_node->getValue()->freq < temp->getValue()->freq){
+                new_node->setNext(head);
+                head = new_node;
+            }
+            else{
+                while(temp->getNext()){
+                    if (new_node->getValue()->freq < temp->getNext()->getValue()->freq){
+                        new_node->setNext(temp->getNext());
+                        break;
+                    }
+                    temp = temp->getNext();
+                }
+                temp->setNext(new_node);
+            }
+        }
+        size ++;
+    }
+
     /*!
      * \brief finds a node given and deletes it
      * \param Template <T> data that will be deleted
@@ -102,6 +129,7 @@ public:
                     temp->setNext(temp1->getNext());
                     delete aux_node;
                     size--;
+                    break;
                 }
                 temp = temp->getNext();
                 temp1 = temp1->getNext();
@@ -184,6 +212,14 @@ public:
         head = 0;
         size = 0;
     };
+    void delete_first (){
+        head = head->getNext();
+        size--;
+    }
+
+    Node<T>* getHead() const {
+        return head;
+    }
 };
 
 
