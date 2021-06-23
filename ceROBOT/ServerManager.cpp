@@ -69,6 +69,7 @@ void ServerManager::connectSocket()
 
     // Clear buffer
     memset(this->buffer, 0, 1024);
+    printf("conectado bien");
 }
 
 /*!
@@ -94,11 +95,12 @@ void ServerManager::sendRequest(int request)
 void ServerManager::sendJson(std::string jsonStr)
 {
     connectSocket();
-    //printf("Sending: %s\n", jsonStr.c_str());
+    printf("Sending: %s\n", jsonStr.c_str());
 
     std::string msg = jsonStr;
 
     send(this->serverSocket, msg.c_str(), msg.length(), 0);
+    printf("Senfffding: %s\n", jsonStr.c_str());
 }
 
 //! Essentially executes a read of the socket, call only if expecting the server to send a message back after a request or during a protocol

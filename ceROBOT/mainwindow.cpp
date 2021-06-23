@@ -5,6 +5,7 @@
 #include "QFile"
 #include "QTextStream"
 #include <iostream>
+#include "ServerManager.h"
 
 using namespace std;
 
@@ -41,4 +42,12 @@ void MainWindow::on_actionAbrir_triggered()
 void MainWindow::on_pushButton_clicked()
 {
     // insertar metodo para las busquedas
+    ServerManager *manager = ServerManager::getInstance();
+    manager->sendJson("find");
+}
+
+void MainWindow::on_actionBuscar_triggered()
+{
+    ServerManager *manager = ServerManager::getInstance();
+    manager->sendJson("find");
 }

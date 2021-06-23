@@ -9,6 +9,7 @@
 #include "Divider.h"
 #include "tinyxml2.h"
 #include "Huffman.h"
+#include "Server.h"
 
 using namespace tinyxml2;
 using namespace filesystem;
@@ -17,7 +18,7 @@ int globalPort;
 
 
 int main() {
-
+    //Server(9999);
     ifstream input("/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt", ios::binary);
     //ifstream input("/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt", ios::binary);
     vector<char> bytes(
@@ -72,6 +73,8 @@ int main() {
     globalPort = stoi(port->GetText());
     cout<<"Port: "<<globalPort<<endl;
     cout<<buildHuffmanTree("holaa")<<endl;
+
+
 
     return 0;
 }
