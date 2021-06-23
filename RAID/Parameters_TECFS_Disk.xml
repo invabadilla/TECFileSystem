@@ -3,9 +3,7 @@
 <Parameters>
     <ip>127.0.0.1</ip>
     <port>54000</port>
-Updated upstream:RAID/Parameters_TECFS_Disk.xml
-
-    <!--<path>/home/usuario/Proyectos/TECFileSystem/DiskNodes</path> -->
-    <path>/home/ingrid/Documents/TECFileSystem/DiskNodes</path>
+    <path>/home/usuario/Proyectos/TECFileSystem/DiskNodes</path>
+    <!--path>/home/ingrid/Documents/TECFileSystem/DiskNodes</path>-->
 
 </Parameters>

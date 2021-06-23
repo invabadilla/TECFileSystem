@@ -8,21 +8,14 @@
 #include <iostream>
 #include <string>
 #include <queue>
+#include "List.h"
 #include <unordered_map>
 using namespace std;
 
-// A Tree node
-struct Node
-{
-    char ch;
-    int freq;
-    Node *left, *right;
-};
-
 // Function to allocate a new tree node
-Node* getNode(char ch, int freq, Node* left, Node* right)
+Tree_Node* getNode(char ch, int freq, Tree_Node* left, Tree_Node* right)
 {
-    Node* node = new Node();
+    Tree_Node* node = new Tree_Node();
 
     node->ch = ch;
     node->freq = freq;
@@ -35,7 +28,7 @@ Node* getNode(char ch, int freq, Node* left, Node* right)
 // Comparison object to be used to order the heap
 struct comp
 {
-    bool operator()(Node* l, Node* r)
+    bool operator()(Tree_Node* l, Tree_Node* r)
     {
         // highest priority item has lowest frequency
         return l->freq > r->freq;
@@ -44,7 +37,7 @@ struct comp
 
 // traverse the Huffman Tree and store Huffman Codes
 // in a map.
-void encode(Node* root, string str,
+void encode(Tree_Node* root, string str,
             unordered_map<char, string> &huffmanCode)
 {
     if (root == nullptr)
@@ -60,7 +53,7 @@ void encode(Node* root, string str,
 }
 
 // traverse the Huffman Tree and decode the encoded string
-void decode(Node* root, int &index, string str)
+void decode(Tree_Node* root, int &index, string str)
 {
     if (root == nullptr) {
         return;
@@ -81,8 +74,57 @@ void decode(Node* root, int &index, string str)
         decode(root->right, index, str);
 }
 
+
+void preOrden(Tree_Node* node, string *str)
+{
+    if (node == nullptr){
+        return;
+    }
+    *str += node->ch;
+    preOrden(node->left, str);
+    preOrden(node->right,str);
+}
+void inOrden(Tree_Node* node, string *str)
+{
+    if (node == nullptr){
+        return;
+    }
+    inOrden(node->left, str);
+    *str += node->ch;
+    inOrden(node->right,str);
+}
+int search(string arr, int strt, int end, char value)
+{
+    int i;
+    for (i = strt; i <= end; i++)
+    {
+        if (arr[i] == value)
+            return i;
+    }
+}
+
+Tree_Node* buildTree(string in, string pre, int inStrt, int inEnd)
+{
+    static int preIndex = 0;
+
+    if (inStrt > inEnd)
+        return NULL;
+
+    Tree_Node* tNode = getNode(pre[preIndex++], 0, nullptr, nullptr);
+
+    if (inStrt == inEnd)
+        return tNode;
+
+    int inIndex = search(in, inStrt, inEnd, tNode->ch);
+
+    tNode->left = buildTree(in, pre, inStrt, inIndex - 1);
+    tNode->right = buildTree(in, pre, inIndex + 1, inEnd);
+
+    return tNode;
+}
+
 // Builds Huffman Tree and decode given input text
-void buildHuffmanTree(string text)
+string buildHuffmanTree(string text)
 {
     // count frequency of appearance of each character
     // and store it in a map
@@ -93,70 +135,54 @@ void buildHuffmanTree(string text)
 
     // Create a priority queue to store live nodes of
     // Huffman tree;
-    priority_queue<Node*, vector<Node*>, comp> pq;
+    List<Tree_Node*> pq;
+    //priority_queue<Tree_Node*, vector<Tree_Node*>, comp> pq;
 
     // Create a leaf node for each character and add it
     // to the priority queue.
     for (auto pair: freq) {
-        pq.push(getNode(pair.first, pair.second, nullptr, nullptr));
+        pq.insertPriority(getNode(pair.first, pair.second, nullptr, nullptr));
     }
-
     // do till there is more than one node in the queue
-    while (pq.size() != 1)
+    while (pq.getSize() != 1)
     {
         // Remove the two nodes of highest priority
         // (lowest frequency) from the queue
-        Node *left = pq.top(); pq.pop();
-        Node *right = pq.top();	pq.pop();
-
+        Tree_Node *left = pq.getHead()->getValue(); pq.delete_first();
+        Tree_Node *right = pq.getHead()->getValue();pq.delete_first();
         // Create a new internal node with these two nodes
         // as children and with frequency equal to the sum
         // of the two nodes' frequencies. Add the new node
         // to the priority queue.
         int sum = left->freq + right->freq;
-        pq.push(getNode('\0', sum, left, right));
+        pq.insertPriority(getNode('\0', sum, left, right));
     }
 
     // root stores pointer to root of Huffman Tree
-    Node* root = pq.top();
+    Tree_Node* root = pq.getHead()->getValue();
 
     // traverse the Huffman Tree and store Huffman Codes
     // in a map. Also prints them
     unordered_map<char, string> huffmanCode;
     encode(root, "", huffmanCode);
 
-    cout << "Huffman Codes are :\n" << '\n';
-    for (auto pair: huffmanCode) {
-        cout << pair.first << " " << pair.second << '\n';
-    }
-
-    cout << "\nOriginal string was :\n" << text << '\n';
-
     // print encoded string
     string str = "";
     for (char ch: text) {
         str += huffmanCode[ch];
     }
-
-    cout << "\nEncoded string is :\n" << str << '\n';
-
-    // traverse the Huffman Tree again and this time
-    // decode the encoded string
-    int index = -1;
-    cout << "\nDecoded string is: \n";
-    while (index < (int)str.size() - 2) {
-        decode(root, index, str);
-    }
+    str += "$";
+    string pre;
+    preOrden(root, &pre);
+    str+=pre;
+    str +="$";
+    string in;
+    inOrden(root, &in);
+    str+=in;
+    return str;
 }
 
 // Huffman coding algorithm
-int main()
-{
-    string text = "Huffman coding is a data compression algorithm.";
 
-    buildHuffmanTree(text);
-
-    return 0;
-}
 
 #endif //CONTROLLERNODE_HUFFMAN_H
