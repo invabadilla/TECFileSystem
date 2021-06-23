@@ -135,7 +135,7 @@ List<string> buildHuffmanTree(string text)
 
     // Create a priority queue to store live nodes of
     // Huffman tree;
-    List<Tree_Node*> pq;
+    List<Tree_Node *> pq;
     //priority_queue<Tree_Node*, vector<Tree_Node*>, comp> pq;
 
     // Create a leaf node for each character and add it
@@ -144,12 +144,14 @@ List<string> buildHuffmanTree(string text)
         pq.insertPriority(getNode(pair.first, pair.second, nullptr, nullptr));
     }
     // do till there is more than one node in the queue
-    while (pq.getSize() != 1)
-    {
+
+    while (pq.getSize() != 1) {
         // Remove the two nodes of highest priority
         // (lowest frequency) from the queue
-        Tree_Node *left = pq.getHead()->getValue(); pq.delete_first();
-        Tree_Node *right = pq.getHead()->getValue();pq.delete_first();
+        Tree_Node *left = pq.getHead()->getValue();
+        pq.delete_first();
+        Tree_Node *right = pq.getHead()->getValue();
+        pq.delete_first();
         // Create a new internal node with these two nodes
         // as children and with frequency equal to the sum
         // of the two nodes' frequencies. Add the new node
@@ -159,7 +161,7 @@ List<string> buildHuffmanTree(string text)
     }
 
     // root stores pointer to root of Huffman Tree
-    Tree_Node* root = pq.getHead()->getValue();
+    Tree_Node *root = pq.getHead()->getValue();
 
     // traverse the Huffman Tree and store Huffman Codes
     // in a map. Also prints them
@@ -190,3 +192,4 @@ List<string> buildHuffmanTree(string text)
 
 
 #endif //CONTROLLERNODE_HUFFMAN_H
+}
