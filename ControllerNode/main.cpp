@@ -76,41 +76,5 @@ int main() {
     XMLElement *port = root->FirstChildElement("port");
     globalPort = stoi(port->GetText());
 
-    string size_ = to_string(file_size(name+to_string(0)+".dat"));
-    List<string> list = buildHuffmanTree(size_);
-    json js = parseJson(list, "save");
-    cout<<js.dump()<<endl;
-    Client *client = Client::getInstance(globalPort);
-    client->sendJson(js.dump());
-
-//    string convertido = "";
-//    cout<<"Resultado "<<endl;
-//    convertido += divider.readData("Dat1.dat");
-//    convertido.pop_back();
-//    convertido += divider.readData("Dat2.dat");
-//    convertido.pop_back();
-//    convertido += divider.readData("Dat3.dat");
-//    convertido.pop_back();
-//    cout<<convertido<<endl;
-
-//    divider.strToBin(divider.result.at(0));
-//    string first = divider.tot;
-//    divider.strToBin(divider.result.at(1));
-//    string second = divider.tot;
-//    divider.strToBin(divider.result.at(2));
-//    string third = divider.tot;
-//
-//    string paridad = divider.XoR(first, second);
-//    paridad = divider.XoR(paridad, third);
-//    cout<<"Bit de paridad: " <<paridad<<endl;
-
-
-
-
-
-//    for (int i=0; i< list.getSize(); i++){
-//        cout<<list.find(i)->getValue()<<endl;
-//    }
-
     return 0;
 }
