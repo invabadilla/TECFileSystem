@@ -43,11 +43,8 @@ void MainWindow::on_pushButton_clicked()
 {
     // insertar metodo para las busquedas
     ServerManager *manager = ServerManager::getInstance();
-    manager->sendJson("find");
+    QString tmp = ui->lineEdit->text();
+    manager->sendJson(tmp.toStdString());
 }
 
-void MainWindow::on_actionBuscar_triggered()
-{
-    ServerManager *manager = ServerManager::getInstance();
-    manager->sendJson("find");
-}
+
