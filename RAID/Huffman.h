@@ -11,7 +11,7 @@
 #include "List.h"
 #include <unordered_map>
 using namespace std;
-
+static int preIndex = 0;
 // Function to allocate a new tree node
 Tree_Node* getNode(string ch, int freq, Tree_Node* left, Tree_Node* right)
 {
@@ -107,7 +107,6 @@ int search(List<string>  arr, int strt, int end, string value)
 
 Tree_Node* buildTree(List<string> in, List<string> pre, int inStrt, int inEnd)
 {
-    static int preIndex = 0;
 
     if (inStrt > inEnd)
         return NULL;

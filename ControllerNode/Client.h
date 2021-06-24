@@ -22,7 +22,7 @@ private:
     int serverSocket;
 
     //! buffer array that gets reutilized when connecting to server's socket
-    char buffer[1024];
+    char buffer[8192];
 
     void listenServer();
 
@@ -41,7 +41,7 @@ public:
     // Communications stuff
     void sendRequest(int request);
 
-    void sendJson(std::string jsonStr);
+    std::string sendJson(std::string jsonStr);
 
     std::string getServerMsg();
 };

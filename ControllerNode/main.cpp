@@ -39,11 +39,11 @@ json parseJson (List<string> toSend, string key){
             };
     return mymessage;
 }
-List<string> StoL (string text){
+List<string> StoL (string text, char char_){
     string insert;
     List<string> result;
     for (int i = 0; i < text.size(); i++) {
-        if (text[i]=='/'){
+        if (text[i]==char_){
             result.insertLast(insert);
             insert ="";
         }
@@ -51,7 +51,9 @@ List<string> StoL (string text){
             insert.push_back(text[i]);
         }
     }
-    result.insertLast(insert);
+    if (char_ != '$'){
+        result.insertLast(insert);
+    }
     return result;
 }
 
@@ -87,7 +89,7 @@ int main() {
 
     // Print 3 equal parts of the string
     divider.divideString(const_cast<char *>(texto.c_str()), 3, texto);
-    List<string> result = StoL(input_);
+    List<string> result = StoL(input_, '/');
     string name = result.find(result.getSize()-1)->getValue();
     name.erase(name.end()-4, name.end());
     divider.createDatcopy("", name);
@@ -101,7 +103,7 @@ int main() {
     globalPort = stoi(port->GetText());
     /**
     string size_ = to_string(file_size(name+to_string(0)+".dat"));
-    List<string> list = buildHuffmanTree(size_);
+    List<string> list = buildHuffmanTree("0"+size_);
     json js = parseJson(list, "save");
     cout<<js.dump()<<endl;
     Client *client = Client::getInstance(globalPort);
@@ -213,6 +215,30 @@ int main() {
 
 
 
+
+
+    string messageR = client->sendJson(js.dump());
+    json jmessageR = json::parse(messageR);
+
+    string message = jmessageR.value("message", "oops");
+    string pre = jmessageR.value("pre", "oops");
+    string in = jmessageR.value("in", "oops");
+
+    cout<<"message: "<<message<<endl;
+    cout<<"pre: "<<pre<<endl;
+    cout<<"in: "<<in<<endl;
+
+    List<string> pre_list = StoL(pre, '$');
+    List<string> in_list = StoL(in, '$');
+    preIndex = 0;
+    Tree_Node *root_ = buildTree(in_list, pre_list, 0, in_list.getSize()-1);
+
+    int index = -1;
+    string strDecode;
+    while (index < (int)message.size() - 2) {
+        decode(root_, index, message, &strDecode);
+    }
+    cout<<"message: "<<strDecode<<endl;
 
 
 //    string convertido = "";

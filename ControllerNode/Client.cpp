@@ -96,7 +96,7 @@ void Client::sendRequest(int request)
  *
  * \param jsonStr the message to be sent, possibly encoded in json format
  */
-void Client::sendJson(std::string jsonStr)
+std::string Client::sendJson(std::string jsonStr)
 {
     connectSocket();
     //printf("Sending: %s\n", jsonStr.c_str());
@@ -106,6 +106,7 @@ void Client::sendJson(std::string jsonStr)
     send(this->serverSocket, msg.c_str(), msg.length(), 0);
 
     std::string messageR = getServerMsg();
+    return messageR;
 }
 
 //! Essentially executes a read of the socket, call only if expecting the server to send a message back after a request or during a protocol

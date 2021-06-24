@@ -44,7 +44,7 @@ namespace MemPool
         void SetParameters(string ip_, int port_, string path_);
         void SetParameters(string ip_, int port_, string path_, List<string> path_blocks);
         string GetParameters();
-
+        string FindBlockSuitableToHoldMemory(int size);
         int getPort() const;
         //void Freeinscope(int deap);
 
@@ -93,8 +93,6 @@ namespace MemPool
         string path;
         string ip;
         int port;
-
-
 
     };
 

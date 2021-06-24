@@ -286,10 +286,8 @@ namespace MemPool {
      */
     MemoryBlock *DiskNode::SetChunkDefaults(MemoryBlock *ptrChunk) {
         if (ptrChunk) {
-            ptrChunk->Data = NULL;
             ptrChunk->DataSize = 0;
             ptrChunk->UsedSize = 0;
-            ptrChunk->IsAllocationChunk = false;
             ptrChunk->Next = NULL;
             ptrChunk->path_block = "DEFAULT";
         }
@@ -467,6 +465,24 @@ namespace MemPool {
 
     int DiskNode::getPort() const {
         return port;
+    }
+
+    string DiskNode::FindBlockSuitableToHoldMemory(int size) {
+        MemoryBlock *ptrChunk = m_ptrFirstChunk;
+        int i =0;
+        while (ptrChunk){
+            if (ptrChunk->UsedSize+size < ptrChunk->DataSize ){
+                ptrChunk->UsedSize += size;
+                string temp = path;
+                temp.pop_back();
+                return temp +"#"+to_string(i);
+            }
+            else{
+                ptrChunk = ptrChunk->Next;
+                i++;
+            }
+        }
+
     }
 
 }

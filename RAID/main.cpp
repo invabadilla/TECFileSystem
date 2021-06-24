@@ -25,7 +25,17 @@ List<string> StoL (string text){
     }
     return result;
 }
+json parseJson (List<string> toSend, string key){
+    json mymessage =
+            {
+                    {"key", key},
+                    {"message", toSend.find(0)->getValue()},
+                    {"pre", toSend.find(1)->getValue()},
+                    {"in", toSend.find(2)->getValue()},
 
+            };
+    return mymessage;
+}
 
 int StartListenign(int port, RAID_5* raid5){
     int listening = socket(AF_INET, SOCK_STREAM, 0);
@@ -91,18 +101,21 @@ int StartListenign(int port, RAID_5* raid5){
 
             List<string> pre_list = StoL(pre);
             List<string> in_list = StoL(in);
-
+            preIndex = 0;
             Tree_Node *root = buildTree(in_list, pre_list, 0, in_list.getSize()-1);
 
             int index = -1;
             string strDecode;
             while (index < (int)message.size() - 2) {
-
                 decode(root, index, message, &strDecode);
             }
             cout<<"message: "<<strDecode<<endl;
-
-            //send(clientSocket, message.c_str(), message.size() + 1, 0);
+            string messageS = raid5->getFirstDisk()->FindBlockSuitableToHoldMemory(stoi(strDecode));
+            List<string> list = buildHuffmanTree(messageS);
+            json js = parseJson(list, "save");
+            messageS = js.dump();
+            cout<<"message: "<<messageS<<endl;
+            send(clientSocket, messageS.c_str(), messageS.size() + 1, 0);
         }
 
         if (key == "Genetic")
