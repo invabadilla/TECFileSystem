@@ -48,3 +48,8 @@ void MainWindow::on_pushButton_clicked()
 }
 
 
+
+void MainWindow::on_tableWidget_cellClicked(int row, int column)
+{
+    // accion de abrir el archivo selecionado
+}
