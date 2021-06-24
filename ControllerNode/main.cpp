@@ -12,6 +12,16 @@
 #include "json.hpp"
 #include "Client.h"
 
+#include <thread>
+#include <chrono>
+
+using std::cout;
+using std::endl;
+using std::copy;
+using std::this_thread::sleep_for;
+using namespace std::chrono_literals;
+
+
 using namespace tinyxml2;
 using namespace filesystem;
 using json = nlohmann::json;
@@ -44,9 +54,23 @@ List<string> StoL (string text){
     result.insertLast(insert);
     return result;
 }
+
+string convert(string input_){
+    ifstream input(input_, ios::binary);
+    vector<char> bytes(
+            (istreambuf_iterator<char>(input)),
+            (istreambuf_iterator<char>()));
+    input.close();
+
+    string texto;
+    for (int i = 0; i < bytes.size(); i++) {
+        texto+=bytes.at(i);
+    }
+    return texto;
+}
 int main() {
-    //ifstream input("/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt", ios::binary);
-    string input_ ="/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt";
+    //string input_ ="/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt";
+    string input_ = "/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt";
 
     ifstream input(input_, ios::binary);
     vector<char> bytes(
@@ -75,6 +99,147 @@ int main() {
     XMLNode* root = xml_doc.FirstChildElement("Parameters");
     XMLElement *port = root->FirstChildElement("port");
     globalPort = stoi(port->GetText());
+    /**
+    string size_ = to_string(file_size(name+to_string(0)+".dat"));
+    List<string> list = buildHuffmanTree(size_);
+    json js = parseJson(list, "save");
+    cout<<js.dump()<<endl;
+    Client *client = Client::getInstance(globalPort);
+    client->sendJson(js.dump());**/
+
+    //**********************************************************************//
+
+    remove("/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola2.dat");
+
+
+    int numError = -1;
+    string firstPath;
+    string firstBin;
+    string secondPath;
+    string secondBin;
+    string thirdPath;
+    string thirdBin;
+    string fourthPath;
+    string fourthBin;
+    int i;
+    for (i = 0; i < 3; ++i) {
+        // /home/ingrid/Documents/TECFileSystem/RAID/DiskNodes/DiskNode+i+/Block+j/name+i.dat
+        string pathToRead = "/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola" + to_string(i) + ".dat" ;
+        ifstream my_file(pathToRead);
+        if (my_file.good())
+        {
+            switch(i){
+                case 0:
+                    firstPath = pathToRead;
+                    firstBin = convert(pathToRead);
+                    break;
+                case 1:
+                    secondPath = pathToRead;
+                    secondBin = convert(pathToRead);
+                    break;
+                case 2:
+                    thirdPath = pathToRead;
+                    thirdBin = convert(pathToRead);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        else{
+            cout<<"El "<<i<<" no existe"<<endl;
+            numError = i;
+        }
+    }
+    fourthPath = "/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola3.dat";
+    fourthBin = convert("/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola3.dat");
+
+
+    string convertido = "";
+    if(numError == -1){
+        cout<<"Resultado: ";
+        convertido += divider.readData(firstPath);
+        convertido.pop_back();
+        convertido += divider.readData(secondPath);
+        convertido.pop_back();
+        convertido += divider.readData(thirdPath);
+        convertido.pop_back();
+        cout<<convertido<<endl;
+    }else{
+        string paridad;
+        switch(numError){
+            case 0:
+
+                paridad = divider.XoR(secondBin, thirdBin);
+                paridad = divider.XoR(paridad, fourthBin);
+                cout<<"Mensaje recuperado: ";
+                convertido += divider.BinToS(paridad);
+                convertido.pop_back();
+                convertido += divider.readData(secondPath);
+                convertido.pop_back();
+                convertido += divider.readData(thirdPath);
+                convertido.pop_back();
+                cout<<convertido<<endl;
+                break;
+            case 1:
+                paridad = divider.XoR(firstBin, thirdBin);
+                paridad = divider.XoR(paridad, fourthBin);
+                cout<<"Mensaje recuperado: ";
+                convertido += divider.readData(firstPath);
+                convertido.pop_back();
+                convertido += divider.BinToS(paridad);
+                convertido.pop_back();
+                convertido += divider.readData(thirdPath);
+                convertido.pop_back();
+                cout<<convertido<<endl;
+                break;
+            case 2:
+                paridad = divider.XoR(firstBin, secondBin);
+                paridad = divider.XoR(paridad, fourthBin);
+                cout<<"Mensaje recuperado: ";
+                convertido += divider.readData(firstPath);
+                convertido.pop_back();
+                convertido += divider.readData(secondPath);
+                convertido.pop_back();
+                convertido += divider.BinToS(paridad);
+                convertido.pop_back();
+                cout<<convertido<<endl;
+                break;
+            default:
+                break;
+        }
+    }
+
+
+
+
+
+
+//    string convertido = "";
+//    cout<<"Resultado "<<endl;
+//    convertido += divider.readData("Dat1.dat");
+//    convertido.pop_back();
+//    convertido += divider.readData("Dat2.dat");
+//    convertido.pop_back();
+//    convertido += divider.readData("Dat3.dat");
+//    convertido.pop_back();
+//    cout<<convertido<<endl;
+
+//    divider.strToBin(divider.result.at(0));
+//    string first = divider.tot;
+//    divider.strToBin(divider.result.at(1));
+//    string second = divider.tot;
+//    divider.strToBin(divider.result.at(2));
+//    string third = divider.tot;
+//
+//    string paridad = divider.XoR(first, second);
+//    paridad = divider.XoR(paridad, third);
+//    cout<<"Bit de paridad: " <<paridad<<endl;
+
+
+//    for (int i=0; i< list.getSize(); i++){
+//        cout<<list.find(i)->getValue()<<endl;
+//    }
 
     return 0;
 }
