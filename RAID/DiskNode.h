@@ -41,6 +41,8 @@ namespace MemPool
 
         void FreeAllAllocatedMemory();
 
+        MemoryBlock *getMPtrFirstChunk() const;
+        string FindNameinBlock(string name);
         void SetParameters(string ip_, int port_, string path_);
         void SetParameters(string ip_, int port_, string path_, List<string> path_blocks);
         string GetParameters();
@@ -93,6 +95,7 @@ namespace MemPool
         string path;
         string ip;
         int port;
+
 
     };
 

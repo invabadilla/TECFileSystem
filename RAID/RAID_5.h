@@ -16,11 +16,13 @@ public:
 
     DiskNode *getFirstDisk() const;
     void setFirstDisk(DiskNode *firstDisk);
-
+    string Update_Memory();
 
 
 private:
     DiskNode *firstDisk = nullptr;
+
+
 };
 
 
