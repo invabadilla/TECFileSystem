@@ -22,6 +22,7 @@ class divider
 public:
     vector<string> result;
     string tot = "";
+    int parity = 0;
 
     void divideString(char str[], int n, string texto)
     {
@@ -198,6 +199,11 @@ public:
 
         }
         return final;
+    }
+
+    string DiskParity(){
+        block;
+
     }
 };
 

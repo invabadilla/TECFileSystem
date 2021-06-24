@@ -12,16 +12,6 @@
 #include "json.hpp"
 #include "Client.h"
 
-#include <thread>
-#include <chrono>
-
-using std::cout;
-using std::endl;
-using std::copy;
-using std::this_thread::sleep_for;
-using namespace std::chrono_literals;
-
-
 using namespace tinyxml2;
 using namespace filesystem;
 using json = nlohmann::json;
