@@ -10,13 +10,16 @@
 using namespace MemPool;
 using namespace std;
 
+/**
+ * Class to build the RAID
+ */
 class RAID_5 {
 public:
     RAID_5();
 
     DiskNode *getFirstDisk() const;
     void setFirstDisk(DiskNode *firstDisk);
-    string Update_Memory();
+    void Update_Memory();
 
 
 private:

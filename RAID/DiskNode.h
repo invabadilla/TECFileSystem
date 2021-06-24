@@ -18,7 +18,7 @@ namespace MemPool
     static const std::size_t DEFAULT_MEMORY_SIZE_TO_ALLOCATE = DEFAULT_MEMORY_CHUNK_SIZE; //Size en Bytes por default a almacenar
 
     /**
-     * Clase encargade de la asignacion y administracion de la memoria
+     * Class in charge of memory allocation and management
      */
     class DiskNode : public IMemoryBlock{
     public:
@@ -30,14 +30,11 @@ namespace MemPool
 
         virtual void FreeMemory(void *ptrMemoryBlock);
 
-        //MemoryBlock *FindChunkHoldingNameTo(std::string name);
-
         MemoryBlock *FindChunkHoldingPointerTo(void *ptrMemoryBlock);
 
         DiskNode *getNext() const;
 
         void setNext(DiskNode *next);
-        //bool FindChunkHoldingSameName(std::string name_);
 
         void FreeAllAllocatedMemory();
 
@@ -48,9 +45,7 @@ namespace MemPool
         string GetParameters();
         string FindBlockSuitableToHoldMemory(int size);
         int getPort() const;
-        //void Freeinscope(int deap);
 
-        //void GarbageCollector();
 
     private:
         bool AllocateMemory(const size_t &sMemorySize);

@@ -96,10 +96,14 @@ void Server::request(sockaddr_in address, int serverSocket)
         if (strcmp(buffer, "save") == 0){
             //readSocket(buffer, address, serverSocket, newSocket);
             std::cout << buffer << std::endl;
+            //insertar todo para el save
+            //devolver bool de si se realizo exitosamente
             std::string info = "mensaje del server: save";
             send(newSocket, info.c_str(), info.length() + 1, 0);
         } else if (strcmp(buffer, "find") == 0){
             //readSocket(buffer, address, serverSocket, newSocket);
+            //insertar todo para el find
+            //devolver string de los datos, mostrarlo en la interfaz
             std::cout << buffer << std::endl;
             std::string info = "mensaje del server: find";
             send(newSocket, info.c_str(), info.length() + 1, 0);

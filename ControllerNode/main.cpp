@@ -17,6 +17,7 @@ using namespace filesystem;
 using json = nlohmann::json;
 
 int globalPort;
+List<string> nameMD;
 
 json parseJson (List<string> toSend, string key){
     json mymessage =
@@ -47,6 +48,14 @@ List<string> StoL (string text, char char_){
     return result;
 }
 
+string LtoS (List<string> text){
+    string result;
+    for (int i = 0; i < text.getSize(); i++) {
+        result += text.find(i)->getValue();
+    }
+    return result;
+}
+
 string convert(string input_){
     ifstream input(input_, ios::binary);
     vector<char> bytes(
@@ -61,8 +70,9 @@ string convert(string input_){
     return texto;
 }
 int main() {
-    string input_ ="/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt";
-    //string input_ = "/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt";
+
+    //string input_ ="/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt";
+    string input_ = "/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt";
 
     ifstream input(input_, ios::binary);
     vector<char> bytes(
@@ -231,6 +241,19 @@ int main() {
     List<string> create = StoL(strDecode, '#');
     divider.createDat(create.find(0)->getValue(), name, create.find(1)->getValue());
 
+    nameMD.insertLast(name+"$");
+    string metadata = LtoS(nameMD);
+
+    std::fstream toWrite;
+    toWrite.open("/home/ingrid/Documents/TECFileSystem/ControllerNode/METADATA.txt", std::ios::out | std::ios::binary);
+    toWrite.write(metadata.c_str(), metadata.size());
+    //Ahora cierro el archivo
+    toWrite.close();
+
+
+
+
+    //meter la lista en un txt para la metadata
 
 //    string convertido = "";
 //    cout<<"Resultado "<<endl;

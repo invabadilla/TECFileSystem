@@ -6,6 +6,10 @@
 #define CONTROLLERNODE_TREE_NODE_H
 
 #endif //CONTROLLERNODE_TREE_NODE_H
+
+/**
+ * Class to create the nodes of the huffman tree
+ */
 class Tree_Node
 {
 public:

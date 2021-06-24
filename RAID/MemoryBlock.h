@@ -14,7 +14,7 @@ using namespace std;
 namespace MemPool {
 
     /**
-     * Struct para la creacion de cada Chunk del Pool de memoria
+     * Struct for the creation of each Block of the Disk Node
      */
     typedef struct MemoryBlock {
         string path_block;

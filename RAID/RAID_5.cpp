@@ -7,6 +7,9 @@
 #include "TECFS-Disk.h"
 #include "List.h"
 
+/**
+ * Constructor for RAID creation
+ */
 RAID_5::RAID_5() {
     DiskNode *node0 = new DiskNode(40960, 10240, 1, true);
     DiskNode *node1 = new DiskNode(40960, 10240, 1, true);
@@ -33,7 +36,11 @@ RAID_5::RAID_5() {
     }
 
 }
-string RAID_5::Update_Memory() {
+
+/**
+ * Updates the memory space used by the RAID blocks
+ */
+void RAID_5::Update_Memory() {
     DiskNode *node = getFirstDisk();
     List<int> block;
     MemoryBlock *ptrChunk = node->getMPtrFirstChunk();
@@ -51,6 +58,7 @@ string RAID_5::Update_Memory() {
         node = node->getNext();
     }
 }
+
 DiskNode *RAID_5::getFirstDisk() const {
     return firstDisk;
 }

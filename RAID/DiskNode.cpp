@@ -21,11 +21,11 @@ namespace MemPool {
     static const int NEW_ALLOCATED_MEMORY_CONTENT = 0xFF;
 
     /**
-     * Constructor del Pool de Memoria
-     * @param sInitialMemoryPoolSize Memoria total del Pool
-     * @param sMemoryChunkSize  Size de cada Chunk
-     * @param sMinimalMemorySizeToAllocate Minimo espacio de memoria que se pueda solicitar
-     * @param bSetMemoryData Bool para establecer un espacio definido para el memset
+     * Constructor of the Disk Nodes
+     * @param sInitialMemoryPoolSize Total memory of the Disk
+     * @param sMemoryChunkSize  Size of each Block
+     * @param sMinimalMemorySizeToAllocate Minimum memory space that can be requested
+     * @param bSetMemoryData Bool to set a defined space for the memset
      */
     DiskNode::DiskNode(const size_t &sInitialMemoryPoolSize, const size_t &sMemoryChunkSize,
                        const size_t &sMinimalMemorySizeToAllocate, bool bSetMemoryData) {
@@ -48,7 +48,7 @@ namespace MemPool {
     }
 
     /**
-     * Destructor del Pool de Memoria
+     * Destructor of the Disk Node
      */
     DiskNode::~DiskNode() {
         FreeAllAllocatedMemory();
@@ -56,8 +56,8 @@ namespace MemPool {
     }
 
     /**
-     * Funcion para solicitar espacios de memoria en el Pool
-     * @param sMemorySize Size del espacio de memoria solicitado
+     * Function to request memory spaces in the Disk
+     * @param sMemorySize Size of memory space requested
      * @return
      */
     void *DiskNode::GetMemory(const std::size_t &sMemorySize) {
@@ -80,7 +80,7 @@ namespace MemPool {
     }
 
     /**
-     * Funcion para liberar ciertos espacios de memoria
+     * Function to free up certain memory spaces
      * @param ptrMemoryBlock
      */
     void DiskNode::FreeMemory(void *ptrMemoryBlock) {
@@ -96,8 +96,8 @@ namespace MemPool {
     }
 
     /**
-     * Funcion que realiza la asignacion del Pool de Memoria
-     * @param sMemorySize Size del Pool
+     * Function that performs the allocation of the Memory Pool
+     * @param sMemorySize Size of the Disk
      * @return
      */
     bool DiskNode::AllocateMemory(const std::size_t &sMemorySize) {
@@ -121,8 +121,8 @@ namespace MemPool {
     }
 
     /**
-     * Realiza el calculo de la cantidad de Chunks para cada espacio de memoria de variables
-     * @param sMemorySize Espacio de memoria requerido
+     * Performs the calculation of the number of Blocks for each variable memory space
+     * @param sMemorySize Required memory space
      * @return
      */
     unsigned int DiskNode::CalculateNeededChunks(const std::size_t &sMemorySize) {
@@ -131,7 +131,7 @@ namespace MemPool {
     }
 
     /**
-     * Calcula el mejor espacio de los Chunks para llenar el Pool
+     * Calculate the best space of the Chunks to fill the Disk
      * @param sRequestedMemoryBlockSize Size del Pool
      * @return
      */
@@ -141,7 +141,7 @@ namespace MemPool {
     }
 
     /**
-     * Libera la memoria de todos los Chunks
+     * Free the memory of all Blocks
      * @param ptrChunk
      */
     void DiskNode::FreeChunks(MemoryBlock *ptrChunk) {
@@ -161,9 +161,9 @@ namespace MemPool {
 
 
     /**
-     * Busca Chunks disponibles para almacenar datos
-     * @param sMemorySize Size requerido de la variable
-     * @return Chunk disponible
+     * Search Blocks available to store data
+     * @param sMemorySize Size required of the variable
+     * @return Block available
      */
     MemoryBlock *DiskNode::FindChunkSuitableToHoldMemory(const std::size_t &sMemorySize) {
         unsigned int uiChunksToSkip = 0;
@@ -191,10 +191,10 @@ namespace MemPool {
     }
 
     /**
-     * Descarta los Chunks que estan reservados
-     * @param ptrStartChunk Chunk inicial
-     * @param uiChunksToSkip Cantidad de chunks que se deben saltar
-     * @return Siguiente Chunk disponible
+     * Discard the Blocks that are reserved
+     * @param ptrStartChunk initial block
+     * @param uiChunksToSkip Number of blocks to skip
+     * @return Next block Available
      */
     MemoryBlock *DiskNode::SkipChunks(MemoryBlock *ptrStartChunk, unsigned int uiChunksToSkip) {
         MemoryBlock *ptrCurrentChunk = ptrStartChunk;
@@ -210,9 +210,9 @@ namespace MemPool {
     }
 
     /**
-     * Reestrablece la memoria utilizada
-     * @param ptrChunk Chunk a restablecer
-     * @param sMemBlockSize Espacio utilizado
+     * Reset used memory
+     * @param ptrChunk Block to reset
+     * @param sMemBlockSize used space
      */
     void DiskNode::SetMemoryChunkValues(MemoryBlock *ptrChunk, const std::size_t &sMemBlockSize) {
         if ((ptrChunk)) {
@@ -225,10 +225,10 @@ namespace MemPool {
     }
 
     /**
-     * Funcion que enlaza el Chunk designado a cada variable y a su correspondiente espacio
-     * @param ptrNewChunks Puntero a los Chunks designados
-     * @param uiChunkCount Cantidad de Chunk del bloque de memoria
-     * @param ptrNewMemBlock Puntero a el espacio de memoria asignado
+     * Function that links the designated Chunk to each variable and its corresponding space
+     * @param ptrNewChunks Pointer to Designated blocks
+     * @param uiChunkCount Block amount of memory block
+     * @param ptrNewMemBlock Pointer to allocated memory space
      * @return Funcion RecalcChunkMemorySize
      */
     bool DiskNode::LinkChunksToData(MemoryBlock *ptrNewChunks, unsigned int uiChunkCount, TByte *ptrNewMemBlock) {
@@ -260,11 +260,11 @@ namespace MemPool {
     }
 
     /**
-     * Funcion que determina si la cantidad de Chunks disponibles son
-     * suficientes para el espacio de memoria solicitado
-     * @param ptrChunk Puntero al primer Chunk disponible
-     * @param uiChunkCount Cantidad de Chunks requeridos
-     * @return bool True si es posible, False si no existen los Chunks requeridos
+     * Function that determines if the number of available
+     * blocks are sufficient for the requested memory space
+     * @param ptrChunk Pointer to the first available block
+     * @param uiChunkCount Amount of blocks required
+     * @return bool True if possible, False if the required chunks do not exist
      */
     bool DiskNode::RecalcChunkMemorySize(MemoryBlock *ptrChunk, unsigned int uiChunkCount) {
         unsigned int uiMemOffSet = 0;
@@ -282,9 +282,9 @@ namespace MemPool {
     }
 
     /**
-     * Resetea en el inicio los Chunks a los valores predeterminados para su utilizacion
-     * @param ptrChunk Puntero a resetear
-     * @return Puntero reseteado
+     * Reset the blocks at the start to the default values for their use
+     * @param ptrChunk pointer to reset
+     * @return reset pointer
      */
     MemoryBlock *DiskNode::SetChunkDefaults(MemoryBlock *ptrChunk) {
         if (ptrChunk) {
@@ -297,8 +297,8 @@ namespace MemPool {
     }
 
     /**
-     * Resetea los Chunks a valores predeterminamos para su reutilizacion
-     * @param ptrChunk puntero a resetear
+     * Reset blocks to default values for reuse
+     * @param ptrChunk pointer to reset
      */
     void DiskNode::SetChunktoDefault(MemoryBlock *ptrChunk) {
         if (ptrChunk) {
@@ -308,9 +308,9 @@ namespace MemPool {
     }
 
     /**
-     * Busca Chunks de una direccion de memoria de Data
-     * @param ptrMemoryBlock Direccion de Data
-     * @return Chunk
+     * Search blocks of a memory address of Data
+     * @param ptrMemoryBlock Direction of the Data
+     * @return block
      */
     MemoryBlock *DiskNode::FindChunkHoldingPointerTo(void *ptrMemoryBlock) {
         MemoryBlock *ptrTempChunk = m_ptrFirstChunk;
@@ -325,43 +325,7 @@ namespace MemPool {
     }
 
     /**
-     * Busca Chunks por su nombre
-     * @param name
-     * @return
-     */
-//    MemoryBlock *DiskNode::FindChunkHoldingNameTo(std::string name){
-//        MemoryBlock *ptrTempChunk = DiskNode::m_ptrFirstChunk ;
-//        while(ptrTempChunk){
-//            if(ptrTempChunk->name == name){
-//                break ;
-//            }
-//            ptrTempChunk = ptrTempChunk->Next ;
-//        }
-//        return ptrTempChunk ;
-//    }
-//
-//
-//    /**
-//     * Confirma si existe un Chunk asignado con un nombre en especifico
-//     * @param name_
-//     * @return
-//     */
-//    bool DiskNode::FindChunkHoldingSameName(std::string name_) {
-//        MemoryBlock *ptrTempChunk = m_ptrFirstChunk;
-//        bool can = true;
-//        while(ptrTempChunk){
-//            if(ptrTempChunk->name == name_){
-//                can = false;
-//                break ;
-//            }
-//            ptrTempChunk = ptrTempChunk->Next ;
-//        }
-//
-//        return can;
-//    }
-
-    /**
-     * Resetea la memoria de los Chunks al ejecutar el Destructor
+     * Reset the memory of the blocks when executing the Destroyer
      */
     void DiskNode::FreeAllAllocatedMemory() {
         MemoryBlock *ptrChunk = m_ptrFirstChunk;
@@ -373,7 +337,7 @@ namespace MemPool {
     }
 
     /**
-     * Libera la memoria de los Chunks al ejecutar el Destructor
+     * Free the memory of the blocks when executing the Destroyer
      */
     void DiskNode::DeallocateAllChunks() {
         MemoryBlock *ptrChunk = m_ptrFirstChunk;
@@ -396,48 +360,6 @@ namespace MemPool {
     void DiskNode::setNext(DiskNode *next) {
         Next = next;
     }
-
-    /**
-     * Libera la memoria de los Chunks al cerrarse un Scope
-     * @param deap
-     */
-//    void DiskNode::Freeinscope(int deap){
-//        MemoryBlock *ptrChunk = m_ptrFirstChunk ;
-//        while(ptrChunk){
-//            if (ptrChunk->isscope && deap == ptrChunk->deap){
-//                ptrChunk->counter = 0;
-//            }
-//            ptrChunk = ptrChunk->Next;
-//        }
-//    }
-//
-//    /**
-//     * Realiza una inspeccion de las variables para la liberacion de las que
-//     * no poseen referencias y las libera para su reutilizacion
-//     */
-//    void DiskNode::GarbageCollector(){
-//        MemoryBlock *ptrChunk = m_ptrFirstChunk ;
-//        while(ptrChunk){
-//            if (ptrChunk->counter == 0){
-//                if (ptrChunk->isReference){
-//                    ptrChunk->reference->counter -=1;
-//                    if (ptrChunk->reference->counter < 0){
-//                        ptrChunk->reference->counter =0;
-//                    }
-//                    SetChunktoDefault(ptrChunk);
-//                }
-//            }
-//            ptrChunk = ptrChunk->Next;
-//        }
-//        ptrChunk = m_ptrFirstChunk ;
-//        while(ptrChunk) {
-//            if (ptrChunk->counter == 0){
-//                SetChunktoDefault(ptrChunk);
-//            }
-//            ptrChunk = ptrChunk->Next;
-//        }
-//        m_ptrCursorChunk = m_ptrFirstChunk;
-//    }
 
     void DiskNode::SetParameters(string ip_, int port_, string path_, List<string> path_blocks) {
         ip = ip_;
@@ -469,6 +391,11 @@ namespace MemPool {
         return port;
     }
 
+    /**
+     * Look for the block to store the information
+     * @param size to store
+     * @return Path of the disk and the number of the block
+     */
     string DiskNode::FindBlockSuitableToHoldMemory(int size) {
         MemoryBlock *ptrChunk = m_ptrFirstChunk;
         int i =0;
@@ -486,6 +413,13 @@ namespace MemPool {
         }
 
     }
+
+    /**
+     * Parse strong to list
+     * @param text to parse
+     * @param char_ to limit
+     * @return the result list
+     */
     List<string> StoL (string text, char char_){
         string insert;
         List<string> result;
@@ -503,6 +437,12 @@ namespace MemPool {
         }
         return result;
     }
+
+    /**
+     * search for files matching a name
+     * @param name to search
+     * @return Path of the disk and the number of the block
+     */
     string DiskNode::FindNameinBlock(string name){
         MemoryBlock *ptrChunk = m_ptrFirstChunk;
         int i =0;

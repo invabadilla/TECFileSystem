@@ -15,25 +15,29 @@
 #include "bitset"
 
 using namespace std;
+
+/**
+ * Class to split the file for storage in the blocks
+ */
 class divider
 {
 
-// Function to print n equal parts of str
 public:
     vector<string> result;
     string tot = "";
     int parity = 0;
 
+    /**
+     * Function to split n equal parts of str
+     */
     void divideString(char str[], int n, string texto)
     {
         string temp;
-
         int str_size = strlen(str);
         int i;
         int part_size;
 
-        // Check if string can be divided in
-        // n equal parts
+        // Check if string can be divided in n equal parts
         if (str_size % n != 0)
         {
             texto.push_back(' ');
@@ -41,20 +45,16 @@ public:
             return;
         }
 
-        // Calculate the size of parts to
-        // find the division points
+        // Calculate the size of parts to find the division points
         part_size = str_size / n;
         for (i = 0; i< str_size; i++)
         {
             if (i % part_size == 0){
-                //cout << endl;
                 if (temp != "") { result.push_back(temp); }
                 temp = "";
             }
-            //cout << str[i];
             temp += str[i];
         }
-        //cout<<endl;
         result.push_back(temp);
         strToBin(result.at(0));
         string first = tot;
@@ -69,14 +69,17 @@ public:
 
     }
 
+    /**
+     * Parse the string data to binary data to store it in blocks
+     * @param s
+     */
     void strToBin(string s)
     {
         int n = s.length();
         tot = "";
         for (int i = 0; i <= n; i++)
         {
-            // convert each char to
-            // ASCII value
+            // convert each char to ASCII value
             int val = int(s[i]);
 
             // Convert ASCII value to binary
@@ -98,45 +101,54 @@ public:
 
             reverse(bin.begin(), bin.end());
             tot += bin + " ";
-            //cout << bin << " ";
         }
-        //cout<<endl;
-
     }
 
+    /**
+     * Create the directory to save the binary information
+     * @param path where it is stored
+     * @param name from the file
+     */
     void createDatcopy(string path, string name){
         std::fstream toWrite;
         for (int i=0; i < 3;i++){
             toWrite.open(path+name+to_string(i)+".dat", std::ios::out | std::ios::binary);
             strToBin(result.at(i));
             toWrite.write(tot.c_str(), tot.size());
-            //Ahora cierro el archivo
             toWrite.close();
         }
         toWrite.open(path+name+to_string(3)+".dat", std::ios::out | std::ios::binary);
         toWrite.write(result.at(3).c_str(), result.at(3).size());
-        //Ahora cierro el archivo
         toWrite.close();
     }
+
+    /**
+     * Create the directory to save the binary information in the RAID
+     * @param path where it is stored
+     * @param name from the file
+     * @param j Number of the block in the RAID
+     */
     void createDat(string path, string name, string j){
         std::fstream toWrite;
         for (int i=0; i < 3;i++){
             toWrite.open(path+to_string(i)+"/Block"+j+"/"+name+to_string(i)+".dat", std::ios::out | std::ios::binary);
             strToBin(result.at(i));
             toWrite.write(tot.c_str(), tot.size());
-            //Ahora cierro el archivo
             toWrite.close();
         }
         toWrite.open(path+to_string(3)+"/Block"+j+"/"+name+to_string(3)+".dat", std::ios::out | std::ios::binary);
         toWrite.write(result.at(3).c_str(), result.at(3).size());
-        //Ahora cierro el archivo
         toWrite.close();
     }
 
+    /**
+     * Read binary data in the file
+     * @param Path of the file
+     * @return information in the file
+     */
     string readData(string Path){
         std::fstream toRead;
 
-        //Leemos el archivo
         toRead.open(Path, std::ios::in | std::ios::binary);
         toRead.seekg(0, toRead.end);
         int tam = toRead.tellg();
@@ -144,7 +156,6 @@ public:
         //Para almacenar los datos
         char * datos = new char[tam];
 
-        //Leemos el archivo
         toRead.read(datos, tam);
 
         string cadena = {};
@@ -161,13 +172,16 @@ public:
             output += c;
         }
 
-
-        //Cerramos el archivo
         toRead.close();
         delete[] datos;
         return output;
     }
 
+    /**
+     * Parse binary information to string data
+     * @param bin binary string to parse
+     * @return string with the information
+     */
     string BinToS(string bin){
         stringstream sstream(bin);
         string output;
@@ -181,7 +195,12 @@ public:
         return output;
     }
 
-
+    /**
+     * Parity calculation of the binary information
+     * @param first binary information
+     * @param second binary information
+     * @return parity in the first and the second
+     */
     string XoR(string first, string second){
         string final = "";
 
@@ -201,8 +220,13 @@ public:
         return final;
     }
 
+    /**
+     * Search the block to store the parity information
+     * @return number of the block
+     */
     string DiskParity(){
-        block;
+        //block;
+        return "hola";
 
     }
 };

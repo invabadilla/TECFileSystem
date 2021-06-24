@@ -14,8 +14,6 @@ private:
 
     static Client *singleton;
 
-    //aquí método para deserealizar json?
-
     //private socket stuff
 
     //! variable to store the current connected socket

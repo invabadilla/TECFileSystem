@@ -17,7 +17,7 @@ namespace MemPool{
     typedef unsigned char TByte; //Plantilla para guardar memoria
 
     /**
-     * Clase padre para la creacion del Pool de Memoria
+     * Parent class for Disk Nodes creation
      */
     class IMemoryBlock{
     public:

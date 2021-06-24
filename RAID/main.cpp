@@ -145,7 +145,6 @@ int StartListenign(int port, RAID_5* raid5){
             json js = parseJson(list, "save");
             messageS = js.dump();
             cout<<"message: "<<messageS<<endl;
-            raid5->Update_Memory();
             send(clientSocket, messageS.c_str(), messageS.size() + 1, 0);
         }
         close(clientSocket);

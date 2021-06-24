@@ -15,6 +15,10 @@ using namespace tinyxml2;
 using namespace filesystem;
 int iteration =0;
 
+/**
+ * Application that is installed on the disks to set the parameters
+ * @param node to set
+ */
 void TECFSDisk(DiskNode *node){
 
     XMLDocument xml_doc;
