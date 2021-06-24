@@ -117,16 +117,16 @@ public:
         //Ahora cierro el archivo
         toWrite.close();
     }
-    void createDat(string path, string name, int j){
+    void createDat(string path, string name, string j){
         std::fstream toWrite;
         for (int i=0; i < 3;i++){
-            toWrite.open(path+to_string(i)+"/Block"+to_string(j)+name+to_string(i)+".dat", std::ios::out | std::ios::binary);
+            toWrite.open(path+to_string(i)+"/Block"+j+"/"+name+to_string(i)+".dat", std::ios::out | std::ios::binary);
             strToBin(result.at(i));
             toWrite.write(tot.c_str(), tot.size());
             //Ahora cierro el archivo
             toWrite.close();
         }
-        toWrite.open(path+to_string(3)+"/Block"+to_string(j)+name+to_string(3)+".dat", std::ios::out | std::ios::binary);
+        toWrite.open(path+to_string(3)+"/Block"+j+"/"+name+to_string(3)+".dat", std::ios::out | std::ios::binary);
         toWrite.write(result.at(3).c_str(), result.at(3).size());
         //Ahora cierro el archivo
         toWrite.close();

@@ -71,8 +71,8 @@ string convert(string input_){
     return texto;
 }
 int main() {
-    //string input_ ="/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt";
-    string input_ = "/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt";
+    string input_ ="/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt";
+    //string input_ = "/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt";
 
     ifstream input(input_, ios::binary);
     vector<char> bytes(
@@ -101,121 +101,120 @@ int main() {
     XMLNode* root = xml_doc.FirstChildElement("Parameters");
     XMLElement *port = root->FirstChildElement("port");
     globalPort = stoi(port->GetText());
-    /**
+
+
+
+    //**********************************************************************//
+
+//    remove("/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola2.dat");
+//
+//
+//    int numError = -1;
+//    string firstPath;
+//    string firstBin;
+//    string secondPath;
+//    string secondBin;
+//    string thirdPath;
+//    string thirdBin;
+//    string fourthPath;
+//    string fourthBin;
+//    int i;
+//    for (i = 0; i < 3; ++i) {
+//        // /home/ingrid/Documents/TECFileSystem/RAID/DiskNodes/DiskNode+i+/Block+j/name+i.dat
+//        string pathToRead = "/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola" + to_string(i) + ".dat" ;
+//        ifstream my_file(pathToRead);
+//        if (my_file.good())
+//        {
+//            switch(i){
+//                case 0:
+//                    firstPath = pathToRead;
+//                    firstBin = convert(pathToRead);
+//                    break;
+//                case 1:
+//                    secondPath = pathToRead;
+//                    secondBin = convert(pathToRead);
+//                    break;
+//                case 2:
+//                    thirdPath = pathToRead;
+//                    thirdBin = convert(pathToRead);
+//                    break;
+//                default:
+//                    break;
+//            }
+//
+//        }
+//        else{
+//            cout<<"El "<<i<<" no existe"<<endl;
+//            numError = i;
+//        }
+//    }
+//    fourthPath = "/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola3.dat";
+//    fourthBin = convert("/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola3.dat");
+//
+//
+//    string convertido = "";
+//    if(numError == -1){
+//        cout<<"Resultado: ";
+//        convertido += divider.readData(firstPath);
+//        convertido.pop_back();
+//        convertido += divider.readData(secondPath);
+//        convertido.pop_back();
+//        convertido += divider.readData(thirdPath);
+//        convertido.pop_back();
+//        cout<<convertido<<endl;
+//    }else{
+//        string paridad;
+//        switch(numError){
+//            case 0:
+//
+//                paridad = divider.XoR(secondBin, thirdBin);
+//                paridad = divider.XoR(paridad, fourthBin);
+//                cout<<"Mensaje recuperado: ";
+//                convertido += divider.BinToS(paridad);
+//                convertido.pop_back();
+//                convertido += divider.readData(secondPath);
+//                convertido.pop_back();
+//                convertido += divider.readData(thirdPath);
+//                convertido.pop_back();
+//                cout<<convertido<<endl;
+//                break;
+//            case 1:
+//                paridad = divider.XoR(firstBin, thirdBin);
+//                paridad = divider.XoR(paridad, fourthBin);
+//                cout<<"Mensaje recuperado: ";
+//                convertido += divider.readData(firstPath);
+//                convertido.pop_back();
+//                convertido += divider.BinToS(paridad);
+//                convertido.pop_back();
+//                convertido += divider.readData(thirdPath);
+//                convertido.pop_back();
+//                cout<<convertido<<endl;
+//                break;
+//            case 2:
+//                paridad = divider.XoR(firstBin, secondBin);
+//                paridad = divider.XoR(paridad, fourthBin);
+//                cout<<"Mensaje recuperado: ";
+//                convertido += divider.readData(firstPath);
+//                convertido.pop_back();
+//                convertido += divider.readData(secondPath);
+//                convertido.pop_back();
+//                convertido += divider.BinToS(paridad);
+//                convertido.pop_back();
+//                cout<<convertido<<endl;
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+
+
+
     string size_ = to_string(file_size(name+to_string(0)+".dat"));
     List<string> list = buildHuffmanTree("0"+size_);
     json js = parseJson(list, "save");
     cout<<js.dump()<<endl;
     Client *client = Client::getInstance(globalPort);
-    client->sendJson(js.dump());**/
-
-    //**********************************************************************//
-
-    remove("/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola2.dat");
-
-
-    int numError = -1;
-    string firstPath;
-    string firstBin;
-    string secondPath;
-    string secondBin;
-    string thirdPath;
-    string thirdBin;
-    string fourthPath;
-    string fourthBin;
-    int i;
-    for (i = 0; i < 3; ++i) {
-        // /home/ingrid/Documents/TECFileSystem/RAID/DiskNodes/DiskNode+i+/Block+j/name+i.dat
-        string pathToRead = "/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola" + to_string(i) + ".dat" ;
-        ifstream my_file(pathToRead);
-        if (my_file.good())
-        {
-            switch(i){
-                case 0:
-                    firstPath = pathToRead;
-                    firstBin = convert(pathToRead);
-                    break;
-                case 1:
-                    secondPath = pathToRead;
-                    secondBin = convert(pathToRead);
-                    break;
-                case 2:
-                    thirdPath = pathToRead;
-                    thirdBin = convert(pathToRead);
-                    break;
-                default:
-                    break;
-            }
-
-        }
-        else{
-            cout<<"El "<<i<<" no existe"<<endl;
-            numError = i;
-        }
-    }
-    fourthPath = "/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola3.dat";
-    fourthBin = convert("/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola3.dat");
-
-
-    string convertido = "";
-    if(numError == -1){
-        cout<<"Resultado: ";
-        convertido += divider.readData(firstPath);
-        convertido.pop_back();
-        convertido += divider.readData(secondPath);
-        convertido.pop_back();
-        convertido += divider.readData(thirdPath);
-        convertido.pop_back();
-        cout<<convertido<<endl;
-    }else{
-        string paridad;
-        switch(numError){
-            case 0:
-
-                paridad = divider.XoR(secondBin, thirdBin);
-                paridad = divider.XoR(paridad, fourthBin);
-                cout<<"Mensaje recuperado: ";
-                convertido += divider.BinToS(paridad);
-                convertido.pop_back();
-                convertido += divider.readData(secondPath);
-                convertido.pop_back();
-                convertido += divider.readData(thirdPath);
-                convertido.pop_back();
-                cout<<convertido<<endl;
-                break;
-            case 1:
-                paridad = divider.XoR(firstBin, thirdBin);
-                paridad = divider.XoR(paridad, fourthBin);
-                cout<<"Mensaje recuperado: ";
-                convertido += divider.readData(firstPath);
-                convertido.pop_back();
-                convertido += divider.BinToS(paridad);
-                convertido.pop_back();
-                convertido += divider.readData(thirdPath);
-                convertido.pop_back();
-                cout<<convertido<<endl;
-                break;
-            case 2:
-                paridad = divider.XoR(firstBin, secondBin);
-                paridad = divider.XoR(paridad, fourthBin);
-                cout<<"Mensaje recuperado: ";
-                convertido += divider.readData(firstPath);
-                convertido.pop_back();
-                convertido += divider.readData(secondPath);
-                convertido.pop_back();
-                convertido += divider.BinToS(paridad);
-                convertido.pop_back();
-                cout<<convertido<<endl;
-                break;
-            default:
-                break;
-        }
-    }
-
-
-
-
-
+    client->sendJson(js.dump());
 
     string messageR = client->sendJson(js.dump());
     json jmessageR = json::parse(messageR);
@@ -239,7 +238,8 @@ int main() {
         decode(root_, index, message, &strDecode);
     }
     cout<<"message: "<<strDecode<<endl;
-
+    List<string> create = StoL(strDecode, '#');
+    divider.createDat(create.find(0)->getValue(), name, create.find(1)->getValue());
 
 //    string convertido = "";
 //    cout<<"Resultado "<<endl;
