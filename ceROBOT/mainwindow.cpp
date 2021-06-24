@@ -48,3 +48,35 @@ void MainWindow::on_pushButton_clicked()
 }
 
 
+
+void MainWindow::on_tableWidget_cellClicked(int row, int column)
+{
+    // accion de abrir el archivo selecionado
+}
+
+///*!
+// * \brief add a new row with string data
+// *
+// * \param dir string with the memory direction of the variable
+// * \param label string with the label that identifies the variable
+// * \param value string with the value of the variable
+// * \param count string with the number of the pointers assigned to each memory location
+// */
+//void MainWindow::add_row(string dir, string label, string value, string count)
+//{
+//    int row = ui->tableWidget->rowCount();
+//    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+//    ui->tableWidget->setItem(row, DIR, new QTableWidgetItem(QString::fromStdString(dir)));
+//    ui->tableWidget->setItem(row, LABEL, new QTableWidgetItem(QString::fromStdString(label)));
+//    ui->tableWidget->setItem(row, VALUE, new QTableWidgetItem(QString::fromStdString(value)));
+//    ui->tableWidget->setItem(row, COUNT, new QTableWidgetItem(QString::fromStdString(count)));
+//}
+
+///*!
+// * \brief deletes all the rows
+// *
+// */
+//void MainWindow::delete_row()
+//{
+//    ui->tableWidget->setRowCount(0);
+//}
