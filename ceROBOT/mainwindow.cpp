@@ -13,7 +13,6 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
     ui->setupUi(this);
 }
 
