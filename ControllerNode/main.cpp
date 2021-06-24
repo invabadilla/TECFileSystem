@@ -231,6 +231,7 @@ int main() {
     List<string> create = StoL(strDecode, '#');
     divider.createDat(create.find(0)->getValue(), name, create.find(1)->getValue());
 
+
 //    string convertido = "";
 //    cout<<"Resultado "<<endl;
 //    convertido += divider.readData("Dat1.dat");

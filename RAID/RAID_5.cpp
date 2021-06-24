@@ -5,6 +5,7 @@
 #include "RAID_5.h"
 #include "tinyxml2.h"
 #include "TECFS-Disk.h"
+#include "List.h"
 
 RAID_5::RAID_5() {
     DiskNode *node0 = new DiskNode(40960, 10240, 1, true);
@@ -13,6 +14,7 @@ RAID_5::RAID_5() {
     DiskNode *node3 = new DiskNode(40960, 10240, 1, true);
 
     TECFSDisk(node0);
+
     setFirstDisk(node0);
 
     TECFSDisk(node1);
@@ -29,8 +31,26 @@ RAID_5::RAID_5() {
         cout << node->GetParameters() <<endl;
         node = node->getNext();
     }
-}
 
+}
+string RAID_5::Update_Memory() {
+    DiskNode *node = getFirstDisk();
+    List<int> block;
+    MemoryBlock *ptrChunk = node->getMPtrFirstChunk();
+    while (ptrChunk){
+        block.insertLast(ptrChunk->UsedSize);
+        ptrChunk = ptrChunk->Next;
+    }
+    node = node->getNext();
+    for (int i = 0; i < 3 ; i++) {
+        MemoryBlock *ptrChunk = node->getMPtrFirstChunk();
+        for (int j = 0; j < 4 ; j++){
+            ptrChunk->UsedSize = block.find(j)->getValue();
+            ptrChunk = ptrChunk->Next;
+        }
+        node = node->getNext();
+    }
+}
 DiskNode *RAID_5::getFirstDisk() const {
     return firstDisk;
 }

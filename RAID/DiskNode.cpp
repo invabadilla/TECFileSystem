@@ -13,7 +13,9 @@
 #include <fstream>
 #include <cstring>
 #include "List.h"
+#include <filesystem>
 
+using namespace filesystem;
 namespace MemPool {
     static const int FREEED_MEMORY_CONTENT = 0xAA;
     static const int NEW_ALLOCATED_MEMORY_CONTENT = 0xFF;
@@ -483,6 +485,45 @@ namespace MemPool {
             }
         }
 
+    }
+    List<string> StoL (string text, char char_){
+        string insert;
+        List<string> result;
+        for (int i = 0; i < text.size(); i++) {
+            if (text[i]==char_){
+                result.insertLast(insert);
+                insert ="";
+            }
+            else{
+                insert.push_back(text[i]);
+            }
+        }
+        if (char_ != '$'){
+            result.insertLast(insert);
+        }
+        return result;
+    }
+    string DiskNode::FindNameinBlock(string name){
+        MemoryBlock *ptrChunk = m_ptrFirstChunk;
+        int i =0;
+        while (ptrChunk){
+            for(auto& p_: directory_iterator(ptrChunk->path_block)){
+                List<string> result = StoL(p_.path(), '/');
+                string name_ = result.find(result.getSize()-1)->getValue();
+                name_.erase(name_.end()-5, name_.end());
+                cout << name_ << '\n';
+                if (name == name_){
+                    string temp = path;
+                    temp.pop_back();
+                    return temp +"#"+to_string(i);
+                }
+            }
+            ptrChunk = ptrChunk->Next;
+            i++;
+        }
+    }
+    MemoryBlock *DiskNode::getMPtrFirstChunk() const {
+        return m_ptrFirstChunk;
     }
 
 }

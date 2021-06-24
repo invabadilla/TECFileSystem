@@ -8,8 +8,9 @@
 #include "tinyxml2.h"
 #include "json.hpp"
 #include "Huffman.h"
+#include <filesystem>
 //#include "Tree_Node.h"
-
+using namespace filesystem;
 using json = nlohmann::json;
 List<string> StoL (string text){
     string insert;
@@ -115,13 +116,37 @@ int StartListenign(int port, RAID_5* raid5){
             json js = parseJson(list, "save");
             messageS = js.dump();
             cout<<"message: "<<messageS<<endl;
+            raid5->Update_Memory();
             send(clientSocket, messageS.c_str(), messageS.size() + 1, 0);
         }
 
-        if (key == "Genetic")
+        if (key == "read")
         {
-            string message = "";
-            send(clientSocket, message.c_str(), message.size() + 1, 0);
+            string message = jmessageR.value("message", "oops");
+            string pre = jmessageR.value("pre", "oops");
+            string in = jmessageR.value("in", "oops");
+
+            cout<<"message: "<<message<<endl;
+            cout<<"pre: "<<pre<<endl;
+            cout<<"in: "<<in<<endl;
+
+            List<string> pre_list = StoL(pre);
+            List<string> in_list = StoL(in);
+            preIndex = 0;
+            Tree_Node *root = buildTree(in_list, pre_list, 0, in_list.getSize()-1);
+
+            int index = -1;
+            string strDecode;
+            while (index < (int)message.size() - 2) {
+                decode(root, index, message, &strDecode);
+            }
+            string messageS = raid5->getFirstDisk()->FindNameinBlock(strDecode);
+            List<string> list = buildHuffmanTree(messageS);
+            json js = parseJson(list, "save");
+            messageS = js.dump();
+            cout<<"message: "<<messageS<<endl;
+            raid5->Update_Memory();
+            send(clientSocket, messageS.c_str(), messageS.size() + 1, 0);
         }
         close(clientSocket);
     }

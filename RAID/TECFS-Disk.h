@@ -25,13 +25,17 @@ void TECFSDisk(DiskNode *node){
     XMLElement *ip = root->FirstChildElement("ip");
     XMLElement *port = root->FirstChildElement("port");
     XMLElement *path = root->FirstChildElement("path");
+
     string ip_ = ip->GetText();
     string port_ = port->GetText();
     string path_ = path->GetText();
+
     create_directory(path_);
+
     path_ += "/DiskNode"+ to_string(iteration);
     create_directory(path_);
     List<string> path_blocks;
+
     for (int i = 0; i < 4; i++){
         string path_block_ = path_ + "/Block" + to_string(i);
         create_directory(path_block_);
