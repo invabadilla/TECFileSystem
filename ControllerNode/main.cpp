@@ -210,8 +210,6 @@ int StartListenign(int port){
 
             divider divider;
 
-            string parityDisk = divider.DiskParity();
-
             // Print 3 equal parts of the string
             divider.divideString(const_cast<char *>(texto.c_str()), 3, texto);
             List<string> result = StoL(input_, '/');
