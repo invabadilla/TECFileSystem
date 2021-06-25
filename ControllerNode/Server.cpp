@@ -96,6 +96,9 @@ void Server::request(sockaddr_in address, int serverSocket)
         if (strcmp(buffer, "save") == 0){
             //readSocket(buffer, address, serverSocket, newSocket);
             std::cout << buffer << std::endl;
+
+
+
             //insertar todo para el save
             //devolver bool de si se realizo exitosamente
             std::string info = "mensaje del server: save";

@@ -142,7 +142,7 @@ int StartListenign(int port, RAID_5* raid5){
             }
             string messageS = raid5->getFirstDisk()->FindNameinBlock(strDecode);
             List<string> list = buildHuffmanTree(messageS);
-            json js = parseJson(list, "save");
+            json js = parseJson(list, "read");
             messageS = js.dump();
             cout<<"message: "<<messageS<<endl;
             send(clientSocket, messageS.c_str(), messageS.size() + 1, 0);

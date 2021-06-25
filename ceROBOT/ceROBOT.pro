@@ -11,11 +11,18 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    ServerManager.cpp
+    Client.cpp \
+
+
 
 HEADERS += \
     mainwindow.h \
-    ServerManager.h
+    Client.h \
+    Divider.h \
+    Huffman.h \
+    List.h \
+    Node.h \
+    Tree_Node.h
 
 FORMS += \
     mainwindow.ui

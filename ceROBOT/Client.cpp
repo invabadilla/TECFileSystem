@@ -1,42 +1,47 @@
-#include "ServerManager.h"
+//
+// Created by Usuario on 22/6/2021.
+//
+
+#include "Client.h"
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <unistd.h>
 #include <cstring>
+#include <iostream>
 
-ServerManager *ServerManager::singleton = nullptr;
+Client *Client::singleton = nullptr;
 
 /*!
- * \brief Constructor for ServerManager, should only be called once due to being a singleton
- * 
+ * \brief Constructor for Client, should only be called once due to being a singleton
+ *
  * \param PORT where it'll connect with server
  */
-ServerManager::ServerManager(int PORT)
+Client::Client(int PORT)
 {
     this->PORT = PORT;
 }
 
 /*!
  * \brief method to get (or initialize for the first time) the singleton instance
- * 
+ *
  * \param PORT where it'll connect with server
- * \return ServerManager* singleton instance
+ * \return Client* singleton instance
  */
-ServerManager *ServerManager::getInstance(int PORT /*= 9999*/) //Default port so it doesn't always need one when classes just want to get the singleton and not initialize it
+Client *Client::getInstance(int PORT /*= 9999*/) //Default port so it doesn't always need one when classes just want to get the singleton and not initialize it
 {
     if (singleton == nullptr)
     {
-        singleton = new ServerManager(PORT);
+        singleton = new Client(PORT);
     }
     return singleton;
 }
 
 /*!
  * \brief Create a new socket connection to server in order to be able to send a new message
- * 
+ *
  */
-void ServerManager::connectSocket()
+void Client::connectSocket()
 {
     //Create new socket
     this->serverSocket = socket(AF_INET, SOCK_STREAM, 0);
@@ -69,15 +74,14 @@ void ServerManager::connectSocket()
 
     // Clear buffer
     memset(this->buffer, 0, 1024);
-    printf("conectado bien");
 }
 
 /*!
  * \brief Sends an int as a request to the server so it knows which protocol to follow
- * 
+ *
  * \param request int as specified by the server/RequestConstants.h file
  */
-void ServerManager::sendRequest(int request)
+void Client::sendRequest(int request)
 {
     connectSocket();
     //printf("Sending request: %d\n", request);
@@ -89,29 +93,31 @@ void ServerManager::sendRequest(int request)
 
 /*!
  * \brief Sends any type of string to the server but it should mostly expect json encoded strings
- * 
+ *
  * \param jsonStr the message to be sent, possibly encoded in json format
  */
-void ServerManager::sendJson(std::string jsonStr)
+std::string Client::sendJson(std::string jsonStr)
 {
     connectSocket();
-    printf("Sending: %s\n", jsonStr.c_str());
+    //printf("Sending: %s\n", jsonStr.c_str());
 
     std::string msg = jsonStr;
 
     send(this->serverSocket, msg.c_str(), msg.length(), 0);
-    printf("Senfffding: %s\n", jsonStr.c_str());
+
+    std::string messageR = getServerMsg();
+    return messageR;
 }
 
 //! Essentially executes a read of the socket, call only if expecting the server to send a message back after a request or during a protocol
-void ServerManager::listenServer()
+void Client::listenServer()
 {
     read(this->serverSocket, this->buffer, 1024);
     //printf("Received: '%s'\n", this->buffer);
 }
 
 //! Calls listenServer to get a message from the server and returns it as an std::string, call only if expecting the server to send a message back after a request or during a protocol
-std::string ServerManager::getServerMsg()
+std::string Client::getServerMsg()
 {
     listenServer();
     std::string msg = std::string(this->buffer);

@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "List.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -21,6 +21,8 @@ private slots:
     void on_pushButton_clicked();
 
     void on_tableWidget_cellClicked(int row, int column);
+
+    void add_row(List<string> similars);
 
 private:
     Ui::MainWindow *ui;
