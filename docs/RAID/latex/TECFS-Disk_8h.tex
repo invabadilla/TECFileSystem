@@ -1,0 +1,80 @@
+\hypertarget{TECFS-Disk_8h}{}\doxysection{TECFS-\/\+Disk.h File Reference}
+\label{TECFS-Disk_8h}\index{TECFS-\/Disk.h@{TECFS-\/Disk.h}}
+{\ttfamily \#include \char`\"{}Disk\+Node.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tinyxml2.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{TECFS-Disk_8h_a52457d9f960dd4f36e5d0cfba6fb8e58}{TECFSDisk}} (Disk\+Node $\ast$node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{TECFS-Disk_8h_aa6371382c6b4224e577e14ea610ab9a9}{iteration}} =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{TECFS-Disk_8h_a52457d9f960dd4f36e5d0cfba6fb8e58}\label{TECFS-Disk_8h_a52457d9f960dd4f36e5d0cfba6fb8e58}} 
+\index{TECFS-\/Disk.h@{TECFS-\/Disk.h}!TECFSDisk@{TECFSDisk}}
+\index{TECFSDisk@{TECFSDisk}!TECFS-\/Disk.h@{TECFS-\/Disk.h}}
+\doxysubsubsection{\texorpdfstring{TECFSDisk()}{TECFSDisk()}}
+{\footnotesize\ttfamily void TECFSDisk (\begin{DoxyParamCaption}\item[{Disk\+Node $\ast$}]{node }\end{DoxyParamCaption})}
+
+Application that is installed on the disks to set the parameters 
+\begin{DoxyParams}{Parameters}
+{\em node} & to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file TECFS-\/\+Disk.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                               \{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} xml\_doc;}
+\DoxyCodeLine{25     path temp = current\_path().parent\_path();}
+\DoxyCodeLine{26     \textcolor{keywordtype}{string} dn =temp.string()+\textcolor{stringliteral}{"{}/Parameters\_TECFS\_Disk.xml"{}}; \textcolor{keyword}{const} \textcolor{keywordtype}{char} * document\_name = dn.c\_str();}
+\DoxyCodeLine{27     \mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} eResult = xml\_doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a2ebd4647a8af5fc6831b294ac26a150a}{LoadFile}}(document\_name);}
+\DoxyCodeLine{28     \mbox{\hyperlink{classtinyxml2_1_1XMLNode}{XMLNode}}* root = xml\_doc.\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a1bec132dcf085284e0a10755f2cf0d57}{FirstChildElement}}(\textcolor{stringliteral}{"{}Parameters"{}});}
+\DoxyCodeLine{29     \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} *ip = root-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a1bec132dcf085284e0a10755f2cf0d57}{FirstChildElement}}(\textcolor{stringliteral}{"{}ip"{}});}
+\DoxyCodeLine{30     \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} *port = root-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a1bec132dcf085284e0a10755f2cf0d57}{FirstChildElement}}(\textcolor{stringliteral}{"{}port"{}});}
+\DoxyCodeLine{31     \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} *path = root-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a1bec132dcf085284e0a10755f2cf0d57}{FirstChildElement}}(\textcolor{stringliteral}{"{}path"{}});}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{string} ip\_ = ip-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a0fa5bea0a4daf3ddd503dcabb823eba6}{GetText}}();}
+\DoxyCodeLine{34     \textcolor{keywordtype}{string} port\_ = port-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a0fa5bea0a4daf3ddd503dcabb823eba6}{GetText}}();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{string} path\_ = path-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a0fa5bea0a4daf3ddd503dcabb823eba6}{GetText}}();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     create\_directory(path\_);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     path\_ += \textcolor{stringliteral}{"{}/DiskNode"{}}+ \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(\mbox{\hyperlink{TECFS-Disk_8h_aa6371382c6b4224e577e14ea610ab9a9}{iteration}});}
+\DoxyCodeLine{40     create\_directory(path\_);}
+\DoxyCodeLine{41     \mbox{\hyperlink{classList}{List<string>}} path\_blocks;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 4; i++)\{}
+\DoxyCodeLine{44         \textcolor{keywordtype}{string} path\_block\_ = path\_ + \textcolor{stringliteral}{"{}/Block"{}} + \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i);}
+\DoxyCodeLine{45         create\_directory(path\_block\_);}
+\DoxyCodeLine{46         path\_blocks.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(path\_block\_);}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48     node-\/>SetParameters(ip\_, stoi(port\_), path\_, path\_blocks);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \mbox{\hyperlink{TECFS-Disk_8h_aa6371382c6b4224e577e14ea610ab9a9}{iteration}} +=1;}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{TECFS-Disk_8h_aa6371382c6b4224e577e14ea610ab9a9}\label{TECFS-Disk_8h_aa6371382c6b4224e577e14ea610ab9a9}} 
+\index{TECFS-\/Disk.h@{TECFS-\/Disk.h}!iteration@{iteration}}
+\index{iteration@{iteration}!TECFS-\/Disk.h@{TECFS-\/Disk.h}}
+\doxysubsubsection{\texorpdfstring{iteration}{iteration}}
+{\footnotesize\ttfamily int iteration =0}
+
+
+
+Definition at line 16 of file TECFS-\/\+Disk.\+h.
+

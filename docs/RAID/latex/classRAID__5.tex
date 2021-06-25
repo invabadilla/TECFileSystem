@@ -1,0 +1,142 @@
+\hypertarget{classRAID__5}{}\doxysection{RAID\+\_\+5 Class Reference}
+\label{classRAID__5}\index{RAID\_5@{RAID\_5}}
+
+
+{\ttfamily \#include $<$RAID\+\_\+5.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRAID__5_abca5c07e5416797962e3f28b45272a7e}{RAID\+\_\+5}} ()
+\item 
+\mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}} $\ast$ \mbox{\hyperlink{classRAID__5_a1d58a70970f0c937cb42de5b2887ded2}{get\+First\+Disk}} () const
+\item 
+void \mbox{\hyperlink{classRAID__5_a43e02a0656fe36096f465bf8261469a5}{set\+First\+Disk}} (\mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}} $\ast$first\+Disk)
+\item 
+void \mbox{\hyperlink{classRAID__5_addf8ff90c76dd965dbc51b1ee395b770}{Update\+\_\+\+Memory}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to build the RAID 
+
+Definition at line 16 of file RAID\+\_\+5.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRAID__5_abca5c07e5416797962e3f28b45272a7e}\label{classRAID__5_abca5c07e5416797962e3f28b45272a7e}} 
+\index{RAID\_5@{RAID\_5}!RAID\_5@{RAID\_5}}
+\index{RAID\_5@{RAID\_5}!RAID\_5@{RAID\_5}}
+\doxysubsubsection{\texorpdfstring{RAID\_5()}{RAID\_5()}}
+{\footnotesize\ttfamily RAID\+\_\+5\+::\+RAID\+\_\+5 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor for RAID creation 
+
+Definition at line 13 of file RAID\+\_\+5.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13                \{}
+\DoxyCodeLine{14     \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}} *node0 = \textcolor{keyword}{new} \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}}(40960, 10240, 1, \textcolor{keyword}{true});}
+\DoxyCodeLine{15     \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}} *node1 = \textcolor{keyword}{new} \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}}(40960, 10240, 1, \textcolor{keyword}{true});}
+\DoxyCodeLine{16     \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}} *node2 = \textcolor{keyword}{new} \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}}(40960, 10240, 1, \textcolor{keyword}{true});}
+\DoxyCodeLine{17     \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}} *node3 = \textcolor{keyword}{new} \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}}(40960, 10240, 1, \textcolor{keyword}{true});}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{TECFS-Disk_8h_a52457d9f960dd4f36e5d0cfba6fb8e58}{TECFSDisk}}(node0);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{classRAID__5_a43e02a0656fe36096f465bf8261469a5}{setFirstDisk}}(node0);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{TECFS-Disk_8h_a52457d9f960dd4f36e5d0cfba6fb8e58}{TECFSDisk}}(node1);}
+\DoxyCodeLine{24     node0-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_a35248ae83dae06a354314917dffc60f8}{setNext}}(node1);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{TECFS-Disk_8h_a52457d9f960dd4f36e5d0cfba6fb8e58}{TECFSDisk}}(node2);}
+\DoxyCodeLine{27     node1-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_a35248ae83dae06a354314917dffc60f8}{setNext}}(node2);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \mbox{\hyperlink{TECFS-Disk_8h_a52457d9f960dd4f36e5d0cfba6fb8e58}{TECFSDisk}}(node3);}
+\DoxyCodeLine{30     node2-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_a35248ae83dae06a354314917dffc60f8}{setNext}}(node3);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}} *node = \mbox{\hyperlink{classRAID__5_a1d58a70970f0c937cb42de5b2887ded2}{getFirstDisk}}();}
+\DoxyCodeLine{33     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 4; i++)\{}
+\DoxyCodeLine{34         cout << node-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_a0a4573a4a0c03da97a7cbb63d0f998b0}{GetParameters}}() <<endl;}
+\DoxyCodeLine{35         node = node-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_aad5b2495e374f9c888faca6ce80e80d4}{getNext}}();}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRAID__5_a1d58a70970f0c937cb42de5b2887ded2}\label{classRAID__5_a1d58a70970f0c937cb42de5b2887ded2}} 
+\index{RAID\_5@{RAID\_5}!getFirstDisk@{getFirstDisk}}
+\index{getFirstDisk@{getFirstDisk}!RAID\_5@{RAID\_5}}
+\doxysubsubsection{\texorpdfstring{getFirstDisk()}{getFirstDisk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}} $\ast$ RAID\+\_\+5\+::get\+First\+Disk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 62 of file RAID\+\_\+5.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                                      \{}
+\DoxyCodeLine{63     \textcolor{keywordflow}{return} firstDisk;}
+\DoxyCodeLine{64 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRAID__5_a43e02a0656fe36096f465bf8261469a5}\label{classRAID__5_a43e02a0656fe36096f465bf8261469a5}} 
+\index{RAID\_5@{RAID\_5}!setFirstDisk@{setFirstDisk}}
+\index{setFirstDisk@{setFirstDisk}!RAID\_5@{RAID\_5}}
+\doxysubsubsection{\texorpdfstring{setFirstDisk()}{setFirstDisk()}}
+{\footnotesize\ttfamily void RAID\+\_\+5\+::set\+First\+Disk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}} $\ast$}]{first\+Disk }\end{DoxyParamCaption})}
+
+
+
+Definition at line 66 of file RAID\+\_\+5.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                                              \{}
+\DoxyCodeLine{67     RAID\_5::firstDisk = firstDisk;}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRAID__5_addf8ff90c76dd965dbc51b1ee395b770}\label{classRAID__5_addf8ff90c76dd965dbc51b1ee395b770}} 
+\index{RAID\_5@{RAID\_5}!Update\_Memory@{Update\_Memory}}
+\index{Update\_Memory@{Update\_Memory}!RAID\_5@{RAID\_5}}
+\doxysubsubsection{\texorpdfstring{Update\_Memory()}{Update\_Memory()}}
+{\footnotesize\ttfamily void RAID\+\_\+5\+::\+Update\+\_\+\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates the memory space used by the RAID blocks 
+
+Definition at line 43 of file RAID\+\_\+5.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                            \{}
+\DoxyCodeLine{44     \mbox{\hyperlink{classMemPool_1_1DiskNode}{DiskNode}} *node = \mbox{\hyperlink{classRAID__5_a1d58a70970f0c937cb42de5b2887ded2}{getFirstDisk}}();}
+\DoxyCodeLine{45     \mbox{\hyperlink{classList}{List<int>}} block;}
+\DoxyCodeLine{46     \mbox{\hyperlink{structMemPool_1_1MemoryBlock}{MemoryBlock}} *ptrChunk = node-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_af4e829968c23edecc22349090396ac42}{getMPtrFirstChunk}}();}
+\DoxyCodeLine{47     \textcolor{keywordflow}{while} (ptrChunk)\{}
+\DoxyCodeLine{48         block.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1MemoryBlock_a4982b3ef20c30b1e1d87a3906e5e08af}{UsedSize}});}
+\DoxyCodeLine{49         ptrChunk = ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1MemoryBlock_a78b119487c58c4c5f83940539a6dd157}{Next}};}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51     node = node-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_aad5b2495e374f9c888faca6ce80e80d4}{getNext}}();}
+\DoxyCodeLine{52     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 3 ; i++) \{}
+\DoxyCodeLine{53         \mbox{\hyperlink{structMemPool_1_1MemoryBlock}{MemoryBlock}} *ptrChunk = node-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_af4e829968c23edecc22349090396ac42}{getMPtrFirstChunk}}();}
+\DoxyCodeLine{54         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 4 ; j++)\{}
+\DoxyCodeLine{55             ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1MemoryBlock_a4982b3ef20c30b1e1d87a3906e5e08af}{UsedSize}} = block.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(j)-\/>getValue();}
+\DoxyCodeLine{56             ptrChunk = ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1MemoryBlock_a78b119487c58c4c5f83940539a6dd157}{Next}};}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58         node = node-\/>\mbox{\hyperlink{classMemPool_1_1DiskNode_aad5b2495e374f9c888faca6ce80e80d4}{getNext}}();}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{RAID__5_8h}{RAID\+\_\+5.\+h}}\item 
+\mbox{\hyperlink{RAID__5_8cpp}{RAID\+\_\+5.\+cpp}}\end{DoxyCompactItemize}

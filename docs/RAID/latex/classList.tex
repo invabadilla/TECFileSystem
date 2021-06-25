@@ -1,0 +1,495 @@
+\hypertarget{classList}{}\doxysection{List$<$ T $>$ Class Template Reference}
+\label{classList}\index{List$<$ T $>$@{List$<$ T $>$}}
+
+
+Class that handles the list logic.  
+
+
+
+
+{\ttfamily \#include $<$List.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classList_a5c5e27671b21b3815d4e25b953c69454}{List}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classList}{List}} object and initialize the head and the size in zero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classList_a2b58189090f6e5ce52939c9195e59e85}{$\sim$\+List}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classList_a73f8b1d313382daffeeeed552f42da2f}{is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Indicates if the list is empty. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insert\+Last}} (T data\+\_\+)
+\begin{DoxyCompactList}\small\item\em add a new node to the tail of the list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classList_a7a9622632b67aff2e2e57abc4fae72f6}{insert\+First}} (T data\+\_\+)
+\begin{DoxyCompactList}\small\item\em add a new node to the head of the list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classList_a6736798aedf73ab8da570bb1a887f421}{insert\+Priority}} (\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$data\+\_\+)
+\item 
+void \mbox{\hyperlink{classList_a3f675bfe51871f26d048be5d314ab4a0}{delete\+Node}} (T data\+\_\+)
+\begin{DoxyCompactList}\small\item\em finds a node given and deletes it \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classList_abe4eff91f3ca33aeddaf70aae6e15a5c}{print\+List}} ()
+\begin{DoxyCompactList}\small\item\em prints the list on console \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNode}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}} (int pos)
+\begin{DoxyCompactList}\small\item\em find the node pointer with the given index \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classList_a698480f9ae06037c3c467c8fc3a37527}{find\+Value}} (T value\+\_\+)
+\begin{DoxyCompactList}\small\item\em add a new node to the tail of the list \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em indicates the len of the list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classList_a25e99b18916a426df981722ef23592d8}{delete\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em deletes all the list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classList_aff2dad44c655a8ccd5b038b96f607983}{delete\+\_\+first}} ()
+\item 
+\mbox{\hyperlink{classNode}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classList_a5b586fabe83945b9bb2f2d1365a3e875}{get\+Head}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class List$<$ T $>$}
+Class that handles the list logic. 
+
+Definition at line 14 of file List.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classList_a5c5e27671b21b3815d4e25b953c69454}\label{classList_a5c5e27671b21b3815d4e25b953c69454}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!List@{List}}
+\index{List@{List}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{List()}{List()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classList}{List}}$<$ T $>$\+::\mbox{\hyperlink{classList}{List}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classList}{List}} object and initialize the head and the size in zero. 
+
+
+
+Definition at line 30 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30           \{}
+\DoxyCodeLine{31         size = 0;}
+\DoxyCodeLine{32         head = NULL;}
+\DoxyCodeLine{33     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a2b58189090f6e5ce52939c9195e59e85}\label{classList_a2b58189090f6e5ce52939c9195e59e85}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!````~List@{$\sim$List}}
+\index{````~List@{$\sim$List}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$List()}{~List()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classList}{List}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classList}{List}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+destructor 
+
+
+
+Definition at line 38 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classList_a25e99b18916a426df981722ef23592d8}\label{classList_a25e99b18916a426df981722ef23592d8}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!delete\_all@{delete\_all}}
+\index{delete\_all@{delete\_all}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{delete\_all()}{delete\_all()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::delete\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+deletes all the list 
+
+
+
+Definition at line 205 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{205                      \{}
+\DoxyCodeLine{206         \mbox{\hyperlink{classNode}{Node<T>}}* current = head;}
+\DoxyCodeLine{207         \textcolor{keywordflow}{while} (current) \{}
+\DoxyCodeLine{208             \mbox{\hyperlink{classNode}{Node<T>}}* temp = current;}
+\DoxyCodeLine{209             current = current-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{210             \textcolor{keyword}{delete} temp;}
+\DoxyCodeLine{211         \}}
+\DoxyCodeLine{212         head = 0;}
+\DoxyCodeLine{213         size = 0;}
+\DoxyCodeLine{214     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_aff2dad44c655a8ccd5b038b96f607983}\label{classList_aff2dad44c655a8ccd5b038b96f607983}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!delete\_first@{delete\_first}}
+\index{delete\_first@{delete\_first}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{delete\_first()}{delete\_first()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::delete\+\_\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 215 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{215                         \{}
+\DoxyCodeLine{216         head = head-\/>getNext();}
+\DoxyCodeLine{217         size-\/-\/;}
+\DoxyCodeLine{218     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a3f675bfe51871f26d048be5d314ab4a0}\label{classList_a3f675bfe51871f26d048be5d314ab4a0}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!deleteNode@{deleteNode}}
+\index{deleteNode@{deleteNode}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteNode()}{deleteNode()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::delete\+Node (\begin{DoxyParamCaption}\item[{T}]{data\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+finds a node given and deletes it 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Template} & $<$\+T$>$ data that will be deleted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 118 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118                             \{}
+\DoxyCodeLine{119         \mbox{\hyperlink{classNode}{Node<T>}} *temp = head;}
+\DoxyCodeLine{120         \mbox{\hyperlink{classNode}{Node<T>}} *temp1 = head-\/>getNext();}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122         \textcolor{keywordflow}{if} (head-\/>getValue() == data\_) \{}
+\DoxyCodeLine{123             head = temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{124             size-\/-\/;}
+\DoxyCodeLine{125         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{126             \textcolor{keywordflow}{while} (temp1) \{}
+\DoxyCodeLine{127                 \textcolor{keywordflow}{if} (temp1-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}() == data\_) \{}
+\DoxyCodeLine{128                     \mbox{\hyperlink{classNode}{Node<T>}} *aux\_node = temp1;}
+\DoxyCodeLine{129                     temp-\/>\mbox{\hyperlink{classNode_a7ceb780031b51e20c13451d7f5ac6b18}{setNext}}(temp1-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}());}
+\DoxyCodeLine{130                     \textcolor{keyword}{delete} aux\_node;}
+\DoxyCodeLine{131                     size-\/-\/;}
+\DoxyCodeLine{132                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{133                 \}}
+\DoxyCodeLine{134                 temp = temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{135                 temp1 = temp1-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{136             \}}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a43244a74a3f3b1a79c94963e2c267694}\label{classList_a43244a74a3f3b1a79c94963e2c267694}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!find@{find}}
+\index{find@{find}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$T$>$$\ast$ \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+find the node pointer with the given index 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & with the index of the node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Node$<$\+T$>$$\ast$ node pointer 
+\end{DoxyReturn}
+
+
+Definition at line 162 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{162                           \{}
+\DoxyCodeLine{163         \mbox{\hyperlink{classNode}{Node<T>}} *current = head;}
+\DoxyCodeLine{164         \textcolor{keywordtype}{int} count = 0;}
+\DoxyCodeLine{165         \textcolor{keywordflow}{while} (current != NULL)\{}
+\DoxyCodeLine{166             \textcolor{keywordflow}{if} (count == pos)\{}
+\DoxyCodeLine{167                 \textcolor{keywordflow}{return} current;}
+\DoxyCodeLine{168             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{169                 count++;}
+\DoxyCodeLine{170                 current = current-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{171             \}}
+\DoxyCodeLine{172         \}}
+\DoxyCodeLine{173     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a698480f9ae06037c3c467c8fc3a37527}\label{classList_a698480f9ae06037c3c467c8fc3a37527}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!findValue@{findValue}}
+\index{findValue@{findValue}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findValue()}{findValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::find\+Value (\begin{DoxyParamCaption}\item[{T}]{value\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add a new node to the tail of the list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Template} & $<$\+T$>$ data that will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool indicating the existance of the value 
+\end{DoxyReturn}
+
+
+Definition at line 180 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{180                             \{}
+\DoxyCodeLine{181         \mbox{\hyperlink{classNode}{Node<T>}} *current = head;}
+\DoxyCodeLine{182         \textcolor{keywordtype}{bool} result = \textcolor{keyword}{false};}
+\DoxyCodeLine{183         \textcolor{keywordflow}{while} (current != NULL)\{}
+\DoxyCodeLine{184             \textcolor{keywordflow}{if} (value\_ == current-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}())\{}
+\DoxyCodeLine{185                 result = \textcolor{keyword}{true};}
+\DoxyCodeLine{186                 \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{187             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{188                 result = \textcolor{keyword}{false};}
+\DoxyCodeLine{189                 current = current-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{190             \}}
+\DoxyCodeLine{191         \}}
+\DoxyCodeLine{192     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a5b586fabe83945b9bb2f2d1365a3e875}\label{classList_a5b586fabe83945b9bb2f2d1365a3e875}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!getHead@{getHead}}
+\index{getHead@{getHead}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getHead()}{getHead()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$T$>$$\ast$ \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::get\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 220 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{220                              \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_ae2afa15a07b88a3a678969522cc14988}\label{classList_ae2afa15a07b88a3a678969522cc14988}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!getSize@{getSize}}
+\index{getSize@{getSize}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+indicates the len of the list 
+
+\begin{DoxyReturn}{Returns}
+int with the len of the list 
+\end{DoxyReturn}
+
+
+Definition at line 198 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{198                  \{}
+\DoxyCodeLine{199         \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{200     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a7a9622632b67aff2e2e57abc4fae72f6}\label{classList_a7a9622632b67aff2e2e57abc4fae72f6}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!insertFirst@{insertFirst}}
+\index{insertFirst@{insertFirst}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertFirst()}{insertFirst()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::insert\+First (\begin{DoxyParamCaption}\item[{T}]{data\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add a new node to the head of the list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Template} & $<$\+T$>$ data that will be stored \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71                              \{}
+\DoxyCodeLine{72         \mbox{\hyperlink{classNode}{Node<T>}} *new\_node = \textcolor{keyword}{new} \mbox{\hyperlink{classNode}{Node<T>}} (data\_);}
+\DoxyCodeLine{73         \mbox{\hyperlink{classNode}{Node<T>}} *temp = head;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classList_a73f8b1d313382daffeeeed552f42da2f}{isEmpty}}()) \{}
+\DoxyCodeLine{76             head = new\_node;}
+\DoxyCodeLine{77         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{78             new\_node-\/>\mbox{\hyperlink{classNode_a7ceb780031b51e20c13451d7f5ac6b18}{setNext}}(head);}
+\DoxyCodeLine{79             head = new\_node;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81             \textcolor{keywordflow}{while} (temp) \{}
+\DoxyCodeLine{82                 temp = temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{83             \}}
+\DoxyCodeLine{84         \}}
+\DoxyCodeLine{85         size++;}
+\DoxyCodeLine{86     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a7d67bf157798afbdcb98177bcf28ece2}\label{classList_a7d67bf157798afbdcb98177bcf28ece2}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!insertLast@{insertLast}}
+\index{insertLast@{insertLast}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertLast()}{insertLast()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::insert\+Last (\begin{DoxyParamCaption}\item[{T}]{data\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add a new node to the tail of the list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Template} & $<$\+T$>$ data that will be stored \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 52 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                             \{}
+\DoxyCodeLine{53         \mbox{\hyperlink{classNode}{Node<T>}} *new\_node = \textcolor{keyword}{new} \mbox{\hyperlink{classNode}{Node<T>}} (data\_);}
+\DoxyCodeLine{54         \mbox{\hyperlink{classNode}{Node<T>}} *temp = head;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classList_a73f8b1d313382daffeeeed552f42da2f}{isEmpty}}()) \{}
+\DoxyCodeLine{57             head = new\_node;}
+\DoxyCodeLine{58         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{59             \textcolor{keywordflow}{while} (temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}() != NULL) \{}
+\DoxyCodeLine{60                 temp = temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{61             \}}
+\DoxyCodeLine{62             temp-\/>\mbox{\hyperlink{classNode_a7ceb780031b51e20c13451d7f5ac6b18}{setNext}}(new\_node);}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{64         size++;}
+\DoxyCodeLine{65     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a6736798aedf73ab8da570bb1a887f421}\label{classList_a6736798aedf73ab8da570bb1a887f421}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!insertPriority@{insertPriority}}
+\index{insertPriority@{insertPriority}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertPriority()}{insertPriority()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::insert\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{data\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 88 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88                                          \{}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90         \mbox{\hyperlink{classNode}{Node<Tree\_Node*>}} *new\_node = \textcolor{keyword}{new} \mbox{\hyperlink{classNode}{Node<Tree\_Node*>}} (data\_);}
+\DoxyCodeLine{91         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classList_a73f8b1d313382daffeeeed552f42da2f}{isEmpty}}()) \{}
+\DoxyCodeLine{92             head = new\_node;}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{95             \mbox{\hyperlink{classNode}{Node<Tree\_Node*>}} *temp = head;}
+\DoxyCodeLine{96             \textcolor{keywordflow}{if} (new\_node-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}()-\/>freq < temp-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}()-\/>freq)\{}
+\DoxyCodeLine{97                 new\_node-\/>\mbox{\hyperlink{classNode_a7ceb780031b51e20c13451d7f5ac6b18}{setNext}}(head);}
+\DoxyCodeLine{98                 head = new\_node;}
+\DoxyCodeLine{99             \}}
+\DoxyCodeLine{100             \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{101                 \textcolor{keywordflow}{while}(temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}())\{}
+\DoxyCodeLine{102                     \textcolor{keywordflow}{if} (new\_node-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}()-\/>freq < temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}()-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}()-\/>freq)\{}
+\DoxyCodeLine{103                         new\_node-\/>\mbox{\hyperlink{classNode_a7ceb780031b51e20c13451d7f5ac6b18}{setNext}}(temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}());}
+\DoxyCodeLine{104                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{105                     \}}
+\DoxyCodeLine{106                     temp = temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{107                 \}}
+\DoxyCodeLine{108                 temp-\/>\mbox{\hyperlink{classNode_a7ceb780031b51e20c13451d7f5ac6b18}{setNext}}(new\_node);}
+\DoxyCodeLine{109             \}}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111         size ++;}
+\DoxyCodeLine{112     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_a73f8b1d313382daffeeeed552f42da2f}\label{classList_a73f8b1d313382daffeeeed552f42da2f}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indicates if the list is empty. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the list is empty 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                   \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} head == NULL;}
+\DoxyCodeLine{46     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classList_abe4eff91f3ca33aeddaf70aae6e15a5c}\label{classList_abe4eff91f3ca33aeddaf70aae6e15a5c}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!printList@{printList}}
+\index{printList@{printList}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{printList()}{printList()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classList}{List}}$<$ T $>$\+::print\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+prints the list on console 
+
+
+
+Definition at line 143 of file List.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{143                     \{}
+\DoxyCodeLine{144         \mbox{\hyperlink{classNode}{Node<T>}} *temp = head;}
+\DoxyCodeLine{145         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classList_a73f8b1d313382daffeeeed552f42da2f}{isEmpty}}()) \{}
+\DoxyCodeLine{146             cout << \textcolor{stringliteral}{"{}La Lista está vacía "{}} << endl;}
+\DoxyCodeLine{147         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{148             \textcolor{keywordflow}{while} (temp) \{}
+\DoxyCodeLine{149                 temp-\/>\mbox{\hyperlink{classNode_a1aca3327241039a06a2eae83188932bd}{printNode}}();}
+\DoxyCodeLine{150                 \textcolor{keywordflow}{if} (!temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}()) cout << \textcolor{stringliteral}{"{}NULL"{}};}
+\DoxyCodeLine{151                 temp = temp-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{152             \}}
+\DoxyCodeLine{153         \}}
+\DoxyCodeLine{154         cout << endl << endl;}
+\DoxyCodeLine{155     \};}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{List_8h}{List.\+h}}\end{DoxyCompactItemize}

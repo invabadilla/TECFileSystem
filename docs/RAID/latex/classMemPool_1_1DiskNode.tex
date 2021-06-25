@@ -1,0 +1,464 @@
+\hypertarget{classMemPool_1_1DiskNode}{}\doxysection{Mem\+Pool\+::Disk\+Node Class Reference}
+\label{classMemPool_1_1DiskNode}\index{MemPool::DiskNode@{MemPool::DiskNode}}
+
+
+{\ttfamily \#include $<$Disk\+Node.\+h$>$}
+
+Inheritance diagram for Mem\+Pool\+::Disk\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMemPool_1_1DiskNode}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMemPool_1_1DiskNode_a1eee90305b41d273a5bb394e6aa0650b}{Disk\+Node}} (const size\+\_\+t \&s\+Initial\+Memory\+Pool\+Size, const size\+\_\+t \&s\+Memory\+Chunk\+Size, const size\+\_\+t \&s\+Minimal\+Memory\+Size\+To\+Allocate, bool b\+Set\+Memory\+Data)
+\item 
+virtual \mbox{\hyperlink{classMemPool_1_1DiskNode_a9c7078bcc69004f5c933c73baf7f0433}{$\sim$\+Disk\+Node}} ()
+\item 
+virtual void $\ast$ \mbox{\hyperlink{classMemPool_1_1DiskNode_a07548e2c546b939d480c6a44554c0c2b}{Get\+Memory}} (const size\+\_\+t \&s\+Memory\+Size)
+\item 
+virtual void \mbox{\hyperlink{classMemPool_1_1DiskNode_a81608eb47f8d9e4f8b0f24bd9247647c}{Free\+Memory}} (void $\ast$ptr\+Memory\+Block)
+\item 
+\mbox{\hyperlink{structMemPool_1_1MemoryBlock}{Memory\+Block}} $\ast$ \mbox{\hyperlink{classMemPool_1_1DiskNode_af60abcb4cc0df5b1e33240b13f5dea39}{Find\+Chunk\+Holding\+Pointer\+To}} (void $\ast$ptr\+Memory\+Block)
+\item 
+\mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}} $\ast$ \mbox{\hyperlink{classMemPool_1_1DiskNode_aad5b2495e374f9c888faca6ce80e80d4}{get\+Next}} () const
+\item 
+void \mbox{\hyperlink{classMemPool_1_1DiskNode_a35248ae83dae06a354314917dffc60f8}{set\+Next}} (\mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}} $\ast$next)
+\item 
+void \mbox{\hyperlink{classMemPool_1_1DiskNode_adef6e8dfdb898e69648e96c3aab92ad3}{Free\+All\+Allocated\+Memory}} ()
+\item 
+\mbox{\hyperlink{structMemPool_1_1MemoryBlock}{Memory\+Block}} $\ast$ \mbox{\hyperlink{classMemPool_1_1DiskNode_af4e829968c23edecc22349090396ac42}{get\+MPtr\+First\+Chunk}} () const
+\item 
+string \mbox{\hyperlink{classMemPool_1_1DiskNode_aea24728bffb9fbd7827e07bab331ccd9}{Find\+Namein\+Block}} (string name)
+\item 
+void \mbox{\hyperlink{classMemPool_1_1DiskNode_aef0b8f5fda31c380f1b156910032bf44}{Set\+Parameters}} (string ip\+\_\+, int port\+\_\+, string path\+\_\+)
+\item 
+void \mbox{\hyperlink{classMemPool_1_1DiskNode_a8e9bc167ed2e395def0fc35b34b95b91}{Set\+Parameters}} (string ip\+\_\+, int port\+\_\+, string path\+\_\+, \mbox{\hyperlink{classList}{List}}$<$ string $>$ path\+\_\+blocks)
+\item 
+string \mbox{\hyperlink{classMemPool_1_1DiskNode_a0a4573a4a0c03da97a7cbb63d0f998b0}{Get\+Parameters}} ()
+\item 
+string \mbox{\hyperlink{classMemPool_1_1DiskNode_a1e1187e736ddf7cb049e07ad52ae2a70}{Find\+Block\+Suitable\+To\+Hold\+Memory}} (int size)
+\item 
+int \mbox{\hyperlink{classMemPool_1_1DiskNode_ad5f8eb20c3318728778acf13976477d7}{get\+Port}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class in charge of memory allocation and management 
+
+Definition at line 23 of file Disk\+Node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_a1eee90305b41d273a5bb394e6aa0650b}\label{classMemPool_1_1DiskNode_a1eee90305b41d273a5bb394e6aa0650b}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!DiskNode@{DiskNode}}
+\index{DiskNode@{DiskNode}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{DiskNode()}{DiskNode()}}
+{\footnotesize\ttfamily Mem\+Pool\+::\+Disk\+Node\+::\+Disk\+Node (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{s\+Initial\+Memory\+Pool\+Size,  }\item[{const size\+\_\+t \&}]{s\+Memory\+Chunk\+Size,  }\item[{const size\+\_\+t \&}]{s\+Minimal\+Memory\+Size\+To\+Allocate,  }\item[{bool}]{b\+Set\+Memory\+Data }\end{DoxyParamCaption})}
+
+Constructor of the Disk Nodes 
+\begin{DoxyParams}{Parameters}
+{\em s\+Initial\+Memory\+Pool\+Size} & Total memory of the Disk \\
+\hline
+{\em s\+Memory\+Chunk\+Size} & Size of each Block \\
+\hline
+{\em s\+Minimal\+Memory\+Size\+To\+Allocate} & Minimum memory space that can be requested \\
+\hline
+{\em b\+Set\+Memory\+Data} & Bool to set a defined space for the memset \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                                                                                         \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         m\_ptrFirstChunk = NULL;}
+\DoxyCodeLine{34         m\_ptrLastChunk = NULL;}
+\DoxyCodeLine{35         m\_ptrCursorChunk = NULL;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         m\_sTotalMemoryPoolSize = 0;}
+\DoxyCodeLine{38         m\_sUsedMemoryPoolSize = 0;}
+\DoxyCodeLine{39         m\_sFreeMemoryPoolSize = 0;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         m\_sMemoryChunkSize = sMemoryChunkSize;}
+\DoxyCodeLine{42         m\_uiMemoryChunkCount = 0;}
+\DoxyCodeLine{43         m\_uiObjectCount = 0;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         m\_bSetMemoryData = bSetMemoryData;}
+\DoxyCodeLine{46         AllocateMemory(sInitialMemoryPoolSize);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_a9c7078bcc69004f5c933c73baf7f0433}\label{classMemPool_1_1DiskNode_a9c7078bcc69004f5c933c73baf7f0433}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!````~DiskNode@{$\sim$DiskNode}}
+\index{````~DiskNode@{$\sim$DiskNode}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{$\sim$DiskNode()}{~DiskNode()}}
+{\footnotesize\ttfamily Mem\+Pool\+::\+Disk\+Node\+::$\sim$\+Disk\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor of the Disk \mbox{\hyperlink{classNode}{Node}} 
+
+Definition at line 53 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53                         \{}
+\DoxyCodeLine{54         \mbox{\hyperlink{classMemPool_1_1DiskNode_adef6e8dfdb898e69648e96c3aab92ad3}{FreeAllAllocatedMemory}}();}
+\DoxyCodeLine{55         DeallocateAllChunks();}
+\DoxyCodeLine{56     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_a1e1187e736ddf7cb049e07ad52ae2a70}\label{classMemPool_1_1DiskNode_a1e1187e736ddf7cb049e07ad52ae2a70}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!FindBlockSuitableToHoldMemory@{FindBlockSuitableToHoldMemory}}
+\index{FindBlockSuitableToHoldMemory@{FindBlockSuitableToHoldMemory}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{FindBlockSuitableToHoldMemory()}{FindBlockSuitableToHoldMemory()}}
+{\footnotesize\ttfamily string Mem\+Pool\+::\+Disk\+Node\+::\+Find\+Block\+Suitable\+To\+Hold\+Memory (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+Look for the block to store the information 
+\begin{DoxyParams}{Parameters}
+{\em size} & to store \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Path of the disk and the number of the block 
+\end{DoxyReturn}
+
+
+Definition at line 399 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{399                                                            \{}
+\DoxyCodeLine{400         \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{MemoryBlock}} *ptrChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{401         \textcolor{keywordtype}{int} i =0;}
+\DoxyCodeLine{402         \textcolor{keywordflow}{while} (ptrChunk)\{}
+\DoxyCodeLine{403             \textcolor{keywordflow}{if} (ptrChunk-\/>UsedSize+size < ptrChunk-\/>DataSize )\{}
+\DoxyCodeLine{404                 ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1MemoryBlock_a4982b3ef20c30b1e1d87a3906e5e08af}{UsedSize}} += size;}
+\DoxyCodeLine{405                 \textcolor{keywordtype}{string} temp = path;}
+\DoxyCodeLine{406                 temp.pop\_back();}
+\DoxyCodeLine{407                 \textcolor{keywordflow}{return} temp +\textcolor{stringliteral}{"{}\#"{}}+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i);}
+\DoxyCodeLine{408             \}}
+\DoxyCodeLine{409             \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{410                 ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{411                 i++;}
+\DoxyCodeLine{412             \}}
+\DoxyCodeLine{413         \}}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_af60abcb4cc0df5b1e33240b13f5dea39}\label{classMemPool_1_1DiskNode_af60abcb4cc0df5b1e33240b13f5dea39}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!FindChunkHoldingPointerTo@{FindChunkHoldingPointerTo}}
+\index{FindChunkHoldingPointerTo@{FindChunkHoldingPointerTo}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{FindChunkHoldingPointerTo()}{FindChunkHoldingPointerTo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMemPool_1_1MemoryBlock}{Memory\+Block}} $\ast$ Mem\+Pool\+::\+Disk\+Node\+::\+Find\+Chunk\+Holding\+Pointer\+To (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr\+Memory\+Block }\end{DoxyParamCaption})}
+
+Search blocks of a memory address of Data 
+\begin{DoxyParams}{Parameters}
+{\em ptr\+Memory\+Block} & Direction of the Data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+block 
+\end{DoxyReturn}
+
+
+Definition at line 315 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{315                                                                          \{}
+\DoxyCodeLine{316         \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{MemoryBlock}} *ptrTempChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{317         \textcolor{keywordflow}{while} (ptrTempChunk) \{}
+\DoxyCodeLine{318             \textcolor{keywordflow}{if} (ptrTempChunk-\/>Data == ((\mbox{\hyperlink{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}{TByte}} *) ptrMemoryBlock)) \{}
+\DoxyCodeLine{319                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{320             \}}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322             ptrTempChunk = ptrTempChunk-\/>\mbox{\hyperlink{structMemPool_1_1MemoryBlock_a78b119487c58c4c5f83940539a6dd157}{Next}};}
+\DoxyCodeLine{323         \}}
+\DoxyCodeLine{324         \textcolor{keywordflow}{return} ptrTempChunk;}
+\DoxyCodeLine{325     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_aea24728bffb9fbd7827e07bab331ccd9}\label{classMemPool_1_1DiskNode_aea24728bffb9fbd7827e07bab331ccd9}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!FindNameinBlock@{FindNameinBlock}}
+\index{FindNameinBlock@{FindNameinBlock}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{FindNameinBlock()}{FindNameinBlock()}}
+{\footnotesize\ttfamily string Mem\+Pool\+::\+Disk\+Node\+::\+Find\+Namein\+Block (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+search for files matching a name 
+\begin{DoxyParams}{Parameters}
+{\em name} & to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Path of the disk and the number of the block 
+\end{DoxyReturn}
+
+
+Definition at line 446 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{446                                                \{}
+\DoxyCodeLine{447         \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{MemoryBlock}} *ptrChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{448         \textcolor{keywordtype}{int} i =0;}
+\DoxyCodeLine{449         \textcolor{keywordflow}{while} (ptrChunk)\{}
+\DoxyCodeLine{450             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& p\_: directory\_iterator(ptrChunk-\/>path\_block))\{}
+\DoxyCodeLine{451                 \mbox{\hyperlink{classList}{List<string>}} result = \mbox{\hyperlink{namespaceMemPool_af67fdb58215d5610bdfaeddfce5905b2}{StoL}}(p\_.path(), \textcolor{charliteral}{'/'});}
+\DoxyCodeLine{452                 \textcolor{keywordtype}{string} name\_ = result.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(result.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()-\/1)-\/>getValue();}
+\DoxyCodeLine{453                 name\_.erase(name\_.end()-\/5, name\_.end());}
+\DoxyCodeLine{454                 cout << name\_ << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{455                 \textcolor{keywordflow}{if} (name == name\_)\{}
+\DoxyCodeLine{456                     \textcolor{keywordtype}{string} temp = path;}
+\DoxyCodeLine{457                     temp.pop\_back();}
+\DoxyCodeLine{458                     \textcolor{keywordflow}{return} temp +\textcolor{stringliteral}{"{}\#"{}}+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i);}
+\DoxyCodeLine{459                 \}}
+\DoxyCodeLine{460             \}}
+\DoxyCodeLine{461             ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{462             i++;}
+\DoxyCodeLine{463         \}}
+\DoxyCodeLine{464     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_adef6e8dfdb898e69648e96c3aab92ad3}\label{classMemPool_1_1DiskNode_adef6e8dfdb898e69648e96c3aab92ad3}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!FreeAllAllocatedMemory@{FreeAllAllocatedMemory}}
+\index{FreeAllAllocatedMemory@{FreeAllAllocatedMemory}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{FreeAllAllocatedMemory()}{FreeAllAllocatedMemory()}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+Disk\+Node\+::\+Free\+All\+Allocated\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reset the memory of the blocks when executing the Destroyer 
+
+Definition at line 330 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{330                                           \{}
+\DoxyCodeLine{331         \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{MemoryBlock}} *ptrChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{332         \textcolor{keywordflow}{while} (ptrChunk) \{}
+\DoxyCodeLine{333             SetChunktoDefault(ptrChunk);}
+\DoxyCodeLine{334             ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{335         \}}
+\DoxyCodeLine{336         m\_ptrCursorChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{337     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_a81608eb47f8d9e4f8b0f24bd9247647c}\label{classMemPool_1_1DiskNode_a81608eb47f8d9e4f8b0f24bd9247647c}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!FreeMemory@{FreeMemory}}
+\index{FreeMemory@{FreeMemory}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{FreeMemory()}{FreeMemory()}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+Disk\+Node\+::\+Free\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr\+Memory\+Block }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to free up certain memory spaces 
+\begin{DoxyParams}{Parameters}
+{\em ptr\+Memory\+Block} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classMemPool_1_1IMemoryBlock_a9907b6c8c0a30ebb47e33c02d39d9990}{Mem\+Pool\+::\+IMemory\+Block}}.
+
+
+
+Definition at line 86 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86                                                   \{}
+\DoxyCodeLine{87         \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{MemoryBlock}} *ptrChunk = \mbox{\hyperlink{classMemPool_1_1DiskNode_af60abcb4cc0df5b1e33240b13f5dea39}{FindChunkHoldingPointerTo}}(ptrMemoryBlock);}
+\DoxyCodeLine{88         std::cout << ptrChunk << std::endl;}
+\DoxyCodeLine{89         \textcolor{keywordflow}{if} (ptrChunk) \{}
+\DoxyCodeLine{90             FreeChunks(ptrChunk);}
+\DoxyCodeLine{91         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{92             assert(\textcolor{keyword}{false} \&\& \textcolor{stringliteral}{"{}ERROR : Requested Pointer not in Memory Pool"{}});}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94         assert((m\_uiObjectCount > 0) \&\& \textcolor{stringliteral}{"{}ERROR : Request to delete more Memory then allocated."{}});}
+\DoxyCodeLine{95         m\_uiObjectCount-\/-\/;}
+\DoxyCodeLine{96     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_a07548e2c546b939d480c6a44554c0c2b}\label{classMemPool_1_1DiskNode_a07548e2c546b939d480c6a44554c0c2b}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!GetMemory@{GetMemory}}
+\index{GetMemory@{GetMemory}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{GetMemory()}{GetMemory()}}
+{\footnotesize\ttfamily void $\ast$ Mem\+Pool\+::\+Disk\+Node\+::\+Get\+Memory (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{s\+Memory\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to request memory spaces in the Disk 
+\begin{DoxyParams}{Parameters}
+{\em s\+Memory\+Size} & Size of memory space requested \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classMemPool_1_1IMemoryBlock_ac1f1954b63042612d701aad528150968}{Mem\+Pool\+::\+IMemory\+Block}}.
+
+
+
+Definition at line 63 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                                           \{}
+\DoxyCodeLine{64         std::size\_t sBestMemBlockSize = CalculateBestMemoryBlockSize(sMemorySize);}
+\DoxyCodeLine{65         \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{MemoryBlock}} *ptrChunk = NULL;}
+\DoxyCodeLine{66         \textcolor{keywordflow}{while} (!ptrChunk) \{}
+\DoxyCodeLine{67             ptrChunk = FindChunkSuitableToHoldMemory(sBestMemBlockSize);}
+\DoxyCodeLine{68             \textcolor{keywordflow}{if} (!ptrChunk) \{}
+\DoxyCodeLine{69                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{70             \}}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         m\_sUsedMemoryPoolSize += sBestMemBlockSize;}
+\DoxyCodeLine{74         m\_sFreeMemoryPoolSize -\/= sBestMemBlockSize;}
+\DoxyCodeLine{75         m\_uiObjectCount++;}
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} (ptrChunk != NULL) \{}
+\DoxyCodeLine{77             SetMemoryChunkValues(ptrChunk, sBestMemBlockSize);}
+\DoxyCodeLine{78             \textcolor{keywordflow}{return} ((\textcolor{keywordtype}{void} *) ptrChunk-\/>Data);}
+\DoxyCodeLine{79         \} \textcolor{keywordflow}{else} \{ \textcolor{keywordflow}{return} NULL; \}}
+\DoxyCodeLine{80     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_af4e829968c23edecc22349090396ac42}\label{classMemPool_1_1DiskNode_af4e829968c23edecc22349090396ac42}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!getMPtrFirstChunk@{getMPtrFirstChunk}}
+\index{getMPtrFirstChunk@{getMPtrFirstChunk}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{getMPtrFirstChunk()}{getMPtrFirstChunk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMemPool_1_1MemoryBlock}{Memory\+Block}} $\ast$ Mem\+Pool\+::\+Disk\+Node\+::get\+MPtr\+First\+Chunk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 465 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{465                                                    \{}
+\DoxyCodeLine{466         \textcolor{keywordflow}{return} m\_ptrFirstChunk;}
+\DoxyCodeLine{467     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_aad5b2495e374f9c888faca6ce80e80d4}\label{classMemPool_1_1DiskNode_aad5b2495e374f9c888faca6ce80e80d4}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!getNext@{getNext}}
+\index{getNext@{getNext}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{getNext()}{getNext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}} $\ast$ Mem\+Pool\+::\+Disk\+Node\+::get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 356 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{356                                       \{}
+\DoxyCodeLine{357         \textcolor{keywordflow}{return} Next;}
+\DoxyCodeLine{358     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_a0a4573a4a0c03da97a7cbb63d0f998b0}\label{classMemPool_1_1DiskNode_a0a4573a4a0c03da97a7cbb63d0f998b0}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!GetParameters@{GetParameters}}
+\index{GetParameters@{GetParameters}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{GetParameters()}{GetParameters()}}
+{\footnotesize\ttfamily string Mem\+Pool\+::\+Disk\+Node\+::\+Get\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 378 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{378                                    \{}
+\DoxyCodeLine{379         \textcolor{keywordtype}{string} result = ip + \textcolor{stringliteral}{"{} -\/ "{}} + \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(port) + \textcolor{stringliteral}{"{} -\/ "{}} + path + \textcolor{stringliteral}{"{} -\/ Blocks: "{}};}
+\DoxyCodeLine{380         \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{MemoryBlock}} *ptrChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{381         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{382         \textcolor{keywordflow}{while} (ptrChunk) \{}
+\DoxyCodeLine{383             result += ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1MemoryBlock_a30cda40216aeb4f4e067a1b8fee9d3a0}{path\_block}} + \textcolor{stringliteral}{"{} -\/ "{}};}
+\DoxyCodeLine{384             ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{385             i++;}
+\DoxyCodeLine{386         \}}
+\DoxyCodeLine{387         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{388     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_ad5f8eb20c3318728778acf13976477d7}\label{classMemPool_1_1DiskNode_ad5f8eb20c3318728778acf13976477d7}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!getPort@{getPort}}
+\index{getPort@{getPort}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{getPort()}{getPort()}}
+{\footnotesize\ttfamily int Mem\+Pool\+::\+Disk\+Node\+::get\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 390 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{390                                 \{}
+\DoxyCodeLine{391         \textcolor{keywordflow}{return} port;}
+\DoxyCodeLine{392     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_a35248ae83dae06a354314917dffc60f8}\label{classMemPool_1_1DiskNode_a35248ae83dae06a354314917dffc60f8}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!setNext@{setNext}}
+\index{setNext@{setNext}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{setNext()}{setNext()}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+Disk\+Node\+::set\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}} $\ast$}]{next }\end{DoxyParamCaption})}
+
+
+
+Definition at line 360 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{360                                          \{}
+\DoxyCodeLine{361         Next = next;}
+\DoxyCodeLine{362     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_aef0b8f5fda31c380f1b156910032bf44}\label{classMemPool_1_1DiskNode_aef0b8f5fda31c380f1b156910032bf44}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!SetParameters@{SetParameters}}
+\index{SetParameters@{SetParameters}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{SetParameters()}{SetParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+Disk\+Node\+::\+Set\+Parameters (\begin{DoxyParamCaption}\item[{string}]{ip\+\_\+,  }\item[{int}]{port\+\_\+,  }\item[{string}]{path\+\_\+ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMemPool_1_1DiskNode_a8e9bc167ed2e395def0fc35b34b95b91}\label{classMemPool_1_1DiskNode_a8e9bc167ed2e395def0fc35b34b95b91}} 
+\index{MemPool::DiskNode@{MemPool::DiskNode}!SetParameters@{SetParameters}}
+\index{SetParameters@{SetParameters}!MemPool::DiskNode@{MemPool::DiskNode}}
+\doxysubsubsection{\texorpdfstring{SetParameters()}{SetParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+Disk\+Node\+::\+Set\+Parameters (\begin{DoxyParamCaption}\item[{string}]{ip\+\_\+,  }\item[{int}]{port\+\_\+,  }\item[{string}]{path\+\_\+,  }\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{path\+\_\+blocks }\end{DoxyParamCaption})}
+
+
+
+Definition at line 364 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{364                                                                                               \{}
+\DoxyCodeLine{365         ip = ip\_;}
+\DoxyCodeLine{366         port = port\_;}
+\DoxyCodeLine{367         path = path\_;}
+\DoxyCodeLine{368         \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{MemoryBlock}} *ptrChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{369         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{370         \textcolor{keywordflow}{while} (ptrChunk) \{}
+\DoxyCodeLine{371             \textcolor{keywordtype}{string} path\_block\_ = path\_blocks.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue();}
+\DoxyCodeLine{372             ptrChunk-\/>path\_block = path\_block\_;}
+\DoxyCodeLine{373             ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{374             i++;}
+\DoxyCodeLine{375         \}}
+\DoxyCodeLine{376     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{DiskNode_8h}{Disk\+Node.\+h}}\item 
+\mbox{\hyperlink{DiskNode_8cpp}{Disk\+Node.\+cpp}}\end{DoxyCompactItemize}

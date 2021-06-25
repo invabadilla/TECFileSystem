@@ -1,0 +1,247 @@
+\hypertarget{classServer}{}\doxysection{Server Class Reference}
+\label{classServer}\index{Server@{Server}}
+
+
+Class that creates the server socket and listen the client.  
+
+
+
+
+{\ttfamily \#include $<$Server.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classServer_ac0838b6e5731a99c98035216b3fa7574}{Server}} (int PORT)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classServer}{Server}} object, and configures the socket. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classServer_a4b3aa2579cb1c8cd1d069582c14d0fa6}{$\sim$\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the MServer\+::\+MServer object, the destructor is defined to make sure that the memory allocated with the initial malloc is freed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServer_ac4a5c309aca64b2a018a53c151de0716}{request}} (sockaddr\+\_\+in address, int server\+Socket)
+\begin{DoxyCompactList}\small\item\em accepts and reads all the incoming messages from the client \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServer_a686577c98c77c3e21765e24efb8c021e}{read\+Socket}} (char $\ast$buffer\+Out, sockaddr\+\_\+in address, int server\+Socket, int \&new\+Socket)
+\begin{DoxyCompactList}\small\item\em Wait and read a message incoming in the server socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that creates the server socket and listen the client. 
+
+Definition at line 10 of file Server.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classServer_ac0838b6e5731a99c98035216b3fa7574}\label{classServer_ac0838b6e5731a99c98035216b3fa7574}} 
+\index{Server@{Server}!Server@{Server}}
+\index{Server@{Server}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{Server()}{Server()}}
+{\footnotesize\ttfamily Server\+::\+Server (\begin{DoxyParamCaption}\item[{int}]{PORT }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classServer}{Server}} object, and configures the socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PORT} & int that indicates de port number \\
+\hline
+{\em size} & int that indicates how much memory the server is going to reserve \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{comment}{//Socket stuff}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{struct }sockaddr\_in address;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} serverBind = 0;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} opt = 1;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} serverSocket = socket(AF\_INET, SOCK\_STREAM, 0);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{// configurar el ambiente para el sockaddr structure}}
+\DoxyCodeLine{28     address.sin\_family = AF\_INET;}
+\DoxyCodeLine{29     address.sin\_addr.s\_addr = INADDR\_ANY; \textcolor{comment}{//assinging the address of local machine}}
+\DoxyCodeLine{30     address.sin\_port = htons(PORT);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// binding to port}}
+\DoxyCodeLine{33     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         serverBind = bind(serverSocket, (sockaddr *)\&address, \textcolor{keyword}{sizeof}(sockaddr));}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{keywordflow}{if} (serverBind < 0)}
+\DoxyCodeLine{38         \{}
+\DoxyCodeLine{39             printf(\textcolor{stringliteral}{"{}Port number: \%d\(\backslash\)nFailed to bind to local port\(\backslash\)n"{}}, PORT);}
+\DoxyCodeLine{40             PORT-\/-\/;}
+\DoxyCodeLine{41             address.sin\_port = htons(PORT);}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{45         \{}
+\DoxyCodeLine{46             printf(\textcolor{stringliteral}{"{}Port number: \%d\(\backslash\)nSuccessfully bind to local port\(\backslash\)n"{}}, PORT);}
+\DoxyCodeLine{47             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{48         \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// set socket to an especific port}}
+\DoxyCodeLine{53     setsockopt(serverSocket, SOL\_SOCKET, SO\_REUSEADDR | SO\_REUSEPORT, \&opt, \textcolor{keyword}{sizeof}(opt));}
+\DoxyCodeLine{54     \textcolor{comment}{//listen}}
+\DoxyCodeLine{55     serverBind = listen(serverSocket, 1);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keywordflow}{if} (serverBind < 0)}
+\DoxyCodeLine{58     \{}
+\DoxyCodeLine{59         printf(\textcolor{stringliteral}{"{}Fallo al iniciar la escucha del puerto "{}});}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         printf(\textcolor{stringliteral}{"{}Escuchando el puerto local"{}});}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     this-\/>\mbox{\hyperlink{classServer_ac4a5c309aca64b2a018a53c151de0716}{request}}(address, serverSocket);}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classServer_a4b3aa2579cb1c8cd1d069582c14d0fa6}\label{classServer_a4b3aa2579cb1c8cd1d069582c14d0fa6}} 
+\index{Server@{Server}!````~Server@{$\sim$Server}}
+\index{````~Server@{$\sim$Server}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{$\sim$Server()}{~Server()}}
+{\footnotesize\ttfamily Server\+::$\sim$\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the MServer\+::\+MServer object, the destructor is defined to make sure that the memory allocated with the initial malloc is freed. 
+
+
+
+Definition at line 71 of file Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72 \{}
+\DoxyCodeLine{73 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classServer_a686577c98c77c3e21765e24efb8c021e}\label{classServer_a686577c98c77c3e21765e24efb8c021e}} 
+\index{Server@{Server}!readSocket@{readSocket}}
+\index{readSocket@{readSocket}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{readSocket()}{readSocket()}}
+{\footnotesize\ttfamily void Server\+::read\+Socket (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{sockaddr\+\_\+in}]{address,  }\item[{int}]{server\+Socket,  }\item[{int \&}]{new\+Socket }\end{DoxyParamCaption})}
+
+
+
+Wait and read a message incoming in the server socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & a char$\ast$ buffer to store the contents read \\
+\hline
+{\em address} & indicates de IP address \\
+\hline
+{\em server\+Socket} & indicates the server\+Socket \\
+\hline
+{\em new\+Socket} & the socket that will be accepted and read \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 128 of file Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{129 \{}
+\DoxyCodeLine{130     \textcolor{keywordtype}{int} addressLen = \textcolor{keyword}{sizeof}(address);}
+\DoxyCodeLine{131     memset(buffer, 0, 1024); \textcolor{comment}{// Clear buffer}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{comment}{// accept}}
+\DoxyCodeLine{134     newSocket = accept(serverSocket, (sockaddr *)\&address, (socklen\_t *)\&addressLen);}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{keywordflow}{if} (newSocket < 0)}
+\DoxyCodeLine{137     \{}
+\DoxyCodeLine{138         printf(\textcolor{stringliteral}{"{}Fallo al aceptar"{}});}
+\DoxyCodeLine{139     \}}
+\DoxyCodeLine{140     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{141     \{}
+\DoxyCodeLine{142         printf(\textcolor{stringliteral}{"{}Aceptado"{}});}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     read(newSocket, buffer, 1024);}
+\DoxyCodeLine{146 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classServer_ac4a5c309aca64b2a018a53c151de0716}\label{classServer_ac4a5c309aca64b2a018a53c151de0716}} 
+\index{Server@{Server}!request@{request}}
+\index{request@{request}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{request()}{request()}}
+{\footnotesize\ttfamily void Server\+::request (\begin{DoxyParamCaption}\item[{sockaddr\+\_\+in}]{address,  }\item[{int}]{server\+Socket }\end{DoxyParamCaption})}
+
+
+
+accepts and reads all the incoming messages from the client 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & indicates de IP address \\
+\hline
+{\em server\+Socket} & indicates the server\+Socket \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file Server.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     \textcolor{keywordtype}{int} newSocket = 0;}
+\DoxyCodeLine{84     \textcolor{keywordtype}{char} buffer[1024] = \{0\};}
+\DoxyCodeLine{85     \textcolor{keywordtype}{bool} listening = \textcolor{keyword}{true};}
+\DoxyCodeLine{86     \textcolor{keywordflow}{while} (listening)}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         \mbox{\hyperlink{classServer_a686577c98c77c3e21765e24efb8c021e}{readSocket}}(buffer, address, serverSocket, newSocket);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91         \textcolor{keywordflow}{if} (strcmp(buffer, \textcolor{stringliteral}{"{}OFF"{}}) == 0)}
+\DoxyCodeLine{92         \{}
+\DoxyCodeLine{93             listening = \textcolor{keyword}{false};}
+\DoxyCodeLine{94             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96         \textcolor{keywordflow}{if} (strcmp(buffer, \textcolor{stringliteral}{"{}save"{}}) == 0)\{}
+\DoxyCodeLine{97             \textcolor{comment}{//readSocket(buffer, address, serverSocket, newSocket);}}
+\DoxyCodeLine{98             std::cout << buffer << std::endl;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102             \textcolor{comment}{//insertar todo para el save}}
+\DoxyCodeLine{103             \textcolor{comment}{//devolver bool de si se realizo exitosamente}}
+\DoxyCodeLine{104             std::string info = \textcolor{stringliteral}{"{}mensaje del server: save"{}};}
+\DoxyCodeLine{105             send(newSocket, info.c\_str(), info.length() + 1, 0);}
+\DoxyCodeLine{106         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(buffer, \textcolor{stringliteral}{"{}find"{}}) == 0)\{}
+\DoxyCodeLine{107             \textcolor{comment}{//readSocket(buffer, address, serverSocket, newSocket);}}
+\DoxyCodeLine{108             \textcolor{comment}{//insertar todo para el find}}
+\DoxyCodeLine{109             \textcolor{comment}{//devolver string de los datos, mostrarlo en la interfaz}}
+\DoxyCodeLine{110             std::cout << buffer << std::endl;}
+\DoxyCodeLine{111             std::string info = \textcolor{stringliteral}{"{}mensaje del server: find"{}};}
+\DoxyCodeLine{112             send(newSocket, info.c\_str(), info.length() + 1, 0);}
+\DoxyCodeLine{113         \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         \textcolor{comment}{//send(newSocket, hello, strlen(hello), 0);}}
+\DoxyCodeLine{117     \}}
+\DoxyCodeLine{118 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Server_8h}{Server.\+h}}\item 
+\mbox{\hyperlink{Server_8cpp}{Server.\+cpp}}\end{DoxyCompactItemize}

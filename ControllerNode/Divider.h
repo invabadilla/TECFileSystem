@@ -16,6 +16,10 @@
 
 using namespace std;
 
+int actualData;
+int maxData;
+int parityRaid;
+
 /**
  * Class to split the file for storage in the blocks
  */
@@ -225,8 +229,10 @@ public:
      * @return number of the block
      */
     string DiskParity(){
-        //block;
-        return "hola";
+        if(maxData <= actualData){
+            parityRaid++;
+        }
+        return to_string(parityRaid);
 
     }
 };

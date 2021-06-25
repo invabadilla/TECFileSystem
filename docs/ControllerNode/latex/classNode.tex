@@ -1,0 +1,274 @@
+\hypertarget{classNode}{}\doxysection{Node$<$ T $>$ Class Template Reference}
+\label{classNode}\index{Node$<$ T $>$@{Node$<$ T $>$}}
+
+
+Class that handles the \mbox{\hyperlink{classNode}{Node}} logic.  
+
+
+
+
+{\ttfamily \#include $<$Node.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNode_a0ac1d44cfe588be564acf25485029bd8}{Node}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classNode}{Node}} object and initialize the value and the next pointer in NULL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNode_a357f062e9a5a4f9fe9a82b95e375fabb}{Node}} (T value\+\_\+)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classNode}{Node}} object and initialize the next pointer in NULL and receives the data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNode_ae923d0417581dd19784d55b901f0f7f0}{$\sim$\+Node}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNode}{Node}} $\ast$ \mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{get\+Next}} () const
+\begin{DoxyCompactList}\small\item\em get the next pointer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_a7ceb780031b51e20c13451d7f5ac6b18}{set\+Next}} (\mbox{\hyperlink{classNode}{Node}} $\ast$next\+\_\+)
+\begin{DoxyCompactList}\small\item\em sets the new pointer \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em gets the value of the node \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_a056f9786994d047d0a542c2955dbd3ee}{set\+Value}} (T value\+\_\+)
+\begin{DoxyCompactList}\small\item\em sets the new data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_a1aca3327241039a06a2eae83188932bd}{print\+Node}} ()
+\begin{DoxyCompactList}\small\item\em prints the node value on console \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_aa213f114c1d17ec005ebf5bb98959197}{delete\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em delete all the nodes \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Node$<$ T $>$}
+Class that handles the \mbox{\hyperlink{classNode}{Node}} logic. 
+
+Definition at line 10 of file Node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNode_a0ac1d44cfe588be564acf25485029bd8}\label{classNode_a0ac1d44cfe588be564acf25485029bd8}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!Node@{Node}}
+\index{Node@{Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::\mbox{\hyperlink{classNode}{Node}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classNode}{Node}} object and initialize the value and the next pointer in NULL. 
+
+
+
+Definition at line 24 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24           \{}
+\DoxyCodeLine{25         value = NULL;}
+\DoxyCodeLine{26         next = NULL;}
+\DoxyCodeLine{27     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_a357f062e9a5a4f9fe9a82b95e375fabb}\label{classNode_a357f062e9a5a4f9fe9a82b95e375fabb}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!Node@{Node}}
+\index{Node@{Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::\mbox{\hyperlink{classNode}{Node}} (\begin{DoxyParamCaption}\item[{T}]{value\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classNode}{Node}} object and initialize the next pointer in NULL and receives the data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value\+\_\+} & data that will be stored in the node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 34 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                   \{}
+\DoxyCodeLine{35         value = value\_;}
+\DoxyCodeLine{36         next = NULL;}
+\DoxyCodeLine{37     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_ae923d0417581dd19784d55b901f0f7f0}\label{classNode_ae923d0417581dd19784d55b901f0f7f0}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!````~Node@{$\sim$Node}}
+\index{````~Node@{$\sim$Node}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Node()}{~Node()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classNode}{Node}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+destructor 
+
+
+
+Definition at line 42 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNode_aa213f114c1d17ec005ebf5bb98959197}\label{classNode_aa213f114c1d17ec005ebf5bb98959197}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!delete\_all@{delete\_all}}
+\index{delete\_all@{delete\_all}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{delete\_all()}{delete\_all()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::delete\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+delete all the nodes 
+
+
+
+Definition at line 91 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                      \{}
+\DoxyCodeLine{92         \textcolor{keywordflow}{if} (next)}
+\DoxyCodeLine{93             next-\/>\mbox{\hyperlink{classNode_aa213f114c1d17ec005ebf5bb98959197}{delete\_all}}();}
+\DoxyCodeLine{94         \textcolor{keyword}{delete} \textcolor{keyword}{this};}
+\DoxyCodeLine{95     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_aa3ef08c649398c76dc38011a91b08d4b}\label{classNode_aa3ef08c649398c76dc38011a91b08d4b}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!getNext@{getNext}}
+\index{getNext@{getNext}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNext()}{getNext()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classNode}{Node}}$\ast$ \mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the next pointer 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classNode}{Node}} pointer 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49                          \{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} next;}
+\DoxyCodeLine{51     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_aecea97aa9915521fe092d92a8e7fc8b8}\label{classNode_aecea97aa9915521fe092d92a8e7fc8b8}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gets the value of the node 
+
+\begin{DoxyReturn}{Returns}
+T value 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                       \{}
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{69     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_a1aca3327241039a06a2eae83188932bd}\label{classNode_a1aca3327241039a06a2eae83188932bd}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!printNode@{printNode}}
+\index{printNode@{printNode}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{printNode()}{printNode()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::print\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+prints the node value on console 
+
+
+
+Definition at line 83 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83                     \{}
+\DoxyCodeLine{84         \textcolor{comment}{//cout << "{}Node-\/> "{} << "{}Dato: "{} << dato << "{} Direcion: "{} << this << "{} Siguiente: "{} << next << endl;}}
+\DoxyCodeLine{85         cout << value << \textcolor{stringliteral}{"{}-\/> "{}};}
+\DoxyCodeLine{86     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_a7ceb780031b51e20c13451d7f5ac6b18}\label{classNode_a7ceb780031b51e20c13451d7f5ac6b18}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!setNext@{setNext}}
+\index{setNext@{setNext}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setNext()}{setNext()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::set\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}}$<$ T $>$ $\ast$}]{next\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the new pointer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+\_\+} & \mbox{\hyperlink{classNode}{Node}} new pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                              \{}
+\DoxyCodeLine{59         Node::next = next\_;}
+\DoxyCodeLine{60     \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNode_a056f9786994d047d0a542c2955dbd3ee}\label{classNode_a056f9786994d047d0a542c2955dbd3ee}} 
+\index{Node$<$ T $>$@{Node$<$ T $>$}!setValue@{setValue}}
+\index{setValue@{setValue}!Node$<$ T $>$@{Node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setValue()}{setValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classNode}{Node}}$<$ T $>$\+::set\+Value (\begin{DoxyParamCaption}\item[{T}]{value\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the new data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value\+\_\+} & new data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file Node.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                            \{}
+\DoxyCodeLine{77         Node::value = value\_;}
+\DoxyCodeLine{78     \};}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Node_8h}{Node.\+h}}\end{DoxyCompactItemize}

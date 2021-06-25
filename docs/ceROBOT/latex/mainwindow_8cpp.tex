@@ -1,0 +1,289 @@
+\hypertarget{mainwindow_8cpp}{}\doxysection{mainwindow.\+cpp File Reference}
+\label{mainwindow_8cpp}\index{mainwindow.cpp@{mainwindow.cpp}}
+{\ttfamily \#include \char`\"{}mainwindow.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ui\+\_\+mainwindow.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}qmessagebox.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}QFile\+Dialog\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}QFile\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}QText\+Stream\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include \char`\"{}Divider.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Client.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Huffman.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{mainwindow_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mainwindow_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \mbox{\hyperlink{mainwindow_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}{parse\+Json}} (\mbox{\hyperlink{classList}{List}}$<$ string $>$ to\+Send, string key)
+\item 
+\mbox{\hyperlink{classList}{List}}$<$ string $>$ \mbox{\hyperlink{mainwindow_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}} (string text, char char\+\_\+)
+\item 
+string \mbox{\hyperlink{mainwindow_8cpp_a7f7530b0e6f8211f78831349a479f868}{convert}} (string input\+\_\+)
+\item 
+string \mbox{\hyperlink{mainwindow_8cpp_ac3927d8e115caf39c97ca9b085753d73}{read\+Data}} (string path, string name, string j)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{mainwindow_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{mainwindow_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}} 
+\index{mainwindow.cpp@{mainwindow.cpp}!json@{json}}
+\index{json@{json}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{mainwindow_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+
+
+
+Definition at line 16 of file mainwindow.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mainwindow_8cpp_a7f7530b0e6f8211f78831349a479f868}\label{mainwindow_8cpp_a7f7530b0e6f8211f78831349a479f868}} 
+\index{mainwindow.cpp@{mainwindow.cpp}!convert@{convert}}
+\index{convert@{convert}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}}
+{\footnotesize\ttfamily string convert (\begin{DoxyParamCaption}\item[{string}]{input\+\_\+ }\end{DoxyParamCaption})}
+
+Convert a binary string to string 
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+} & binary string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{183                              \{}
+\DoxyCodeLine{184     ifstream input(input\_, ios::binary);}
+\DoxyCodeLine{185     vector<char> bytes(}
+\DoxyCodeLine{186             (istreambuf\_iterator<char>(input)),}
+\DoxyCodeLine{187             (istreambuf\_iterator<char>()));}
+\DoxyCodeLine{188     input.close();}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     \textcolor{keywordtype}{string} texto;}
+\DoxyCodeLine{191     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < bytes.size(); i++) \{}
+\DoxyCodeLine{192         texto+=bytes.at(i);}
+\DoxyCodeLine{193     \}}
+\DoxyCodeLine{194     \textcolor{keywordflow}{return} texto;}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{mainwindow_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}\label{mainwindow_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}} 
+\index{mainwindow.cpp@{mainwindow.cpp}!parseJson@{parseJson}}
+\index{parseJson@{parseJson}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{parseJson()}{parseJson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mainwindow_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} parse\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{to\+Send,  }\item[{string}]{key }\end{DoxyParamCaption})}
+
+Parse list string to json format 
+\begin{DoxyParams}{Parameters}
+{\em to\+Send} & list string with the information to send \\
+\hline
+{\em key} & identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+json 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26                                                 \{}
+\DoxyCodeLine{27     \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage =}
+\DoxyCodeLine{28             \{}
+\DoxyCodeLine{29                     \{\textcolor{stringliteral}{"{}key"{}}, \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}\},}
+\DoxyCodeLine{30                     \{\textcolor{stringliteral}{"{}message"{}}, toSend.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(0)-\/>getValue()\},}
+\DoxyCodeLine{31                     \{\textcolor{stringliteral}{"{}pre"{}}, toSend.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(1)-\/>getValue()\},}
+\DoxyCodeLine{32                     \{\textcolor{stringliteral}{"{}in"{}}, toSend.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(2)-\/>getValue()\},}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34             \};}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} mymessage;}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{mainwindow_8cpp_ac3927d8e115caf39c97ca9b085753d73}\label{mainwindow_8cpp_ac3927d8e115caf39c97ca9b085753d73}} 
+\index{mainwindow.cpp@{mainwindow.cpp}!readData@{readData}}
+\index{readData@{readData}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily string read\+Data (\begin{DoxyParamCaption}\item[{string}]{path,  }\item[{string}]{name,  }\item[{string}]{j }\end{DoxyParamCaption})}
+
+Method to read data in the RAID 
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+{\em name} & \\
+\hline
+{\em j} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 205 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{205                                                    \{}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     \mbox{\hyperlink{classdivider}{divider}} \mbox{\hyperlink{classdivider}{divider}};}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209     \textcolor{keywordtype}{int} numError = -\/1;}
+\DoxyCodeLine{210     \textcolor{keywordtype}{string} firstPath;}
+\DoxyCodeLine{211     \textcolor{keywordtype}{string} firstBin;}
+\DoxyCodeLine{212     \textcolor{keywordtype}{string} secondPath;}
+\DoxyCodeLine{213     \textcolor{keywordtype}{string} secondBin;}
+\DoxyCodeLine{214     \textcolor{keywordtype}{string} thirdPath;}
+\DoxyCodeLine{215     \textcolor{keywordtype}{string} thirdBin;}
+\DoxyCodeLine{216     \textcolor{keywordtype}{string} fourthPath;}
+\DoxyCodeLine{217     \textcolor{keywordtype}{string} fourthBin;}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{220     \textcolor{keywordflow}{for} (i = 0; i < 3; ++i) \{}
+\DoxyCodeLine{221         \textcolor{keywordtype}{string} pathToRead = path+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i)+\textcolor{stringliteral}{"{}/Block"{}}+j+\textcolor{stringliteral}{"{}/"{}}+name+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i)+\textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{222         ifstream my\_file(pathToRead);}
+\DoxyCodeLine{223         \textcolor{keywordflow}{if} (my\_file.good())}
+\DoxyCodeLine{224         \{}
+\DoxyCodeLine{225             \textcolor{keywordflow}{switch}(i)\{}
+\DoxyCodeLine{226                 \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{227                     firstPath = pathToRead;}
+\DoxyCodeLine{228                     firstBin = \mbox{\hyperlink{mainwindow_8cpp_a7f7530b0e6f8211f78831349a479f868}{convert}}(pathToRead);}
+\DoxyCodeLine{229                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{230                 \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{231                     secondPath = pathToRead;}
+\DoxyCodeLine{232                     secondBin = \mbox{\hyperlink{mainwindow_8cpp_a7f7530b0e6f8211f78831349a479f868}{convert}}(pathToRead);}
+\DoxyCodeLine{233                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{234                 \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{235                     thirdPath = pathToRead;}
+\DoxyCodeLine{236                     thirdBin = \mbox{\hyperlink{mainwindow_8cpp_a7f7530b0e6f8211f78831349a479f868}{convert}}(pathToRead);}
+\DoxyCodeLine{237                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{238                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{239                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{240             \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{244             cout<<\textcolor{stringliteral}{"{}El "{}}<<i<<\textcolor{stringliteral}{"{} no existe"{}}<<endl;}
+\DoxyCodeLine{245             numError = i;}
+\DoxyCodeLine{246         \}}
+\DoxyCodeLine{247     \}}
+\DoxyCodeLine{248     fourthPath = path+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(3)+\textcolor{stringliteral}{"{}/Block"{}}+j+\textcolor{stringliteral}{"{}/"{}}+name+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(3)+\textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{249     fourthBin = \mbox{\hyperlink{mainwindow_8cpp_a7f7530b0e6f8211f78831349a479f868}{convert}}(fourthPath);}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252     \textcolor{keywordtype}{string} convertido = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{253     \textcolor{keywordflow}{if}(numError == -\/1)\{}
+\DoxyCodeLine{254         cout<<\textcolor{stringliteral}{"{}Resultado: "{}};}
+\DoxyCodeLine{255         convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(firstPath);}
+\DoxyCodeLine{256         convertido.pop\_back();}
+\DoxyCodeLine{257         convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(secondPath);}
+\DoxyCodeLine{258         convertido.pop\_back();}
+\DoxyCodeLine{259         convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(thirdPath);}
+\DoxyCodeLine{260         convertido.pop\_back();}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} convertido;}
+\DoxyCodeLine{262     \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{263         \textcolor{keywordtype}{string} paridad;}
+\DoxyCodeLine{264         \textcolor{keywordflow}{switch}(numError)\{}
+\DoxyCodeLine{265             \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{266                 paridad = \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}}(secondBin, thirdBin);}
+\DoxyCodeLine{267                 paridad = \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}}(paridad, fourthBin);}
+\DoxyCodeLine{268                 cout<<\textcolor{stringliteral}{"{}Mensaje recuperado: "{}};}
+\DoxyCodeLine{269                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_aeaa67333cf7caea22ed9488041950b64}{BinToS}}(paridad);}
+\DoxyCodeLine{270                 convertido.pop\_back();}
+\DoxyCodeLine{271                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(secondPath);}
+\DoxyCodeLine{272                 convertido.pop\_back();}
+\DoxyCodeLine{273                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(thirdPath);}
+\DoxyCodeLine{274                 convertido.pop\_back();}
+\DoxyCodeLine{275                 \textcolor{keywordflow}{return} convertido;}
+\DoxyCodeLine{276                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{277             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{278                 paridad = \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}}(firstBin, thirdBin);}
+\DoxyCodeLine{279                 paridad = \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}}(paridad, fourthBin);}
+\DoxyCodeLine{280                 cout<<\textcolor{stringliteral}{"{}Mensaje recuperado: "{}};}
+\DoxyCodeLine{281                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(firstPath);}
+\DoxyCodeLine{282                 convertido.pop\_back();}
+\DoxyCodeLine{283                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_aeaa67333cf7caea22ed9488041950b64}{BinToS}}(paridad);}
+\DoxyCodeLine{284                 convertido.pop\_back();}
+\DoxyCodeLine{285                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(thirdPath);}
+\DoxyCodeLine{286                 convertido.pop\_back();}
+\DoxyCodeLine{287                 \textcolor{keywordflow}{return} convertido;}
+\DoxyCodeLine{288                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{289             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{290                 paridad = \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}}(firstBin, secondBin);}
+\DoxyCodeLine{291                 paridad = \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}}(paridad, fourthBin);}
+\DoxyCodeLine{292                 cout<<\textcolor{stringliteral}{"{}Mensaje recuperado: "{}};}
+\DoxyCodeLine{293                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(firstPath);}
+\DoxyCodeLine{294                 convertido.pop\_back();}
+\DoxyCodeLine{295                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{readData}}(secondPath);}
+\DoxyCodeLine{296                 convertido.pop\_back();}
+\DoxyCodeLine{297                 convertido += \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_aeaa67333cf7caea22ed9488041950b64}{BinToS}}(paridad);}
+\DoxyCodeLine{298                 convertido.pop\_back();}
+\DoxyCodeLine{299                 \textcolor{keywordflow}{return} convertido;}
+\DoxyCodeLine{300                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{301             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{302                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{303         \}}
+\DoxyCodeLine{304     \}}
+\DoxyCodeLine{305 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{mainwindow_8cpp_a9112238455894abfd78940bfd91001f7}\label{mainwindow_8cpp_a9112238455894abfd78940bfd91001f7}} 
+\index{mainwindow.cpp@{mainwindow.cpp}!StoL@{StoL}}
+\index{StoL@{StoL}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{StoL()}{StoL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classList}{List}}$<$string$>$ StoL (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{char}]{char\+\_\+ }\end{DoxyParamCaption})}
+
+Parse string to list 
+\begin{DoxyParams}{Parameters}
+{\em text} & string to parse \\
+\hline
+{\em char\+\_\+} & identifier to split \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list to string 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                                            \{}
+\DoxyCodeLine{45     \textcolor{keywordtype}{string} insert;}
+\DoxyCodeLine{46     \mbox{\hyperlink{classList}{List<string>}} result;}
+\DoxyCodeLine{47     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < text.size(); i++) \{}
+\DoxyCodeLine{48         \textcolor{keywordflow}{if} (text[i]==char\_)\{}
+\DoxyCodeLine{49             result.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(insert);}
+\DoxyCodeLine{50             insert =\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{51         \}}
+\DoxyCodeLine{52         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{53             insert.push\_back(text[i]);}
+\DoxyCodeLine{54         \}}
+\DoxyCodeLine{55     \}}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} (char\_ == \textcolor{charliteral}{'\$'} || char\_ == \textcolor{charliteral}{'\%'})\{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60     result.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(insert);}
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}

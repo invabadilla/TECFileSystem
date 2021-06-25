@@ -17,6 +17,12 @@ using json = nlohmann::json;
 using namespace filesystem;
 using namespace std;
 
+/**
+ * Parse list string to json format
+ * @param toSend list string with the information to send
+ * @param key identifier
+ * @return json
+ */
 json parseJson (List<string> toSend, string key){
     json mymessage =
             {
@@ -28,6 +34,13 @@ json parseJson (List<string> toSend, string key){
             };
     return mymessage;
 }
+
+/**
+ * Parse string to list
+ * @param text string to parse
+ * @param char_ identifier to split
+ * @return list to string
+ */
 List<string> StoL (string text, char char_){
     string insert;
     List<string> result;
@@ -48,7 +61,10 @@ List<string> StoL (string text, char char_){
     return result;
 }
 
-
+/**
+ * Run the interface
+ * @param parent
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -56,12 +72,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 }
 
+/**
+ * destructor of the application
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-
+/**
+ * Function to open the directory
+ */
 void MainWindow::on_actionAbrir_triggered()
 {
     QString fileName;
@@ -101,7 +122,6 @@ void MainWindow::on_actionAbrir_triggered()
             insertStatus = false;
         }
     }
-    // insertar metodo que inserte todos los libros en el RAID
 
     if (insertStatus){
         ui->label->setText("Se han insertado los libros exitosamente!");
@@ -110,11 +130,11 @@ void MainWindow::on_actionAbrir_triggered()
     }
 }
 
+/**
+ * Function to search word in the RAID
+ */
 void MainWindow::on_pushButton_clicked()
 {
-
-    // insertar metodo para las busquedas
-    //ServerManager *manager = ServerManager::getInstance();
     QString tmp = ui->lineEdit->text();
     List<string> list = buildHuffmanTree(tmp.toStdString());
     json js = parseJson(list, "search");
@@ -155,6 +175,11 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
+/**
+ * Convert a binary string to string
+ * @param input_ binary string
+ * @return string
+ */
 string convert(string input_){
     ifstream input(input_, ios::binary);
     vector<char> bytes(
@@ -170,6 +195,13 @@ string convert(string input_){
 
 }
 
+/**
+ * Method to read data in the RAID
+ * @param path
+ * @param name
+ * @param j
+ * @return
+ */
 string readData(string path, string name, string j){
 
     divider divider;
@@ -272,6 +304,11 @@ string readData(string path, string name, string j){
     }
 }
 
+/**
+ * Function to get the file to open
+ * @param row
+ * @param column
+ */
 void MainWindow::on_tableWidget_cellClicked(int row, int column)
 {
     string name = ui->tableWidget->item(row, column)->text().toStdString();
@@ -332,11 +369,3 @@ void MainWindow::add_row(List<string> similars)
 
 }
 
-///*!
-// * \brief deletes all the rows
-// *
-// */
-//void MainWindow::delete_row()
-//{
-//    ui->tableWidget->setRowCount(0);
-//}

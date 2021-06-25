@@ -1,0 +1,244 @@
+\hypertarget{classtinyxml2_1_1XMLDeclaration}{}\doxysection{tinyxml2\+::XMLDeclaration Class Reference}
+\label{classtinyxml2_1_1XMLDeclaration}\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+
+
+{\ttfamily \#include $<$tinyxml2.\+h$>$}
+
+Inheritance diagram for tinyxml2\+::XMLDeclaration\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtinyxml2_1_1XMLDeclaration}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration}{XMLDeclaration}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_a159d8ac45865215e88059ea1e5b52fc5}{To\+Declaration}} ()
+\item 
+virtual const \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration}{XMLDeclaration}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_aa20c3315b18c3b88830dccf5c493259b}{To\+Declaration}} () const
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_acf47629d9fc08ed6f1c164a97bcf794b}{Accept}} (\mbox{\hyperlink{classtinyxml2_1_1XMLVisitor}{XMLVisitor}} $\ast$visitor) const
+\item 
+virtual \mbox{\hyperlink{classtinyxml2_1_1XMLNode}{XMLNode}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_ad9d60e6d2df75c13eb6bf7319985b747}{Shallow\+Clone}} (\mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} $\ast$document) const
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_ae8b4d3a399857029f36c322b0801b69c}{Shallow\+Equal}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLNode}{XMLNode}} $\ast$compare) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_aef9586f2ce5df5feba74dde49a242b06}{XMLDeclaration}} (\mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} $\ast$doc)
+\item 
+virtual \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_ab93d5bf4f5d58b4144963cf739cf6dcc}{$\sim$\+XMLDeclaration}} ()
+\item 
+char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_a42a2a36f4d78dc745063b79c16538b9b}{Parse\+Deep}} (char $\ast$p, \mbox{\hyperlink{classtinyxml2_1_1StrPair}{Str\+Pair}} $\ast$parent\+End\+Tag, int $\ast$cur\+Line\+Num\+Ptr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_a4eee3bda60c60a30e4e8cd4ea91c4c6e}{XMLDocument}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 869 of file tinyxml2.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_aef9586f2ce5df5feba74dde49a242b06}\label{classtinyxml2_1_1XMLDeclaration_aef9586f2ce5df5feba74dde49a242b06}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!XMLDeclaration@{XMLDeclaration}}
+\index{XMLDeclaration@{XMLDeclaration}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{XMLDeclaration()}{XMLDeclaration()}}
+{\footnotesize\ttfamily tinyxml2\+::\+XMLDeclaration\+::\+XMLDeclaration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} $\ast$}]{doc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 1299 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1299                                                      : \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a29868df6ca383d574f584dfdd15105b6}{XMLNode}}( doc )}
+\DoxyCodeLine{1300     \{}
+\DoxyCodeLine{1301     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_ab93d5bf4f5d58b4144963cf739cf6dcc}\label{classtinyxml2_1_1XMLDeclaration_ab93d5bf4f5d58b4144963cf739cf6dcc}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!````~XMLDeclaration@{$\sim$XMLDeclaration}}
+\index{````~XMLDeclaration@{$\sim$XMLDeclaration}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{$\sim$XMLDeclaration()}{~XMLDeclaration()}}
+{\footnotesize\ttfamily tinyxml2\+::\+XMLDeclaration\+::$\sim$\+XMLDeclaration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 1304 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1305     \{}
+\DoxyCodeLine{1306         \textcolor{comment}{//printf( "{}\string~XMLDeclaration\(\backslash\)n"{} );}}
+\DoxyCodeLine{1307     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_acf47629d9fc08ed6f1c164a97bcf794b}\label{classtinyxml2_1_1XMLDeclaration_acf47629d9fc08ed6f1c164a97bcf794b}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!Accept@{Accept}}
+\index{Accept@{Accept}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{Accept()}{Accept()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLDeclaration\+::\+Accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1XMLVisitor}{XMLVisitor}} $\ast$}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a81e66df0a44c67a7af17f3b77a152785}{tinyxml2\+::\+XMLNode}}.
+
+
+
+Definition at line 1340 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1341     \{}
+\DoxyCodeLine{1342         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( visitor );}
+\DoxyCodeLine{1343         \textcolor{keywordflow}{return} visitor-\/>Visit( *\textcolor{keyword}{this} );}
+\DoxyCodeLine{1344     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_a42a2a36f4d78dc745063b79c16538b9b}\label{classtinyxml2_1_1XMLDeclaration_a42a2a36f4d78dc745063b79c16538b9b}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!ParseDeep@{ParseDeep}}
+\index{ParseDeep@{ParseDeep}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{ParseDeep()}{ParseDeep()}}
+{\footnotesize\ttfamily char $\ast$ tinyxml2\+::\+XMLDeclaration\+::\+Parse\+Deep (\begin{DoxyParamCaption}\item[{char $\ast$}]{p,  }\item[{\mbox{\hyperlink{classtinyxml2_1_1StrPair}{Str\+Pair}} $\ast$}]{parent\+End\+Tag,  }\item[{int $\ast$}]{cur\+Line\+Num\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a916e498914baecbc9a1f012352ef7c69}{tinyxml2\+::\+XMLNode}}.
+
+
+
+Definition at line 1310 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1311     \{}
+\DoxyCodeLine{1312         \textcolor{comment}{// Declaration parses as text.}}
+\DoxyCodeLine{1313         p = \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a3ea9884098b8379de2bb5ab3fc85c0fc}{\_value}}.\mbox{\hyperlink{classtinyxml2_1_1StrPair_a68e6999b7677fa711287ececb9ba317e}{ParseText}}( p, \textcolor{stringliteral}{"{}?>"{}}, \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{StrPair::NEEDS\_NEWLINE\_NORMALIZATION}}, curLineNumPtr );}
+\DoxyCodeLine{1314         \textcolor{keywordflow}{if} ( p == 0 ) \{}
+\DoxyCodeLine{1315             \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a8d2d2be0bb6797625551eb0e91f0ff62}{\_document}}-\/>SetError( \mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08ad45b208578e30dab5a21bff1d8991b87}{XML\_ERROR\_PARSING\_DECLARATION}}, \mbox{\hyperlink{classtinyxml2_1_1XMLNode_ab336ed023e15be202ff3b410be01b804}{\_parseLineNum}}, 0 );}
+\DoxyCodeLine{1316         \}}
+\DoxyCodeLine{1317         \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{1318     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_ad9d60e6d2df75c13eb6bf7319985b747}\label{classtinyxml2_1_1XMLDeclaration_ad9d60e6d2df75c13eb6bf7319985b747}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!ShallowClone@{ShallowClone}}
+\index{ShallowClone@{ShallowClone}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{ShallowClone()}{ShallowClone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtinyxml2_1_1XMLNode}{XMLNode}} $\ast$ tinyxml2\+::\+XMLDeclaration\+::\+Shallow\+Clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} $\ast$}]{document }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a8402cbd3129d20e9e6024bbcc0531283}{tinyxml2\+::\+XMLNode}}.
+
+
+
+Definition at line 1321 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1322     \{}
+\DoxyCodeLine{1323         \textcolor{keywordflow}{if} ( !doc ) \{}
+\DoxyCodeLine{1324             doc = \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a8d2d2be0bb6797625551eb0e91f0ff62}{\_document}};}
+\DoxyCodeLine{1325         \}}
+\DoxyCodeLine{1326         \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_aef9586f2ce5df5feba74dde49a242b06}{XMLDeclaration}}* dec = doc-\/>NewDeclaration( \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a0485e51c670e741884cfd8362274d680}{Value}}() );    \textcolor{comment}{// fixme: this will always allocate memory. Intern?}}
+\DoxyCodeLine{1327         \textcolor{keywordflow}{return} dec;}
+\DoxyCodeLine{1328     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_ae8b4d3a399857029f36c322b0801b69c}\label{classtinyxml2_1_1XMLDeclaration_ae8b4d3a399857029f36c322b0801b69c}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!ShallowEqual@{ShallowEqual}}
+\index{ShallowEqual@{ShallowEqual}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{ShallowEqual()}{ShallowEqual()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLDeclaration\+::\+Shallow\+Equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLNode}{XMLNode}} $\ast$}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a7ce18b751c3ea09eac292dca264f9226}{tinyxml2\+::\+XMLNode}}.
+
+
+
+Definition at line 1331 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1332     \{}
+\DoxyCodeLine{1333         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( compare );}
+\DoxyCodeLine{1334         \textcolor{keyword}{const} \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration_aef9586f2ce5df5feba74dde49a242b06}{XMLDeclaration}}* declaration = compare-\/>ToDeclaration();}
+\DoxyCodeLine{1335         \textcolor{keywordflow}{return} ( declaration \&\& \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_acfcd287cacfd2533e1bc9ea4dfb56602}{XMLUtil::StringEqual}}( declaration-\/>Value(), \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a0485e51c670e741884cfd8362274d680}{Value}}() ));}
+\DoxyCodeLine{1336     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_a159d8ac45865215e88059ea1e5b52fc5}\label{classtinyxml2_1_1XMLDeclaration_a159d8ac45865215e88059ea1e5b52fc5}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!ToDeclaration@{ToDeclaration}}
+\index{ToDeclaration@{ToDeclaration}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{ToDeclaration()}{ToDeclaration()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration}{XMLDeclaration}}$\ast$ tinyxml2\+::\+XMLDeclaration\+::\+To\+Declaration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLNode_a174fd4c22c010b58138c1b84a0dfbd51}{tinyxml2\+::\+XMLNode}}.
+
+
+
+Definition at line 873 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{873                                                                 \{}
+\DoxyCodeLine{874             \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{875         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_aa20c3315b18c3b88830dccf5c493259b}\label{classtinyxml2_1_1XMLDeclaration_aa20c3315b18c3b88830dccf5c493259b}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!ToDeclaration@{ToDeclaration}}
+\index{ToDeclaration@{ToDeclaration}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{ToDeclaration()}{ToDeclaration()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual const \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration}{XMLDeclaration}}$\ast$ tinyxml2\+::\+XMLDeclaration\+::\+To\+Declaration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLNode_ac48bb4bf9eb7bb3654ad4b94945db9a1}{tinyxml2\+::\+XMLNode}}.
+
+
+
+Definition at line 876 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{876                                                                 \{}
+\DoxyCodeLine{877             \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{878         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLDeclaration_a4eee3bda60c60a30e4e8cd4ea91c4c6e}\label{classtinyxml2_1_1XMLDeclaration_a4eee3bda60c60a30e4e8cd4ea91c4c6e}} 
+\index{tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}!XMLDocument@{XMLDocument}}
+\index{XMLDocument@{XMLDocument}!tinyxml2::XMLDeclaration@{tinyxml2::XMLDeclaration}}
+\doxysubsubsection{\texorpdfstring{XMLDocument}{XMLDocument}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line 871 of file tinyxml2.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tinyxml2_8h}{tinyxml2.\+h}}\item 
+\mbox{\hyperlink{tinyxml2_8cpp}{tinyxml2.\+cpp}}\end{DoxyCompactItemize}

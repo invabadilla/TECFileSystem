@@ -1,0 +1,203 @@
+\hypertarget{classClient}{}\doxysection{Client Class Reference}
+\label{classClient}\index{Client@{Client}}
+
+
+Singleton class used by the client to interface with the memory server, all requests to the memory server are handled by this class.  
+
+
+
+
+{\ttfamily \#include $<$Client.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClient_a06245383076ebbbac1ecea0fba95641a}{Client}} (\mbox{\hyperlink{classClient}{Client}} \&other)=delete
+\item 
+void \mbox{\hyperlink{classClient_af89b8c6eff32bb189f9f5b7f27c72189}{operator=}} (const \mbox{\hyperlink{classClient}{Client}} \&)=delete
+\item 
+void \mbox{\hyperlink{classClient_a2ad7123508ed42b75ddc8d7cd3385c83}{send\+Request}} (int request)
+\begin{DoxyCompactList}\small\item\em Sends an int as a request to the server so it knows which protocol to follow. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classClient_a9d57b479a17c99afb4a905e1421f5c9a}{send\+Json}} (std\+::string json\+Str)
+\begin{DoxyCompactList}\small\item\em Sends any type of string to the server but it should mostly expect json encoded strings. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classClient_a75a663bad1205f02d9707d607c2347c0}{get\+Server\+Msg}} ()
+\begin{DoxyCompactList}\small\item\em Calls listen\+Server to get a message from the server and returns it as an std\+::string, call only if expecting the server to send a message back after a request or during a protocol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classClient}{Client}} $\ast$ \mbox{\hyperlink{classClient_a5535b4c9da6ace40d153a51df8c72bfe}{get\+Instance}} (int \mbox{\hyperlink{classClient_a673474edc6585437ed7348c03f23f74a}{PORT}}=9999)
+\begin{DoxyCompactList}\small\item\em method to get (or initialize for the first time) the singleton instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classClient_a673474edc6585437ed7348c03f23f74a}{PORT}}
+\begin{DoxyCompactList}\small\item\em port number to which it connects \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton class used by the client to interface with the memory server, all requests to the memory server are handled by this class. 
+
+Definition at line 10 of file Client.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClient_a06245383076ebbbac1ecea0fba95641a}\label{classClient_a06245383076ebbbac1ecea0fba95641a}} 
+\index{Client@{Client}!Client@{Client}}
+\index{Client@{Client}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{Client()}{Client()}}
+{\footnotesize\ttfamily Client\+::\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClient}{Client}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClient_a5535b4c9da6ace40d153a51df8c72bfe}\label{classClient_a5535b4c9da6ace40d153a51df8c72bfe}} 
+\index{Client@{Client}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classClient}{Client}} $\ast$ Client\+::get\+Instance (\begin{DoxyParamCaption}\item[{int}]{PORT = {\ttfamily 9999} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+method to get (or initialize for the first time) the singleton instance 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PORT} & where it\textquotesingle{}ll connect with server \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Client$\ast$ singleton instance 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file Client.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} (singleton == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         singleton = \textcolor{keyword}{new} \mbox{\hyperlink{classClient}{Client}}(\mbox{\hyperlink{classClient_a673474edc6585437ed7348c03f23f74a}{PORT}});}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} singleton;}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClient_a75a663bad1205f02d9707d607c2347c0}\label{classClient_a75a663bad1205f02d9707d607c2347c0}} 
+\index{Client@{Client}!getServerMsg@{getServerMsg}}
+\index{getServerMsg@{getServerMsg}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getServerMsg()}{getServerMsg()}}
+{\footnotesize\ttfamily std\+::string Client\+::get\+Server\+Msg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calls listen\+Server to get a message from the server and returns it as an std\+::string, call only if expecting the server to send a message back after a request or during a protocol. 
+
+
+
+Definition at line 120 of file Client.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{121 \{}
+\DoxyCodeLine{122     listenServer();}
+\DoxyCodeLine{123     std::string msg = std::string(this-\/>buffer);}
+\DoxyCodeLine{124     \textcolor{keywordflow}{return} msg;}
+\DoxyCodeLine{125 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClient_af89b8c6eff32bb189f9f5b7f27c72189}\label{classClient_af89b8c6eff32bb189f9f5b7f27c72189}} 
+\index{Client@{Client}!operator=@{operator=}}
+\index{operator=@{operator=}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Client\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClient}{Client}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classClient_a9d57b479a17c99afb4a905e1421f5c9a}\label{classClient_a9d57b479a17c99afb4a905e1421f5c9a}} 
+\index{Client@{Client}!sendJson@{sendJson}}
+\index{sendJson@{sendJson}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{sendJson()}{sendJson()}}
+{\footnotesize\ttfamily std\+::string Client\+::send\+Json (\begin{DoxyParamCaption}\item[{std\+::string}]{json\+Str }\end{DoxyParamCaption})}
+
+
+
+Sends any type of string to the server but it should mostly expect json encoded strings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Str} & the message to be sent, possibly encoded in json format \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file Client.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100 \{}
+\DoxyCodeLine{101     connectSocket();}
+\DoxyCodeLine{102     \textcolor{comment}{//printf("{}Sending: \%s\(\backslash\)n"{}, jsonStr.c\_str());}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     std::string msg = jsonStr;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     send(this-\/>serverSocket, msg.c\_str(), msg.length(), 0);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     std::string messageR = \mbox{\hyperlink{classClient_a75a663bad1205f02d9707d607c2347c0}{getServerMsg}}();}
+\DoxyCodeLine{109     \textcolor{keywordflow}{return} messageR;}
+\DoxyCodeLine{110 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClient_a2ad7123508ed42b75ddc8d7cd3385c83}\label{classClient_a2ad7123508ed42b75ddc8d7cd3385c83}} 
+\index{Client@{Client}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}}
+{\footnotesize\ttfamily void Client\+::send\+Request (\begin{DoxyParamCaption}\item[{int}]{request }\end{DoxyParamCaption})}
+
+
+
+Sends an int as a request to the server so it knows which protocol to follow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & int as specified by the server/\+Request\+Constants.\+h file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file Client.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85 \{}
+\DoxyCodeLine{86     connectSocket();}
+\DoxyCodeLine{87     \textcolor{comment}{//printf("{}Sending request: \%d\(\backslash\)n"{}, request);}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     std::string msg = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{std::to\_string}}(request);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     send(this-\/>serverSocket, msg.c\_str(), msg.length(), 0);}
+\DoxyCodeLine{92 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classClient_a673474edc6585437ed7348c03f23f74a}\label{classClient_a673474edc6585437ed7348c03f23f74a}} 
+\index{Client@{Client}!PORT@{PORT}}
+\index{PORT@{PORT}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{PORT}{PORT}}
+{\footnotesize\ttfamily int Client\+::\+PORT}
+
+
+
+port number to which it connects 
+
+
+
+Definition at line 31 of file Client.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Client_8h}{Client.\+h}}\item 
+\mbox{\hyperlink{Client_8cpp}{Client.\+cpp}}\end{DoxyCompactItemize}

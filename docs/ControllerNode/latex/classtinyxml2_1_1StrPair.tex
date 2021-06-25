@@ -1,0 +1,484 @@
+\hypertarget{classtinyxml2_1_1StrPair}{}\doxysection{tinyxml2\+::Str\+Pair Class Reference}
+\label{classtinyxml2_1_1StrPair}\index{tinyxml2::StrPair@{tinyxml2::StrPair}}
+
+
+{\ttfamily \#include $<$tinyxml2.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54}{Mode}} \{ \newline
+\mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a4f1e01a55f8efe4ca72c32d454060237}{NEEDS\+\_\+\+ENTITY\+\_\+\+PROCESSING}} = 0x01
+, \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\+\_\+\+NEWLINE\+\_\+\+NORMALIZATION}} = 0x02
+, \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a13996e9d4ed18fd2d6af59bbab291b63}{NEEDS\+\_\+\+WHITESPACE\+\_\+\+COLLAPSING}} = 0x04
+, \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54aae519eb5a639858591763aa5fc6cc953}{TEXT\+\_\+\+ELEMENT}} = NEEDS\+\_\+\+ENTITY\+\_\+\+PROCESSING $\vert$ NEEDS\+\_\+\+NEWLINE\+\_\+\+NORMALIZATION
+, \newline
+\mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a96be48cf899bfeea0aa227f984f1fa63}{TEXT\+\_\+\+ELEMENT\+\_\+\+LEAVE\+\_\+\+ENTITIES}} = NEEDS\+\_\+\+NEWLINE\+\_\+\+NORMALIZATION
+, \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54aaab1cbefaa977e6f772b4e2575417aeb}{ATTRIBUTE\+\_\+\+NAME}} = 0
+, \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a6d72f9ce15f50e8bcd680edf66235dfd}{ATTRIBUTE\+\_\+\+VALUE}} = NEEDS\+\_\+\+ENTITY\+\_\+\+PROCESSING $\vert$ NEEDS\+\_\+\+NEWLINE\+\_\+\+NORMALIZATION
+, \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a2decbd2513ac14f8befa987938326399}{ATTRIBUTE\+\_\+\+VALUE\+\_\+\+LEAVE\+\_\+\+ENTITIES}} = NEEDS\+\_\+\+NEWLINE\+\_\+\+NORMALIZATION
+, \newline
+\mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a067a6ec90c8beea1cf5992930d93bffa}{COMMENT}} = NEEDS\+\_\+\+NEWLINE\+\_\+\+NORMALIZATION
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1StrPair_a69153963f7052de9f767d3d8c1623a70}{Str\+Pair}} ()
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1StrPair_a60bed84d2503296e1c2a73fcef1431f9}{$\sim$\+Str\+Pair}} ()
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1StrPair_a4f05549373394266a1eecba26813c166}{Set}} (char $\ast$start, char $\ast$end, int flags)
+\item 
+const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1StrPair_ad87e3d11330f5e689ba1e7e54c023b57}{Get\+Str}} ()
+\item 
+bool \mbox{\hyperlink{classtinyxml2_1_1StrPair_aca963a7eaa900bfddbea7312f040b39c}{Empty}} () const
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1StrPair_a2baf6230e18333e02ab65d0897ee3941}{Set\+Interned\+Str}} (const char $\ast$str)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1StrPair_a1f82ec6b5bee35ee7466d8565e43b1de}{Set\+Str}} (const char $\ast$str, int flags=0)
+\item 
+char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1StrPair_a68e6999b7677fa711287ececb9ba317e}{Parse\+Text}} (char $\ast$in, const char $\ast$end\+Tag, int str\+Flags, int $\ast$cur\+Line\+Num\+Ptr)
+\item 
+char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1StrPair_aa6d8998efceba41d87ec2300c70a6085}{Parse\+Name}} (char $\ast$in)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1StrPair_a35f795b1557fe5fdcbd93d3cc5d6b939}{Transfer\+To}} (\mbox{\hyperlink{classtinyxml2_1_1StrPair}{Str\+Pair}} $\ast$other)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1StrPair_a80c1b3bd99bf62ae85c94a29ce537125}{Reset}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 136 of file tinyxml2.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!Mode@{Mode}}
+\index{Mode@{Mode}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{Mode}{Mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54}{tinyxml2\+::\+Str\+Pair\+::\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEEDS\_ENTITY\_PROCESSING@{NEEDS\_ENTITY\_PROCESSING}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!NEEDS\_ENTITY\_PROCESSING@{NEEDS\_ENTITY\_PROCESSING}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a4f1e01a55f8efe4ca72c32d454060237}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a4f1e01a55f8efe4ca72c32d454060237}} 
+NEEDS\+\_\+\+ENTITY\+\_\+\+PROCESSING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEEDS\_NEWLINE\_NORMALIZATION@{NEEDS\_NEWLINE\_NORMALIZATION}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!NEEDS\_NEWLINE\_NORMALIZATION@{NEEDS\_NEWLINE\_NORMALIZATION}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}} 
+NEEDS\+\_\+\+NEWLINE\+\_\+\+NORMALIZATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEEDS\_WHITESPACE\_COLLAPSING@{NEEDS\_WHITESPACE\_COLLAPSING}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!NEEDS\_WHITESPACE\_COLLAPSING@{NEEDS\_WHITESPACE\_COLLAPSING}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a13996e9d4ed18fd2d6af59bbab291b63}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a13996e9d4ed18fd2d6af59bbab291b63}} 
+NEEDS\+\_\+\+WHITESPACE\+\_\+\+COLLAPSING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXT\_ELEMENT@{TEXT\_ELEMENT}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!TEXT\_ELEMENT@{TEXT\_ELEMENT}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54aae519eb5a639858591763aa5fc6cc953}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54aae519eb5a639858591763aa5fc6cc953}} 
+TEXT\+\_\+\+ELEMENT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXT\_ELEMENT\_LEAVE\_ENTITIES@{TEXT\_ELEMENT\_LEAVE\_ENTITIES}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!TEXT\_ELEMENT\_LEAVE\_ENTITIES@{TEXT\_ELEMENT\_LEAVE\_ENTITIES}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a96be48cf899bfeea0aa227f984f1fa63}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a96be48cf899bfeea0aa227f984f1fa63}} 
+TEXT\+\_\+\+ELEMENT\+\_\+\+LEAVE\+\_\+\+ENTITIES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ATTRIBUTE\_NAME@{ATTRIBUTE\_NAME}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!ATTRIBUTE\_NAME@{ATTRIBUTE\_NAME}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54aaab1cbefaa977e6f772b4e2575417aeb}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54aaab1cbefaa977e6f772b4e2575417aeb}} 
+ATTRIBUTE\+\_\+\+NAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ATTRIBUTE\_VALUE@{ATTRIBUTE\_VALUE}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!ATTRIBUTE\_VALUE@{ATTRIBUTE\_VALUE}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a6d72f9ce15f50e8bcd680edf66235dfd}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a6d72f9ce15f50e8bcd680edf66235dfd}} 
+ATTRIBUTE\+\_\+\+VALUE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ATTRIBUTE\_VALUE\_LEAVE\_ENTITIES@{ATTRIBUTE\_VALUE\_LEAVE\_ENTITIES}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!ATTRIBUTE\_VALUE\_LEAVE\_ENTITIES@{ATTRIBUTE\_VALUE\_LEAVE\_ENTITIES}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a2decbd2513ac14f8befa987938326399}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a2decbd2513ac14f8befa987938326399}} 
+ATTRIBUTE\+\_\+\+VALUE\+\_\+\+LEAVE\+\_\+\+ENTITIES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMMENT@{COMMENT}!tinyxml2::StrPair@{tinyxml2::StrPair}}\index{tinyxml2::StrPair@{tinyxml2::StrPair}!COMMENT@{COMMENT}}}\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a067a6ec90c8beea1cf5992930d93bffa}\label{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a067a6ec90c8beea1cf5992930d93bffa}} 
+COMMENT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 139 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139                   \{}
+\DoxyCodeLine{140             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a4f1e01a55f8efe4ca72c32d454060237}{NEEDS\_ENTITY\_PROCESSING}}         = 0x01,}
+\DoxyCodeLine{141             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\_NEWLINE\_NORMALIZATION}}     = 0x02,}
+\DoxyCodeLine{142             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a13996e9d4ed18fd2d6af59bbab291b63}{NEEDS\_WHITESPACE\_COLLAPSING}}     = 0x04,}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54aae519eb5a639858591763aa5fc6cc953}{TEXT\_ELEMENT}}                    = \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a4f1e01a55f8efe4ca72c32d454060237}{NEEDS\_ENTITY\_PROCESSING}} | \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\_NEWLINE\_NORMALIZATION}},}
+\DoxyCodeLine{145             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a96be48cf899bfeea0aa227f984f1fa63}{TEXT\_ELEMENT\_LEAVE\_ENTITIES}}     = \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\_NEWLINE\_NORMALIZATION}},}
+\DoxyCodeLine{146             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54aaab1cbefaa977e6f772b4e2575417aeb}{ATTRIBUTE\_NAME}}                  = 0,}
+\DoxyCodeLine{147             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a6d72f9ce15f50e8bcd680edf66235dfd}{ATTRIBUTE\_VALUE}}                 = \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a4f1e01a55f8efe4ca72c32d454060237}{NEEDS\_ENTITY\_PROCESSING}} | \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\_NEWLINE\_NORMALIZATION}},}
+\DoxyCodeLine{148             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a2decbd2513ac14f8befa987938326399}{ATTRIBUTE\_VALUE\_LEAVE\_ENTITIES}}  = \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\_NEWLINE\_NORMALIZATION}},}
+\DoxyCodeLine{149             \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a067a6ec90c8beea1cf5992930d93bffa}{COMMENT}}                         = \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\_NEWLINE\_NORMALIZATION}}}
+\DoxyCodeLine{150         \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_a69153963f7052de9f767d3d8c1623a70}\label{classtinyxml2_1_1StrPair_a69153963f7052de9f767d3d8c1623a70}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!StrPair@{StrPair}}
+\index{StrPair@{StrPair}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{StrPair()}{StrPair()}}
+{\footnotesize\ttfamily tinyxml2\+::\+Str\+Pair\+::\+Str\+Pair (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 152 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{152 : \_flags( 0 ), \_start( 0 ), \_end( 0 ) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_a60bed84d2503296e1c2a73fcef1431f9}\label{classtinyxml2_1_1StrPair_a60bed84d2503296e1c2a73fcef1431f9}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!````~StrPair@{$\sim$StrPair}}
+\index{````~StrPair@{$\sim$StrPair}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{$\sim$StrPair()}{~StrPair()}}
+{\footnotesize\ttfamily tinyxml2\+::\+Str\+Pair\+::$\sim$\+Str\+Pair (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 147 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{148     \{}
+\DoxyCodeLine{149         \mbox{\hyperlink{classtinyxml2_1_1StrPair_a80c1b3bd99bf62ae85c94a29ce537125}{Reset}}();}
+\DoxyCodeLine{150     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_aca963a7eaa900bfddbea7312f040b39c}\label{classtinyxml2_1_1StrPair_aca963a7eaa900bfddbea7312f040b39c}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!Empty@{Empty}}
+\index{Empty@{Empty}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{Empty()}{Empty()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+Str\+Pair\+::\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 166 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{166                            \{}
+\DoxyCodeLine{167             \textcolor{keywordflow}{return} \_start == \_end;}
+\DoxyCodeLine{168         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_ad87e3d11330f5e689ba1e7e54c023b57}\label{classtinyxml2_1_1StrPair_ad87e3d11330f5e689ba1e7e54c023b57}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!GetStr@{GetStr}}
+\index{GetStr@{GetStr}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{GetStr()}{GetStr()}}
+{\footnotesize\ttfamily const char $\ast$ tinyxml2\+::\+Str\+Pair\+::\+Get\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 276 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{277     \{}
+\DoxyCodeLine{278         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( \_start );}
+\DoxyCodeLine{279         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( \_end );}
+\DoxyCodeLine{280         \textcolor{keywordflow}{if} ( \_flags \& NEEDS\_FLUSH ) \{}
+\DoxyCodeLine{281             *\_end = 0;}
+\DoxyCodeLine{282             \_flags \string^= NEEDS\_FLUSH;}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284             \textcolor{keywordflow}{if} ( \_flags ) \{}
+\DoxyCodeLine{285                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}* p = \_start; \textcolor{comment}{// the read pointer}}
+\DoxyCodeLine{286                 \textcolor{keywordtype}{char}* q = \_start;   \textcolor{comment}{// the write pointer}}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288                 \textcolor{keywordflow}{while}( p < \_end ) \{}
+\DoxyCodeLine{289                     \textcolor{keywordflow}{if} ( (\_flags \& \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\_NEWLINE\_NORMALIZATION}}) \&\& *p == CR ) \{}
+\DoxyCodeLine{290                         \textcolor{comment}{// CR-\/LF pair becomes LF}}
+\DoxyCodeLine{291                         \textcolor{comment}{// CR alone becomes LF}}
+\DoxyCodeLine{292                         \textcolor{comment}{// LF-\/CR becomes LF}}
+\DoxyCodeLine{293                         \textcolor{keywordflow}{if} ( *(p+1) == LF ) \{}
+\DoxyCodeLine{294                             p += 2;}
+\DoxyCodeLine{295                         \}}
+\DoxyCodeLine{296                         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{297                             ++p;}
+\DoxyCodeLine{298                         \}}
+\DoxyCodeLine{299                         *q = LF;}
+\DoxyCodeLine{300                         ++q;}
+\DoxyCodeLine{301                     \}}
+\DoxyCodeLine{302                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( (\_flags \& \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0}{NEEDS\_NEWLINE\_NORMALIZATION}}) \&\& *p == LF ) \{}
+\DoxyCodeLine{303                         \textcolor{keywordflow}{if} ( *(p+1) == CR ) \{}
+\DoxyCodeLine{304                             p += 2;}
+\DoxyCodeLine{305                         \}}
+\DoxyCodeLine{306                         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{307                             ++p;}
+\DoxyCodeLine{308                         \}}
+\DoxyCodeLine{309                         *q = LF;}
+\DoxyCodeLine{310                         ++q;}
+\DoxyCodeLine{311                     \}}
+\DoxyCodeLine{312                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( (\_flags \& \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a4f1e01a55f8efe4ca72c32d454060237}{NEEDS\_ENTITY\_PROCESSING}}) \&\& *p == \textcolor{charliteral}{'\&'} ) \{}
+\DoxyCodeLine{313                         \textcolor{comment}{// Entities handled by tinyXML2:}}
+\DoxyCodeLine{314                         \textcolor{comment}{// -\/ special entities in the entity table [in/out]}}
+\DoxyCodeLine{315                         \textcolor{comment}{// -\/ numeric character reference [in]}}
+\DoxyCodeLine{316                         \textcolor{comment}{//   \&\#20013; or \&\#x4e2d;}}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318                         \textcolor{keywordflow}{if} ( *(p+1) == \textcolor{charliteral}{'\#'} ) \{}
+\DoxyCodeLine{319                             \textcolor{keyword}{const} \textcolor{keywordtype}{int} buflen = 10;}
+\DoxyCodeLine{320                             \textcolor{keywordtype}{char} buf[buflen] = \{ 0 \};}
+\DoxyCodeLine{321                             \textcolor{keywordtype}{int} len = 0;}
+\DoxyCodeLine{322                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}* adjusted = \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}( \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a5a96e5144a8d693dc4bcd783d9964648}{XMLUtil::GetCharacterRef}}( p, buf, \&len ) );}
+\DoxyCodeLine{323                             \textcolor{keywordflow}{if} ( adjusted == 0 ) \{}
+\DoxyCodeLine{324                                 *q = *p;}
+\DoxyCodeLine{325                                 ++p;}
+\DoxyCodeLine{326                                 ++q;}
+\DoxyCodeLine{327                             \}}
+\DoxyCodeLine{328                             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{329                                 \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( 0 <= len \&\& len <= buflen );}
+\DoxyCodeLine{330                                 \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( q + len <= adjusted );}
+\DoxyCodeLine{331                                 p = adjusted;}
+\DoxyCodeLine{332                                 memcpy( q, buf, len );}
+\DoxyCodeLine{333                                 q += len;}
+\DoxyCodeLine{334                             \}}
+\DoxyCodeLine{335                         \}}
+\DoxyCodeLine{336                         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{337                             \textcolor{keywordtype}{bool} entityFound = \textcolor{keyword}{false};}
+\DoxyCodeLine{338                             \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i = 0; i < NUM\_ENTITIES; ++i ) \{}
+\DoxyCodeLine{339                                 \textcolor{keyword}{const} Entity\& entity = entities[i];}
+\DoxyCodeLine{340                                 \textcolor{keywordflow}{if} ( strncmp( p + 1, entity.pattern, entity.length ) == 0}
+\DoxyCodeLine{341                                      \&\& *( p + entity.length + 1 ) == \textcolor{charliteral}{';'} ) \{}
+\DoxyCodeLine{342                                     \textcolor{comment}{// Found an entity -\/ convert.}}
+\DoxyCodeLine{343                                     *q = entity.\mbox{\hyperlink{structtinyxml2_1_1Entity_a7334e81e33b4615655a403711b24f3ed}{value}};}
+\DoxyCodeLine{344                                     ++q;}
+\DoxyCodeLine{345                                     p += entity.length + 2;}
+\DoxyCodeLine{346                                     entityFound = \textcolor{keyword}{true};}
+\DoxyCodeLine{347                                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{348                                 \}}
+\DoxyCodeLine{349                             \}}
+\DoxyCodeLine{350                             \textcolor{keywordflow}{if} ( !entityFound ) \{}
+\DoxyCodeLine{351                                 \textcolor{comment}{// fixme: treat as error?}}
+\DoxyCodeLine{352                                 ++p;}
+\DoxyCodeLine{353                                 ++q;}
+\DoxyCodeLine{354                             \}}
+\DoxyCodeLine{355                         \}}
+\DoxyCodeLine{356                     \}}
+\DoxyCodeLine{357                     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{358                         *q = *p;}
+\DoxyCodeLine{359                         ++p;}
+\DoxyCodeLine{360                         ++q;}
+\DoxyCodeLine{361                     \}}
+\DoxyCodeLine{362                 \}}
+\DoxyCodeLine{363                 *q = 0;}
+\DoxyCodeLine{364             \}}
+\DoxyCodeLine{365             \textcolor{comment}{// The loop below has plenty going on, and this}}
+\DoxyCodeLine{366             \textcolor{comment}{// is a less useful mode. Break it out.}}
+\DoxyCodeLine{367             \textcolor{keywordflow}{if} ( \_flags \& \mbox{\hyperlink{classtinyxml2_1_1StrPair_ac1a95416b9fef0fa61e08a329d05bd54a13996e9d4ed18fd2d6af59bbab291b63}{NEEDS\_WHITESPACE\_COLLAPSING}} ) \{}
+\DoxyCodeLine{368                 CollapseWhitespace();}
+\DoxyCodeLine{369             \}}
+\DoxyCodeLine{370             \_flags = (\_flags \& NEEDS\_DELETE);}
+\DoxyCodeLine{371         \}}
+\DoxyCodeLine{372         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( \_start );}
+\DoxyCodeLine{373         \textcolor{keywordflow}{return} \_start;}
+\DoxyCodeLine{374     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_aa6d8998efceba41d87ec2300c70a6085}\label{classtinyxml2_1_1StrPair_aa6d8998efceba41d87ec2300c70a6085}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!ParseName@{ParseName}}
+\index{ParseName@{ParseName}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{ParseName()}{ParseName()}}
+{\footnotesize\ttfamily char $\ast$ tinyxml2\+::\+Str\+Pair\+::\+Parse\+Name (\begin{DoxyParamCaption}\item[{char $\ast$}]{in }\end{DoxyParamCaption})}
+
+
+
+Definition at line 227 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228     \{}
+\DoxyCodeLine{229         \textcolor{keywordflow}{if} ( !p || !(*p) ) \{}
+\DoxyCodeLine{230             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{231         \}}
+\DoxyCodeLine{232         \textcolor{keywordflow}{if} ( !\mbox{\hyperlink{classtinyxml2_1_1XMLUtil_abe106a69ac4d942a4381a4d9dfd0e0bd}{XMLUtil::IsNameStartChar}}( (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}) *p ) ) \{}
+\DoxyCodeLine{233             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{234         \}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236         \textcolor{keywordtype}{char}* \textcolor{keyword}{const} start = p;}
+\DoxyCodeLine{237         ++p;}
+\DoxyCodeLine{238         \textcolor{keywordflow}{while} ( *p \&\& \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a04b17341538fa11752f24b4301d19485}{XMLUtil::IsNameChar}}( (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}) *p ) ) \{}
+\DoxyCodeLine{239             ++p;}
+\DoxyCodeLine{240         \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242         \mbox{\hyperlink{classtinyxml2_1_1StrPair_a4f05549373394266a1eecba26813c166}{Set}}( start, p, 0 );}
+\DoxyCodeLine{243         \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{244     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_a68e6999b7677fa711287ececb9ba317e}\label{classtinyxml2_1_1StrPair_a68e6999b7677fa711287ececb9ba317e}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!ParseText@{ParseText}}
+\index{ParseText@{ParseText}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{ParseText()}{ParseText()}}
+{\footnotesize\ttfamily char $\ast$ tinyxml2\+::\+Str\+Pair\+::\+Parse\+Text (\begin{DoxyParamCaption}\item[{char $\ast$}]{in,  }\item[{const char $\ast$}]{end\+Tag,  }\item[{int}]{str\+Flags,  }\item[{int $\ast$}]{cur\+Line\+Num\+Ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 202 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{203     \{}
+\DoxyCodeLine{204         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( p );}
+\DoxyCodeLine{205         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( endTag \&\& *endTag );}
+\DoxyCodeLine{206         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}(curLineNumPtr);}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208         \textcolor{keywordtype}{char}* start = p;}
+\DoxyCodeLine{209         \textcolor{keyword}{const} \textcolor{keywordtype}{char}  endChar = *endTag;}
+\DoxyCodeLine{210         \textcolor{keywordtype}{size\_t} length = strlen( endTag );}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212         \textcolor{comment}{// Inner loop of text parsing.}}
+\DoxyCodeLine{213         \textcolor{keywordflow}{while} ( *p ) \{}
+\DoxyCodeLine{214             \textcolor{keywordflow}{if} ( *p == endChar \&\& strncmp( p, endTag, length ) == 0 ) \{}
+\DoxyCodeLine{215                 \mbox{\hyperlink{classtinyxml2_1_1StrPair_a4f05549373394266a1eecba26813c166}{Set}}( start, p, strFlags );}
+\DoxyCodeLine{216                 \textcolor{keywordflow}{return} p + length;}
+\DoxyCodeLine{217             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*p == \textcolor{charliteral}{'\(\backslash\)n'}) \{}
+\DoxyCodeLine{218                 ++(*curLineNumPtr);}
+\DoxyCodeLine{219             \}}
+\DoxyCodeLine{220             ++p;}
+\DoxyCodeLine{221             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( p );}
+\DoxyCodeLine{222         \}}
+\DoxyCodeLine{223         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{224     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_a80c1b3bd99bf62ae85c94a29ce537125}\label{classtinyxml2_1_1StrPair_a80c1b3bd99bf62ae85c94a29ce537125}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!Reset@{Reset}}
+\index{Reset@{Reset}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+Str\+Pair\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 178 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{179     \{}
+\DoxyCodeLine{180         \textcolor{keywordflow}{if} ( \_flags \& NEEDS\_DELETE ) \{}
+\DoxyCodeLine{181             \textcolor{keyword}{delete} [] \_start;}
+\DoxyCodeLine{182         \}}
+\DoxyCodeLine{183         \_flags = 0;}
+\DoxyCodeLine{184         \_start = 0;}
+\DoxyCodeLine{185         \_end = 0;}
+\DoxyCodeLine{186     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_a4f05549373394266a1eecba26813c166}\label{classtinyxml2_1_1StrPair_a4f05549373394266a1eecba26813c166}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!Set@{Set}}
+\index{Set@{Set}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+Str\+Pair\+::\+Set (\begin{DoxyParamCaption}\item[{char $\ast$}]{start,  }\item[{char $\ast$}]{end,  }\item[{int}]{flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 155 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155                                                       \{}
+\DoxyCodeLine{156             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( start );}
+\DoxyCodeLine{157             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( end );}
+\DoxyCodeLine{158             \mbox{\hyperlink{classtinyxml2_1_1StrPair_a80c1b3bd99bf62ae85c94a29ce537125}{Reset}}();}
+\DoxyCodeLine{159             \_start  = start;}
+\DoxyCodeLine{160             \_end    = end;}
+\DoxyCodeLine{161             \_flags  = flags | NEEDS\_FLUSH;}
+\DoxyCodeLine{162         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_a2baf6230e18333e02ab65d0897ee3941}\label{classtinyxml2_1_1StrPair_a2baf6230e18333e02ab65d0897ee3941}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!SetInternedStr@{SetInternedStr}}
+\index{SetInternedStr@{SetInternedStr}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{SetInternedStr()}{SetInternedStr()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+Str\+Pair\+::\+Set\+Interned\+Str (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 170 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170                                                \{}
+\DoxyCodeLine{171             \mbox{\hyperlink{classtinyxml2_1_1StrPair_a80c1b3bd99bf62ae85c94a29ce537125}{Reset}}();}
+\DoxyCodeLine{172             \_start = \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(str);}
+\DoxyCodeLine{173         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_a1f82ec6b5bee35ee7466d8565e43b1de}\label{classtinyxml2_1_1StrPair_a1f82ec6b5bee35ee7466d8565e43b1de}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!SetStr@{SetStr}}
+\index{SetStr@{SetStr}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{SetStr()}{SetStr()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+Str\+Pair\+::\+Set\+Str (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{int}]{flags = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 189 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190     \{}
+\DoxyCodeLine{191         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( str );}
+\DoxyCodeLine{192         \mbox{\hyperlink{classtinyxml2_1_1StrPair_a80c1b3bd99bf62ae85c94a29ce537125}{Reset}}();}
+\DoxyCodeLine{193         \textcolor{keywordtype}{size\_t} len = strlen( str );}
+\DoxyCodeLine{194         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( \_start == 0 );}
+\DoxyCodeLine{195         \_start = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[ len+1 ];}
+\DoxyCodeLine{196         memcpy( \_start, str, len+1 );}
+\DoxyCodeLine{197         \_end = \_start + len;}
+\DoxyCodeLine{198         \_flags = flags | NEEDS\_DELETE;}
+\DoxyCodeLine{199     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1StrPair_a35f795b1557fe5fdcbd93d3cc5d6b939}\label{classtinyxml2_1_1StrPair_a35f795b1557fe5fdcbd93d3cc5d6b939}} 
+\index{tinyxml2::StrPair@{tinyxml2::StrPair}!TransferTo@{TransferTo}}
+\index{TransferTo@{TransferTo}!tinyxml2::StrPair@{tinyxml2::StrPair}}
+\doxysubsubsection{\texorpdfstring{TransferTo()}{TransferTo()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+Str\+Pair\+::\+Transfer\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1StrPair}{Str\+Pair}} $\ast$}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line 153 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154     \{}
+\DoxyCodeLine{155         \textcolor{keywordflow}{if} ( \textcolor{keyword}{this} == other ) \{}
+\DoxyCodeLine{156             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{157         \}}
+\DoxyCodeLine{158         \textcolor{comment}{// This in effect implements the assignment operator by "{}moving"{}}}
+\DoxyCodeLine{159         \textcolor{comment}{// ownership (as in auto\_ptr).}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( other != 0 );}
+\DoxyCodeLine{162         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( other-\/>\_flags == 0 );}
+\DoxyCodeLine{163         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( other-\/>\_start == 0 );}
+\DoxyCodeLine{164         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( other-\/>\_end == 0 );}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166         other-\/>Reset();}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168         other-\/>\_flags = \_flags;}
+\DoxyCodeLine{169         other-\/>\_start = \_start;}
+\DoxyCodeLine{170         other-\/>\_end = \_end;}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172         \_flags = 0;}
+\DoxyCodeLine{173         \_start = 0;}
+\DoxyCodeLine{174         \_end = 0;}
+\DoxyCodeLine{175     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tinyxml2_8h}{tinyxml2.\+h}}\item 
+\mbox{\hyperlink{tinyxml2_8cpp}{tinyxml2.\+cpp}}\end{DoxyCompactItemize}

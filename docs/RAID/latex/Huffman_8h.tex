@@ -1,0 +1,368 @@
+\hypertarget{Huffman_8h}{}\doxysection{Huffman.\+h File Reference}
+\label{Huffman_8h}\index{Huffman.h@{Huffman.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include \char`\"{}List.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcomp}{comp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{Huffman_8h_a62b296cc2037e48966a05e3562f13c67}{get\+Node}} (string ch, int freq, \mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$left, \mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$right)
+\item 
+void \mbox{\hyperlink{Huffman_8h_ab35571d578dd24d3198e7c35d56a4785}{encode}} (\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$root, string str, unordered\+\_\+map$<$ string, string $>$ \&huffman\+Code)
+\item 
+void \mbox{\hyperlink{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}{decode}} (\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$root, int \&index, string str, string $\ast$str\+Decode)
+\item 
+void \mbox{\hyperlink{Huffman_8h_a9cdd12d8a13187faa44fa07a5c61a65c}{pre\+Orden}} (\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$node, string $\ast$str)
+\item 
+void \mbox{\hyperlink{Huffman_8h_aa3b015dcdd41f962e316bb569f395fdd}{in\+Orden}} (\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$node, string $\ast$str)
+\item 
+int \mbox{\hyperlink{Huffman_8h_a219d5e84401783b050140d9b1492b2cc}{search}} (\mbox{\hyperlink{classList}{List}}$<$ string $>$ arr, int strt, int end, string value)
+\item 
+\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}{build\+Tree}} (\mbox{\hyperlink{classList}{List}}$<$ string $>$ in, \mbox{\hyperlink{classList}{List}}$<$ string $>$ pre, int in\+Strt, int in\+End)
+\item 
+\mbox{\hyperlink{classList}{List}}$<$ string $>$ \mbox{\hyperlink{Huffman_8h_a81c5da32617766849869d4cbc5201bc9}{build\+Huffman\+Tree}} (string text)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Huffman_8h_a81c5da32617766849869d4cbc5201bc9}\label{Huffman_8h_a81c5da32617766849869d4cbc5201bc9}} 
+\index{Huffman.h@{Huffman.h}!buildHuffmanTree@{buildHuffmanTree}}
+\index{buildHuffmanTree@{buildHuffmanTree}!Huffman.h@{Huffman.h}}
+\doxysubsubsection{\texorpdfstring{buildHuffmanTree()}{buildHuffmanTree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classList}{List}}$<$string$>$ build\+Huffman\+Tree (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})}
+
+Builds Huffman Tree and decode given input text 
+\begin{DoxyParams}{Parameters}
+{\em text} & to build a tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the expression of the preorden and inorden 
+\end{DoxyReturn}
+
+
+Definition at line 179 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{180 \{}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     unordered\_map<string, int> freq;}
+\DoxyCodeLine{183     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i< text.size(); i++) \{}
+\DoxyCodeLine{184         \textcolor{keywordtype}{string} ch=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{185         ch.push\_back(text[i]);}
+\DoxyCodeLine{186         freq[ch]++;}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \mbox{\hyperlink{classList}{List<Tree\_Node *>}} pq;}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} pair: freq) \{}
+\DoxyCodeLine{192         pq.\mbox{\hyperlink{classList_a6736798aedf73ab8da570bb1a887f421}{insertPriority}}(\mbox{\hyperlink{Huffman_8h_a62b296cc2037e48966a05e3562f13c67}{getNode}}(pair.first, pair.second, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{193     \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195     \textcolor{keywordtype}{int} chr = 0;}
+\DoxyCodeLine{196     \textcolor{keywordflow}{while} (pq.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}() != 1) \{}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198         \mbox{\hyperlink{classTree__Node}{Tree\_Node}} *left = pq.\mbox{\hyperlink{classList_a5b586fabe83945b9bb2f2d1365a3e875}{getHead}}()-\/>getValue();}
+\DoxyCodeLine{199         pq.\mbox{\hyperlink{classList_aff2dad44c655a8ccd5b038b96f607983}{delete\_first}}();}
+\DoxyCodeLine{200         \mbox{\hyperlink{classTree__Node}{Tree\_Node}} *right = pq.\mbox{\hyperlink{classList_a5b586fabe83945b9bb2f2d1365a3e875}{getHead}}()-\/>getValue();}
+\DoxyCodeLine{201         pq.\mbox{\hyperlink{classList_aff2dad44c655a8ccd5b038b96f607983}{delete\_first}}();}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203         \textcolor{keywordtype}{int} sum = left-\/>\mbox{\hyperlink{classTree__Node_a8964bf99d3d555de63c73db14f4d3119}{freq}} + right-\/>\mbox{\hyperlink{classTree__Node_a8964bf99d3d555de63c73db14f4d3119}{freq}};}
+\DoxyCodeLine{204         \textcolor{keywordtype}{string} char\_ = \textcolor{stringliteral}{"{}N"{}}+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(chr);}
+\DoxyCodeLine{205         pq.\mbox{\hyperlink{classList_a6736798aedf73ab8da570bb1a887f421}{insertPriority}}(\mbox{\hyperlink{Huffman_8h_a62b296cc2037e48966a05e3562f13c67}{getNode}}(char\_, sum, left, right));}
+\DoxyCodeLine{206         chr++;}
+\DoxyCodeLine{207     \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \mbox{\hyperlink{classTree__Node}{Tree\_Node}} *root = pq.\mbox{\hyperlink{classList_a5b586fabe83945b9bb2f2d1365a3e875}{getHead}}()-\/>getValue();}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     unordered\_map<string, string> huffmanCode;}
+\DoxyCodeLine{213     \mbox{\hyperlink{Huffman_8h_ab35571d578dd24d3198e7c35d56a4785}{encode}}(root, \textcolor{stringliteral}{"{}"{}}, huffmanCode);}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215     \textcolor{keywordtype}{string} str = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{216     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i< text.size(); i++) \{}
+\DoxyCodeLine{217         \textcolor{keywordtype}{string} ch=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{218         ch.push\_back(text[i]);}
+\DoxyCodeLine{219         str += huffmanCode[ch];}
+\DoxyCodeLine{220     \}}
+\DoxyCodeLine{221     \mbox{\hyperlink{classList}{List <string>}} toSend;}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{keywordtype}{string} pre;}
+\DoxyCodeLine{224     \mbox{\hyperlink{Huffman_8h_a9cdd12d8a13187faa44fa07a5c61a65c}{preOrden}}(root, \&pre);}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226     \textcolor{keywordtype}{string} in;}
+\DoxyCodeLine{227     \mbox{\hyperlink{Huffman_8h_aa3b015dcdd41f962e316bb569f395fdd}{inOrden}}(root, \&in);}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229     toSend.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(str);}
+\DoxyCodeLine{230     toSend.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(pre);}
+\DoxyCodeLine{231     toSend.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(in);}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233     \textcolor{keywordflow}{return} toSend;}
+\DoxyCodeLine{234 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}\label{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}} 
+\index{Huffman.h@{Huffman.h}!buildTree@{buildTree}}
+\index{buildTree@{buildTree}!Huffman.h@{Huffman.h}}
+\doxysubsubsection{\texorpdfstring{buildTree()}{buildTree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}}$\ast$ build\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{in,  }\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{pre,  }\item[{int}]{in\+Strt,  }\item[{int}]{in\+End }\end{DoxyParamCaption})}
+
+Rebuild the Huffman tree with the preorden and inorden expression 
+\begin{DoxyParams}{Parameters}
+{\em in} & inorden expression \\
+\hline
+{\em pre} & preorden expression \\
+\hline
+{\em in\+Strt} & start position \\
+\hline
+{\em in\+End} & end position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+root to the rebuild tree 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{157 \{}
+\DoxyCodeLine{158     \textcolor{keywordflow}{if} (inStrt > inEnd)}
+\DoxyCodeLine{159         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \mbox{\hyperlink{classTree__Node}{Tree\_Node}}* tNode = \mbox{\hyperlink{Huffman_8h_a62b296cc2037e48966a05e3562f13c67}{getNode}}(pre.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(preIndex++)-\/>getValue(), 0, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163     \textcolor{keywordflow}{if} (inStrt == inEnd)}
+\DoxyCodeLine{164         \textcolor{keywordflow}{return} tNode;}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{keywordtype}{int} inIndex = \mbox{\hyperlink{Huffman_8h_a219d5e84401783b050140d9b1492b2cc}{search}}(in, inStrt, inEnd, tNode-\/>\mbox{\hyperlink{classTree__Node_a9e781652036106b3862ecf18320b4b2f}{ch}});}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     tNode-\/>\mbox{\hyperlink{classTree__Node_af05b960a239aef2a6c24ed820cf2dc09}{left}} = \mbox{\hyperlink{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}{buildTree}}(in, pre, inStrt, inIndex -\/ 1);}
+\DoxyCodeLine{169     tNode-\/>\mbox{\hyperlink{classTree__Node_a32b4f4c5cb8553b12a555e53e82eb479}{right}} = \mbox{\hyperlink{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}{buildTree}}(in, pre, inIndex + 1, inEnd);}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171     \textcolor{keywordflow}{return} tNode;}
+\DoxyCodeLine{172 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}\label{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}} 
+\index{Huffman.h@{Huffman.h}!decode@{decode}}
+\index{decode@{decode}!Huffman.h@{Huffman.h}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily void decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{root,  }\item[{int \&}]{index,  }\item[{string}]{str,  }\item[{string $\ast$}]{str\+Decode }\end{DoxyParamCaption})}
+
+traverse the Huffman Tree and decode the encoded string 
+\begin{DoxyParams}{Parameters}
+{\em root} & of the huffman tree \\
+\hline
+{\em index} & to go through the text \\
+\hline
+{\em str} & String to decode \\
+\hline
+{\em str\+Decode} & Result to decode method \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     \textcolor{keywordflow}{if} (root == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{80         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{comment}{// found a leaf node}}
+\DoxyCodeLine{84     \textcolor{keywordflow}{if} (!root-\/>\mbox{\hyperlink{classTree__Node_af05b960a239aef2a6c24ed820cf2dc09}{left}} \&\& !root-\/>\mbox{\hyperlink{classTree__Node_a32b4f4c5cb8553b12a555e53e82eb479}{right}})}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86         *strDecode += root-\/>\mbox{\hyperlink{classTree__Node_a9e781652036106b3862ecf18320b4b2f}{ch}};}
+\DoxyCodeLine{87         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     index++;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordflow}{if} (str[index] ==\textcolor{charliteral}{'0'})}
+\DoxyCodeLine{93         \mbox{\hyperlink{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}{decode}}(root-\/>\mbox{\hyperlink{classTree__Node_af05b960a239aef2a6c24ed820cf2dc09}{left}}, index, str, strDecode);}
+\DoxyCodeLine{94     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{95         \mbox{\hyperlink{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}{decode}}(root-\/>\mbox{\hyperlink{classTree__Node_a32b4f4c5cb8553b12a555e53e82eb479}{right}}, index, str, strDecode);}
+\DoxyCodeLine{96 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Huffman_8h_ab35571d578dd24d3198e7c35d56a4785}\label{Huffman_8h_ab35571d578dd24d3198e7c35d56a4785}} 
+\index{Huffman.h@{Huffman.h}!encode@{encode}}
+\index{encode@{encode}!Huffman.h@{Huffman.h}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily void encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{root,  }\item[{string}]{str,  }\item[{unordered\+\_\+map$<$ string, string $>$ \&}]{huffman\+Code }\end{DoxyParamCaption})}
+
+traverse the Huffman Tree and store Huffman Codes in a map. 
+\begin{DoxyParams}{Parameters}
+{\em root} & of the Huffman tree \\
+\hline
+{\em str} & Code of the huffman code for each node in the tree \\
+\hline
+{\em huffman\+Code} & Dictionary \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} (root == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{59         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// found a leaf node}}
+\DoxyCodeLine{62     \textcolor{keywordflow}{if} (!root-\/>\mbox{\hyperlink{classTree__Node_af05b960a239aef2a6c24ed820cf2dc09}{left}} \&\& !root-\/>\mbox{\hyperlink{classTree__Node_a32b4f4c5cb8553b12a555e53e82eb479}{right}}) \{}
+\DoxyCodeLine{63         huffmanCode[root-\/>\mbox{\hyperlink{classTree__Node_a9e781652036106b3862ecf18320b4b2f}{ch}}] = str;}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \mbox{\hyperlink{Huffman_8h_ab35571d578dd24d3198e7c35d56a4785}{encode}}(root-\/>\mbox{\hyperlink{classTree__Node_af05b960a239aef2a6c24ed820cf2dc09}{left}}, str + \textcolor{stringliteral}{"{}0"{}}, huffmanCode);}
+\DoxyCodeLine{67     \mbox{\hyperlink{Huffman_8h_ab35571d578dd24d3198e7c35d56a4785}{encode}}(root-\/>\mbox{\hyperlink{classTree__Node_a32b4f4c5cb8553b12a555e53e82eb479}{right}}, str + \textcolor{stringliteral}{"{}1"{}}, huffmanCode);}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Huffman_8h_a62b296cc2037e48966a05e3562f13c67}\label{Huffman_8h_a62b296cc2037e48966a05e3562f13c67}} 
+\index{Huffman.h@{Huffman.h}!getNode@{getNode}}
+\index{getNode@{getNode}!Huffman.h@{Huffman.h}}
+\doxysubsubsection{\texorpdfstring{getNode()}{getNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}}$\ast$ get\+Node (\begin{DoxyParamCaption}\item[{string}]{ch,  }\item[{int}]{freq,  }\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{left,  }\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{right }\end{DoxyParamCaption})}
+
+Function to allocate a new tree node 
+\begin{DoxyParams}{Parameters}
+{\em ch} & Caracter to insert \\
+\hline
+{\em freq} & Frequence of the character \\
+\hline
+{\em left} & node left of the node \\
+\hline
+{\em right} & node right of the node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the node 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \mbox{\hyperlink{classTree__Node}{Tree\_Node}}* node = \textcolor{keyword}{new} \mbox{\hyperlink{classTree__Node}{Tree\_Node}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     node-\/>\mbox{\hyperlink{classTree__Node_a9e781652036106b3862ecf18320b4b2f}{ch}} = ch;}
+\DoxyCodeLine{30     node-\/>\mbox{\hyperlink{classTree__Node_a8964bf99d3d555de63c73db14f4d3119}{freq}} = freq;}
+\DoxyCodeLine{31     node-\/>\mbox{\hyperlink{classTree__Node_af05b960a239aef2a6c24ed820cf2dc09}{left}} = left;}
+\DoxyCodeLine{32     node-\/>\mbox{\hyperlink{classTree__Node_a32b4f4c5cb8553b12a555e53e82eb479}{right}} = right;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} node;}
+\DoxyCodeLine{35 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Huffman_8h_aa3b015dcdd41f962e316bb569f395fdd}\label{Huffman_8h_aa3b015dcdd41f962e316bb569f395fdd}} 
+\index{Huffman.h@{Huffman.h}!inOrden@{inOrden}}
+\index{inOrden@{inOrden}!Huffman.h@{Huffman.h}}
+\doxysubsubsection{\texorpdfstring{inOrden()}{inOrden()}}
+{\footnotesize\ttfamily void in\+Orden (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{node,  }\item[{string $\ast$}]{str }\end{DoxyParamCaption})}
+
+Determinate the inorden expresion of the huffman tree 
+\begin{DoxyParams}{Parameters}
+{\em node} & root of the tree \\
+\hline
+{\em str} & String result \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120 \{}
+\DoxyCodeLine{121     \textcolor{keywordflow}{if} (node == \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{122         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{123     \}}
+\DoxyCodeLine{124     \mbox{\hyperlink{Huffman_8h_aa3b015dcdd41f962e316bb569f395fdd}{inOrden}}(node-\/>\mbox{\hyperlink{classTree__Node_af05b960a239aef2a6c24ed820cf2dc09}{left}}, str);}
+\DoxyCodeLine{125     *str += node-\/>\mbox{\hyperlink{classTree__Node_a9e781652036106b3862ecf18320b4b2f}{ch}};}
+\DoxyCodeLine{126     *str += \textcolor{stringliteral}{"{}\$"{}};}
+\DoxyCodeLine{127     \mbox{\hyperlink{Huffman_8h_aa3b015dcdd41f962e316bb569f395fdd}{inOrden}}(node-\/>\mbox{\hyperlink{classTree__Node_a32b4f4c5cb8553b12a555e53e82eb479}{right}},str);}
+\DoxyCodeLine{128 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Huffman_8h_a9cdd12d8a13187faa44fa07a5c61a65c}\label{Huffman_8h_a9cdd12d8a13187faa44fa07a5c61a65c}} 
+\index{Huffman.h@{Huffman.h}!preOrden@{preOrden}}
+\index{preOrden@{preOrden}!Huffman.h@{Huffman.h}}
+\doxysubsubsection{\texorpdfstring{preOrden()}{preOrden()}}
+{\footnotesize\ttfamily void pre\+Orden (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{node,  }\item[{string $\ast$}]{str }\end{DoxyParamCaption})}
+
+Determinate the preorden expresion of the huffman tree 
+\begin{DoxyParams}{Parameters}
+{\em node} & root of the tree \\
+\hline
+{\em str} & String result \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 103 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{104 \{}
+\DoxyCodeLine{105     \textcolor{keywordflow}{if} (node == \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{106         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108     *str += node-\/>\mbox{\hyperlink{classTree__Node_a9e781652036106b3862ecf18320b4b2f}{ch}};}
+\DoxyCodeLine{109     *str += \textcolor{stringliteral}{"{}\$"{}};}
+\DoxyCodeLine{110     \mbox{\hyperlink{Huffman_8h_a9cdd12d8a13187faa44fa07a5c61a65c}{preOrden}}(node-\/>\mbox{\hyperlink{classTree__Node_af05b960a239aef2a6c24ed820cf2dc09}{left}}, str);}
+\DoxyCodeLine{111     \mbox{\hyperlink{Huffman_8h_a9cdd12d8a13187faa44fa07a5c61a65c}{preOrden}}(node-\/>\mbox{\hyperlink{classTree__Node_a32b4f4c5cb8553b12a555e53e82eb479}{right}},str);}
+\DoxyCodeLine{112 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Huffman_8h_a219d5e84401783b050140d9b1492b2cc}\label{Huffman_8h_a219d5e84401783b050140d9b1492b2cc}} 
+\index{Huffman.h@{Huffman.h}!search@{search}}
+\index{search@{search}!Huffman.h@{Huffman.h}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily int search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{arr,  }\item[{int}]{strt,  }\item[{int}]{end,  }\item[{string}]{value }\end{DoxyParamCaption})}
+
+Determines the position of a value from the preorder list within the inorder list 
+\begin{DoxyParams}{Parameters}
+{\em arr} & Inorden list \\
+\hline
+{\em strt} & start of the list \\
+\hline
+{\em end} & end of the list \\
+\hline
+{\em value} & to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position 
+\end{DoxyReturn}
+
+
+Definition at line 138 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{141     \textcolor{keywordflow}{for} (i = strt; i <= end; i++)}
+\DoxyCodeLine{142     \{}
+\DoxyCodeLine{143         \textcolor{keywordflow}{if} (arr.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue() == value)}
+\DoxyCodeLine{144             \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 \}}
+
+\end{DoxyCode}

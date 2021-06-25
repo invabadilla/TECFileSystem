@@ -1,0 +1,548 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include \char`\"{}functional\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Divider.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tinyxml2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Huffman.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Client.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \mbox{\hyperlink{main_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}{parse\+Json}} (\mbox{\hyperlink{classList}{List}}$<$ string $>$ to\+Send, string key)
+\item 
+\mbox{\hyperlink{classList}{List}}$<$ string $>$ \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}} (string text, char char\+\_\+)
+\item 
+string \mbox{\hyperlink{main_8cpp_a22fa39b8c3a9039a971ad4d54cd5e49f}{LtoS}} (\mbox{\hyperlink{classList}{List}}$<$ string $>$ text)
+\item 
+string \mbox{\hyperlink{main_8cpp_a7f7530b0e6f8211f78831349a479f868}{convert}} (string input\+\_\+)
+\item 
+string \mbox{\hyperlink{main_8cpp_a1bf983c9f59ab6bea99b93536ab29d00}{request\+Search}} (string name)
+\item 
+int \mbox{\hyperlink{main_8cpp_a411c744e507bba74d26ff81d51404486}{Start\+Listenign}} (int port)
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_abb572f05134d0a92f2b59bc28fbcff88}{global\+Port}}
+\item 
+\mbox{\hyperlink{classList}{List}}$<$ string $>$ \mbox{\hyperlink{main_8cpp_a4bc977885a01f93782de2b204d915864}{name\+MD}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}} 
+\index{main.cpp@{main.cpp}!json@{json}}
+\index{json@{json}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+
+
+
+Definition at line 20 of file main.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a7f7530b0e6f8211f78831349a479f868}\label{main_8cpp_a7f7530b0e6f8211f78831349a479f868}} 
+\index{main.cpp@{main.cpp}!convert@{convert}}
+\index{convert@{convert}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}}
+{\footnotesize\ttfamily string convert (\begin{DoxyParamCaption}\item[{string}]{input\+\_\+ }\end{DoxyParamCaption})}
+
+Method to convert binary string to string 
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+} & binary string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85                              \{}
+\DoxyCodeLine{86     ifstream input(input\_, ios::binary);}
+\DoxyCodeLine{87     vector<char> bytes(}
+\DoxyCodeLine{88             (istreambuf\_iterator<char>(input)),}
+\DoxyCodeLine{89             (istreambuf\_iterator<char>()));}
+\DoxyCodeLine{90     input.close();}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordtype}{string} texto;}
+\DoxyCodeLine{93     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < bytes.size(); i++) \{}
+\DoxyCodeLine{94         texto+=bytes.at(i);}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96     \textcolor{keywordflow}{return} texto;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a22fa39b8c3a9039a971ad4d54cd5e49f}\label{main_8cpp_a22fa39b8c3a9039a971ad4d54cd5e49f}} 
+\index{main.cpp@{main.cpp}!LtoS@{LtoS}}
+\index{LtoS@{LtoS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{LtoS()}{LtoS()}}
+{\footnotesize\ttfamily string LtoS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{text }\end{DoxyParamCaption})}
+
+Parse list of string to string 
+\begin{DoxyParams}{Parameters}
+{\em text} & list of string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72                                \{}
+\DoxyCodeLine{73     \textcolor{keywordtype}{string} result;}
+\DoxyCodeLine{74     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < text.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}(); i++) \{}
+\DoxyCodeLine{75         result += text.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue()+\textcolor{stringliteral}{"{}\%"{}};}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{78 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 360 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{360            \{}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362     \mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} xml\_doc;}
+\DoxyCodeLine{363     path temp = current\_path().parent\_path().parent\_path();}
+\DoxyCodeLine{364     \textcolor{keywordtype}{string} dn =temp.string()+\textcolor{stringliteral}{"{}/RAID/Parameters\_TECFS\_Disk.xml"{}}; \textcolor{keyword}{const} \textcolor{keywordtype}{char} *document\_name = dn.c\_str();}
+\DoxyCodeLine{365     \mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} eResult = xml\_doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a2ebd4647a8af5fc6831b294ac26a150a}{LoadFile}}(document\_name);}
+\DoxyCodeLine{366     \mbox{\hyperlink{classtinyxml2_1_1XMLNode}{XMLNode}}* root = xml\_doc.\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a1bec132dcf085284e0a10755f2cf0d57}{FirstChildElement}}(\textcolor{stringliteral}{"{}Parameters"{}});}
+\DoxyCodeLine{367     \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} *port = root-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a1bec132dcf085284e0a10755f2cf0d57}{FirstChildElement}}(\textcolor{stringliteral}{"{}port"{}});}
+\DoxyCodeLine{368     \mbox{\hyperlink{main_8cpp_abb572f05134d0a92f2b59bc28fbcff88}{globalPort}} = stoi(port-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a0fa5bea0a4daf3ddd503dcabb823eba6}{GetText}}());}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \mbox{\hyperlink{main_8cpp_a411c744e507bba74d26ff81d51404486}{StartListenign}}(56000);}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{374 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}\label{main_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}} 
+\index{main.cpp@{main.cpp}!parseJson@{parseJson}}
+\index{parseJson@{parseJson}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{parseJson()}{parseJson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} parse\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{to\+Send,  }\item[{string}]{key }\end{DoxyParamCaption})}
+
+Method to parse a list of string to json 
+\begin{DoxyParams}{Parameters}
+{\em to\+Send} & list of string \\
+\hline
+{\em key} & identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+json 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                                                 \{}
+\DoxyCodeLine{32     \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage =}
+\DoxyCodeLine{33             \{}
+\DoxyCodeLine{34                     \{\textcolor{stringliteral}{"{}key"{}}, \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}\},}
+\DoxyCodeLine{35                     \{\textcolor{stringliteral}{"{}message"{}}, toSend.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(0)-\/>getValue()\},}
+\DoxyCodeLine{36                     \{\textcolor{stringliteral}{"{}pre"{}}, toSend.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(1)-\/>getValue()\},}
+\DoxyCodeLine{37                     \{\textcolor{stringliteral}{"{}in"{}}, toSend.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(2)-\/>getValue()\},}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39             \};}
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} mymessage;}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a1bf983c9f59ab6bea99b93536ab29d00}\label{main_8cpp_a1bf983c9f59ab6bea99b93536ab29d00}} 
+\index{main.cpp@{main.cpp}!requestSearch@{requestSearch}}
+\index{requestSearch@{requestSearch}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{requestSearch()}{requestSearch()}}
+{\footnotesize\ttfamily string request\+Search (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+Method to search the word in the files od the RAID 
+\begin{DoxyParams}{Parameters}
+{\em name} & word to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 105 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105                                  \{}
+\DoxyCodeLine{106     \textcolor{comment}{//string texto = convert("{}/home/usuario/Proyectos/TECFileSystem/ControllerNode/METADATA.txt"{});}}
+\DoxyCodeLine{107     \textcolor{keywordtype}{string} texto = \mbox{\hyperlink{main_8cpp_a7f7530b0e6f8211f78831349a479f868}{convert}}(\textcolor{stringliteral}{"{}/home/ingrid/Documents/TECFileSystem/ControllerNode/METADATA.txt"{}});}
+\DoxyCodeLine{108     \mbox{\hyperlink{classList}{List<string>}} names = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(texto, \textcolor{charliteral}{'\%'});}
+\DoxyCodeLine{109     \mbox{\hyperlink{classList}{List<string>}} nameResult;}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < names.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}(); ++i) \{}
+\DoxyCodeLine{112         \textcolor{keywordflow}{if}(names.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue().size() >= name.size())\{}
+\DoxyCodeLine{113             \textcolor{keywordtype}{string} temp;}
+\DoxyCodeLine{114             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < name.size(); ++j) \{}
+\DoxyCodeLine{115                 temp += names.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue()[j];}
+\DoxyCodeLine{116             \}}
+\DoxyCodeLine{117             \textcolor{keywordflow}{if}(temp == name)\{nameResult.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(names.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue());\}}
+\DoxyCodeLine{118             \textcolor{keywordflow}{else}\{\textcolor{keywordflow}{continue};\}}
+\DoxyCodeLine{119         \}}
+\DoxyCodeLine{120         \textcolor{keywordflow}{else}\{\textcolor{keywordflow}{continue};\}}
+\DoxyCodeLine{121     \}}
+\DoxyCodeLine{122     \textcolor{keywordflow}{if} (nameResult.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}() == 0)\{}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124         \textcolor{keywordflow}{return}  \textcolor{stringliteral}{"{}Error404"{}};}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126     \textcolor{keywordflow}{return} \mbox{\hyperlink{main_8cpp_a22fa39b8c3a9039a971ad4d54cd5e49f}{LtoS}}(nameResult);}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a411c744e507bba74d26ff81d51404486}\label{main_8cpp_a411c744e507bba74d26ff81d51404486}} 
+\index{main.cpp@{main.cpp}!StartListenign@{StartListenign}}
+\index{StartListenign@{StartListenign}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{StartListenign()}{StartListenign()}}
+{\footnotesize\ttfamily int Start\+Listenign (\begin{DoxyParamCaption}\item[{int}]{port }\end{DoxyParamCaption})}
+
+Method to start listening messages 
+\begin{DoxyParams}{Parameters}
+{\em port} & to listen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 135 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{135                             \{}
+\DoxyCodeLine{136     \textcolor{keywordtype}{int} listening = socket(AF\_INET, SOCK\_STREAM, 0);}
+\DoxyCodeLine{137     \textcolor{keywordflow}{if} (listening == -\/1)}
+\DoxyCodeLine{138     \{}
+\DoxyCodeLine{139         cerr << \textcolor{stringliteral}{"{}No se pudo crear el Socket. Cerrando..."{}} << endl;}
+\DoxyCodeLine{140         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{141     \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     sockaddr\_in hint;}
+\DoxyCodeLine{144     hint.sin\_family = AF\_INET;}
+\DoxyCodeLine{145     hint.sin\_port = htons(port);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     inet\_pton(AF\_INET, \textcolor{stringliteral}{"{}0.0.0.0"{}}, \&hint.sin\_addr);}
+\DoxyCodeLine{148     bind(listening, (sockaddr*)\&hint, \textcolor{keyword}{sizeof}(hint));}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     listen(listening, SOMAXCONN);}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
+\DoxyCodeLine{153         sockaddr\_in client;}
+\DoxyCodeLine{154         socklen\_t clientSize = \textcolor{keyword}{sizeof}(client);}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156         \textcolor{keywordtype}{int} clientSocket = accept(listening, (sockaddr *) \&client, \&clientSize);}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158         \textcolor{keywordtype}{char} host[NI\_MAXHOST];      \textcolor{comment}{// Nombre del cliente remoto}}
+\DoxyCodeLine{159         \textcolor{keywordtype}{char} service[NI\_MAXSERV];}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         memset(host, 0, NI\_MAXHOST);}
+\DoxyCodeLine{162         memset(service, 0, NI\_MAXSERV);}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} (getnameinfo((sockaddr *) \&client, \textcolor{keyword}{sizeof}(client), host, NI\_MAXHOST, service, NI\_MAXSERV, 0) == 0) \{}
+\DoxyCodeLine{165             cout << host << \textcolor{stringliteral}{"{} conectado "{}} << endl;}
+\DoxyCodeLine{166         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{167             inet\_ntop(AF\_INET, \&client.sin\_addr, host, NI\_MAXHOST);}
+\DoxyCodeLine{168             cout << host << \textcolor{stringliteral}{"{} conectado al puerto "{}} << ntohs(client.sin\_port) << endl;}
+\DoxyCodeLine{169         \}}
+\DoxyCodeLine{170         \textcolor{keywordtype}{char} buf[4096];}
+\DoxyCodeLine{171         memset(buf, 0, 4096);}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173         \textcolor{keywordtype}{int} bytesReceived = recv(clientSocket, buf, 4096, 0);}
+\DoxyCodeLine{174         \textcolor{keywordflow}{if} (bytesReceived == -\/1) \{}
+\DoxyCodeLine{175             cerr << \textcolor{stringliteral}{"{}Error al recibir mensaje. Cerrando..."{}} << endl;}
+\DoxyCodeLine{176             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{177         \}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179         \textcolor{keywordflow}{if} (bytesReceived == 0) \{}
+\DoxyCodeLine{180             cout << \textcolor{stringliteral}{"{}Cliente desconectado "{}} << endl;}
+\DoxyCodeLine{181             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{182         \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184         \textcolor{keywordtype}{string} messageR = \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21}{string}}(buf, 0, bytesReceived);}
+\DoxyCodeLine{185         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} jmessageR = \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(messageR);}
+\DoxyCodeLine{186         \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa3c6e0b8a9c15224a8228b9a98ca1531d}{key}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}key"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{187         \textcolor{keywordflow}{if} (key == \textcolor{stringliteral}{"{}save"{}})\{}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189             \textcolor{keywordtype}{string} message = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}message"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{190             \textcolor{keywordtype}{string} pre = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}pre"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{191             \textcolor{keywordtype}{string} in = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}in"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193             cout<<\textcolor{stringliteral}{"{}message: "{}}<<message<<endl;}
+\DoxyCodeLine{194             cout<<\textcolor{stringliteral}{"{}pre: "{}}<<pre<<endl;}
+\DoxyCodeLine{195             cout<<\textcolor{stringliteral}{"{}in: "{}}<<in<<endl;}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197             \mbox{\hyperlink{classList}{List<string>}} pre\_list = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(pre, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{198             \mbox{\hyperlink{classList}{List<string>}} in\_list = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(in, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{199             preIndex = 0;}
+\DoxyCodeLine{200             \mbox{\hyperlink{classTree__Node}{Tree\_Node}} *root = \mbox{\hyperlink{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}{buildTree}}(in\_list, pre\_list, 0, in\_list.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()-\/1);}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202             \textcolor{keywordtype}{int} index = -\/1;}
+\DoxyCodeLine{203             \textcolor{keywordtype}{string} strDecode;}
+\DoxyCodeLine{204             \textcolor{keywordflow}{while} (index < (\textcolor{keywordtype}{int})message.size() -\/ 2) \{}
+\DoxyCodeLine{205                 \mbox{\hyperlink{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}{decode}}(root, index, message, \&strDecode);}
+\DoxyCodeLine{206             \}}
+\DoxyCodeLine{207             cout<<\textcolor{stringliteral}{"{}message: "{}}<<strDecode<<endl;}
+\DoxyCodeLine{208             \textcolor{keywordtype}{string} input\_ = strDecode;}
+\DoxyCodeLine{209             \textcolor{keywordtype}{string} texto = \mbox{\hyperlink{main_8cpp_a7f7530b0e6f8211f78831349a479f868}{convert}}(input\_);}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211             \mbox{\hyperlink{classdivider}{divider}} \mbox{\hyperlink{classdivider}{divider}};}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213             \textcolor{keywordtype}{string} parityDisk = \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a685cd61a8c4a50043b478c85b479ead0}{DiskParity}}();}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215             \textcolor{comment}{// Print 3 equal parts of the string}}
+\DoxyCodeLine{216             \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_ab48b3d56996e1cd4998047be34ef05e4}{divideString}}(\textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(texto.c\_str()), 3, texto);}
+\DoxyCodeLine{217             \mbox{\hyperlink{classList}{List<string>}} result = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(input\_, \textcolor{charliteral}{'/'});}
+\DoxyCodeLine{218             \textcolor{keywordtype}{string} name = result.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(result.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()-\/1)-\/>getValue();}
+\DoxyCodeLine{219             name.erase(name.end()-\/4, name.end());}
+\DoxyCodeLine{220             \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_ac7edcae4bc43bd8ed5f37f209fde5491}{createDatcopy}}(\textcolor{stringliteral}{"{}"{}}, name);}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222             \textcolor{keywordtype}{string} size\_ = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(file\_size(name+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(0)+\textcolor{stringliteral}{"{}.dat"{}}));}
+\DoxyCodeLine{223             \mbox{\hyperlink{classList}{List<string>}} list = \mbox{\hyperlink{Huffman_8h_a81c5da32617766849869d4cbc5201bc9}{buildHuffmanTree}}(\textcolor{stringliteral}{"{}0"{}}+size\_);}
+\DoxyCodeLine{224             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} js = \mbox{\hyperlink{main_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}{parseJson}}(list, \textcolor{stringliteral}{"{}save"{}});}
+\DoxyCodeLine{225             cout<<js.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}()<<endl;}
+\DoxyCodeLine{226             \mbox{\hyperlink{classClient}{Client}} *client\_ = \mbox{\hyperlink{classClient_a5535b4c9da6ace40d153a51df8c72bfe}{Client::getInstance}}(\mbox{\hyperlink{main_8cpp_abb572f05134d0a92f2b59bc28fbcff88}{globalPort}});}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228             \textcolor{keywordtype}{string} messageR\_ = client\_-\/>\mbox{\hyperlink{classClient_a9d57b479a17c99afb4a905e1421f5c9a}{sendJson}}(js.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}());}
+\DoxyCodeLine{229             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} jmessageR\_ = \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(messageR\_);}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231             \textcolor{keywordtype}{string} message\_ = jmessageR\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}message"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{232             \textcolor{keywordtype}{string} pre\_ = jmessageR\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}pre"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{233             \textcolor{keywordtype}{string} in\_ = jmessageR\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}in"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235             cout<<\textcolor{stringliteral}{"{}message: "{}}<<message\_<<endl;}
+\DoxyCodeLine{236             cout<<\textcolor{stringliteral}{"{}pre: "{}}<<pre\_<<endl;}
+\DoxyCodeLine{237             cout<<\textcolor{stringliteral}{"{}in: "{}}<<in\_<<endl;}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239             \mbox{\hyperlink{classList}{List<string>}} pre\_list\_ = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(pre\_, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{240             \mbox{\hyperlink{classList}{List<string>}} in\_list\_ = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(in\_, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{241             preIndex = 0;}
+\DoxyCodeLine{242             \mbox{\hyperlink{classTree__Node}{Tree\_Node}} *root\_ = \mbox{\hyperlink{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}{buildTree}}(in\_list\_, pre\_list\_, 0, in\_list\_.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()-\/1);}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244             \textcolor{keywordtype}{int} index\_ = -\/1;}
+\DoxyCodeLine{245             \textcolor{keywordtype}{string} strDecode\_;}
+\DoxyCodeLine{246             \textcolor{keywordflow}{while} (index\_ < (\textcolor{keywordtype}{int})message\_.size() -\/ 2) \{}
+\DoxyCodeLine{247                 \mbox{\hyperlink{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}{decode}}(root\_, index\_, message\_, \&strDecode\_);}
+\DoxyCodeLine{248             \}}
+\DoxyCodeLine{249             cout<<\textcolor{stringliteral}{"{}message: "{}}<<strDecode\_<<endl;}
+\DoxyCodeLine{250             \mbox{\hyperlink{classList}{List<string>}} create = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(strDecode\_, \textcolor{charliteral}{'\#'});}
+\DoxyCodeLine{251             \mbox{\hyperlink{classdivider}{divider}}.\mbox{\hyperlink{classdivider_a6e6a722f3c9b3c88d4ba4525e04cbcf2}{createDat}}(create.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(0)-\/>getValue(), name, create.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(1)-\/>getValue());}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253             \mbox{\hyperlink{main_8cpp_a4bc977885a01f93782de2b204d915864}{nameMD}}.insertLast(name);}
+\DoxyCodeLine{254             \textcolor{keywordtype}{string} metadata = \mbox{\hyperlink{main_8cpp_a22fa39b8c3a9039a971ad4d54cd5e49f}{LtoS}}(\mbox{\hyperlink{main_8cpp_a4bc977885a01f93782de2b204d915864}{nameMD}});}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256             std::fstream toWrite;}
+\DoxyCodeLine{257             \textcolor{comment}{//toWrite.open("{}/home/usuario/Proyectos/TECFileSystem/ControllerNode/METADATA.txt"{}, std::ios::out | std::ios::binary);}}
+\DoxyCodeLine{258             toWrite.open(\textcolor{stringliteral}{"{}/home/ingrid/Documents/TECFileSystem/ControllerNode/METADATA.txt"{}}, std::ios::out | std::ios::binary);}
+\DoxyCodeLine{259             toWrite.write(metadata.c\_str(), metadata.size());}
+\DoxyCodeLine{260             \textcolor{comment}{//Ahora cierro el archivo}}
+\DoxyCodeLine{261             toWrite.close();}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264             \mbox{\hyperlink{classList}{List<string>}} list\_ = \mbox{\hyperlink{Huffman_8h_a81c5da32617766849869d4cbc5201bc9}{buildHuffmanTree}}(\textcolor{stringliteral}{"{}creado"{}});}
+\DoxyCodeLine{265             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} js\_ = \mbox{\hyperlink{main_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}{parseJson}}(list\_, \textcolor{stringliteral}{"{}save"{}});}
+\DoxyCodeLine{266             \textcolor{keywordtype}{string} messageS = js\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{267             send(clientSocket, messageS.c\_str(), messageS.size() + 1, 0);}
+\DoxyCodeLine{268         \}}
+\DoxyCodeLine{269         \textcolor{keywordflow}{if} (key == \textcolor{stringliteral}{"{}search"{}})\{}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271             \textcolor{keywordtype}{string} message = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}message"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{272             \textcolor{keywordtype}{string} pre = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}pre"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{273             \textcolor{keywordtype}{string} in = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}in"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275             cout<<\textcolor{stringliteral}{"{}message: "{}}<<message<<endl;}
+\DoxyCodeLine{276             cout<<\textcolor{stringliteral}{"{}pre: "{}}<<pre<<endl;}
+\DoxyCodeLine{277             cout<<\textcolor{stringliteral}{"{}in: "{}}<<in<<endl;}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279             \mbox{\hyperlink{classList}{List<string>}} pre\_list = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(pre, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{280             \mbox{\hyperlink{classList}{List<string>}} in\_list = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(in, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{281             preIndex = 0;}
+\DoxyCodeLine{282             \mbox{\hyperlink{classTree__Node}{Tree\_Node}} *root = \mbox{\hyperlink{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}{buildTree}}(in\_list, pre\_list, 0, in\_list.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()-\/1);}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284             \textcolor{keywordtype}{int} index = -\/1;}
+\DoxyCodeLine{285             \textcolor{keywordtype}{string} strDecode;}
+\DoxyCodeLine{286             \textcolor{keywordflow}{while} (index < (\textcolor{keywordtype}{int})message.size() -\/ 2) \{}
+\DoxyCodeLine{287                 \mbox{\hyperlink{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}{decode}}(root, index, message, \&strDecode);}
+\DoxyCodeLine{288             \}}
+\DoxyCodeLine{289             cout<<\textcolor{stringliteral}{"{}message: "{}}<<strDecode<<endl;}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291             \textcolor{keywordtype}{string} similars = \mbox{\hyperlink{main_8cpp_a1bf983c9f59ab6bea99b93536ab29d00}{requestSearch}}(strDecode);}
+\DoxyCodeLine{292             cout<<\textcolor{stringliteral}{"{}send: "{}}<<similars<<endl;}
+\DoxyCodeLine{293             \mbox{\hyperlink{classList}{List<string>}} list\_ = \mbox{\hyperlink{Huffman_8h_a81c5da32617766849869d4cbc5201bc9}{buildHuffmanTree}}(similars);}
+\DoxyCodeLine{294             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} js\_ = \mbox{\hyperlink{main_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}{parseJson}}(list\_, \textcolor{stringliteral}{"{}search"{}});}
+\DoxyCodeLine{295             \textcolor{keywordtype}{string} messageS = js\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{296             send(clientSocket, messageS.c\_str(), messageS.size() + 1, 0);}
+\DoxyCodeLine{297         \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299         \textcolor{keywordflow}{if} (key == \textcolor{stringliteral}{"{}read"{}})}
+\DoxyCodeLine{300         \{}
+\DoxyCodeLine{301             \textcolor{keywordtype}{string} message = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}message"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{302             \textcolor{keywordtype}{string} pre = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}pre"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{303             \textcolor{keywordtype}{string} in = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}in"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305             cout<<\textcolor{stringliteral}{"{}message: "{}}<<message<<endl;}
+\DoxyCodeLine{306             cout<<\textcolor{stringliteral}{"{}pre: "{}}<<pre<<endl;}
+\DoxyCodeLine{307             cout<<\textcolor{stringliteral}{"{}in: "{}}<<in<<endl;}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309             \mbox{\hyperlink{classList}{List<string>}} pre\_list = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(pre, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{310             \mbox{\hyperlink{classList}{List<string>}} in\_list = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(in, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{311             preIndex = 0;}
+\DoxyCodeLine{312             \mbox{\hyperlink{classTree__Node}{Tree\_Node}} *root = \mbox{\hyperlink{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}{buildTree}}(in\_list, pre\_list, 0, in\_list.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()-\/1);}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314             \textcolor{keywordtype}{int} index = -\/1;}
+\DoxyCodeLine{315             \textcolor{keywordtype}{string} strDecode;}
+\DoxyCodeLine{316             \textcolor{keywordflow}{while} (index < (\textcolor{keywordtype}{int})message.size() -\/ 2) \{}
+\DoxyCodeLine{317                 \mbox{\hyperlink{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}{decode}}(root, index, message, \&strDecode);}
+\DoxyCodeLine{318             \}}
+\DoxyCodeLine{319             cout<<\textcolor{stringliteral}{"{}message: "{}}<<strDecode<<endl;}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321             \mbox{\hyperlink{classList}{List<string>}} list = \mbox{\hyperlink{Huffman_8h_a81c5da32617766849869d4cbc5201bc9}{buildHuffmanTree}}(strDecode);}
+\DoxyCodeLine{322             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} js = \mbox{\hyperlink{main_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}{parseJson}}(list, \textcolor{stringliteral}{"{}read"{}});}
+\DoxyCodeLine{323             cout<<js.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}()<<endl;}
+\DoxyCodeLine{324             \mbox{\hyperlink{classClient}{Client}} *client\_ = \mbox{\hyperlink{classClient_a5535b4c9da6ace40d153a51df8c72bfe}{Client::getInstance}}(\mbox{\hyperlink{main_8cpp_abb572f05134d0a92f2b59bc28fbcff88}{globalPort}});}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326             \textcolor{keywordtype}{string} messageR\_ = client\_-\/>\mbox{\hyperlink{classClient_a9d57b479a17c99afb4a905e1421f5c9a}{sendJson}}(js.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}());}
+\DoxyCodeLine{327             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} jmessageR\_ = \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(messageR\_);}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329             \textcolor{keywordtype}{string} message\_ = jmessageR\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}message"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{330             \textcolor{keywordtype}{string} pre\_ = jmessageR\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}pre"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{331             \textcolor{keywordtype}{string} in\_ = jmessageR\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}in"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333             cout<<\textcolor{stringliteral}{"{}message: "{}}<<message\_<<endl;}
+\DoxyCodeLine{334             cout<<\textcolor{stringliteral}{"{}pre: "{}}<<pre\_<<endl;}
+\DoxyCodeLine{335             cout<<\textcolor{stringliteral}{"{}in: "{}}<<in\_<<endl;}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337             \mbox{\hyperlink{classList}{List<string>}} pre\_list\_ = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(pre\_, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{338             \mbox{\hyperlink{classList}{List<string>}} in\_list\_ = \mbox{\hyperlink{main_8cpp_a9112238455894abfd78940bfd91001f7}{StoL}}(in\_, \textcolor{charliteral}{'\$'});}
+\DoxyCodeLine{339             preIndex = 0;}
+\DoxyCodeLine{340             \mbox{\hyperlink{classTree__Node}{Tree\_Node}} *root\_ = \mbox{\hyperlink{Huffman_8h_aa1536fbe8d3b188f56c6d29998d684a5}{buildTree}}(in\_list\_, pre\_list\_, 0, in\_list\_.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()-\/1);}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342             \textcolor{keywordtype}{int} index\_ = -\/1;}
+\DoxyCodeLine{343             \textcolor{keywordtype}{string} strDecode\_;}
+\DoxyCodeLine{344             \textcolor{keywordflow}{while} (index\_ < (\textcolor{keywordtype}{int})message\_.size() -\/ 2) \{}
+\DoxyCodeLine{345                 \mbox{\hyperlink{Huffman_8h_ade35ec27cbe7313d5e3dd64ac2513682}{decode}}(root\_, index\_, message\_, \&strDecode\_);}
+\DoxyCodeLine{346             \}}
+\DoxyCodeLine{347             cout<<\textcolor{stringliteral}{"{}message: "{}}<<strDecode\_<<endl;}
+\DoxyCodeLine{348             \mbox{\hyperlink{classList}{List<string>}} list\_ = \mbox{\hyperlink{Huffman_8h_a81c5da32617766849869d4cbc5201bc9}{buildHuffmanTree}}(strDecode\_);}
+\DoxyCodeLine{349             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} js\_ = \mbox{\hyperlink{main_8cpp_a68ff3cb907c3ffd4ff51b2a7fc729b79}{parseJson}}(list\_, \textcolor{stringliteral}{"{}read"{}});}
+\DoxyCodeLine{350             \textcolor{keywordtype}{string} messageS = js\_.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{351             send(clientSocket, messageS.c\_str(), messageS.size() + 1, 0);}
+\DoxyCodeLine{352         \}}
+\DoxyCodeLine{353         close(clientSocket);}
+\DoxyCodeLine{354     \}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{357 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a9112238455894abfd78940bfd91001f7}\label{main_8cpp_a9112238455894abfd78940bfd91001f7}} 
+\index{main.cpp@{main.cpp}!StoL@{StoL}}
+\index{StoL@{StoL}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{StoL()}{StoL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classList}{List}}$<$string$>$ StoL (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{char}]{char\+\_\+ }\end{DoxyParamCaption})}
+
+Parse String to list of string 
+\begin{DoxyParams}{Parameters}
+{\em text} & string \\
+\hline
+{\em char\+\_\+} & identifier to split \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of string 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49                                            \{}
+\DoxyCodeLine{50     \textcolor{keywordtype}{string} insert;}
+\DoxyCodeLine{51     \mbox{\hyperlink{classList}{List<string>}} result;}
+\DoxyCodeLine{52     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < text.size(); i++) \{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{if} (text[i]==char\_)\{}
+\DoxyCodeLine{54             result.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(insert);}
+\DoxyCodeLine{55             insert =\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{56         \}}
+\DoxyCodeLine{57         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{58             insert.push\_back(text[i]);}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} (char\_ != \textcolor{charliteral}{'\$'})\{}
+\DoxyCodeLine{62         result.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(insert);}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{65 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_abb572f05134d0a92f2b59bc28fbcff88}\label{main_8cpp_abb572f05134d0a92f2b59bc28fbcff88}} 
+\index{main.cpp@{main.cpp}!globalPort@{globalPort}}
+\index{globalPort@{globalPort}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{globalPort}{globalPort}}
+{\footnotesize\ttfamily int global\+Port}
+
+
+
+Definition at line 22 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a4bc977885a01f93782de2b204d915864}\label{main_8cpp_a4bc977885a01f93782de2b204d915864}} 
+\index{main.cpp@{main.cpp}!nameMD@{nameMD}}
+\index{nameMD@{nameMD}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{nameMD}{nameMD}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classList}{List}}$<$string$>$ name\+MD}
+
+
+
+Definition at line 23 of file main.\+cpp.
+

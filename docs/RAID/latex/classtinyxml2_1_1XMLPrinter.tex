@@ -1,0 +1,1040 @@
+\hypertarget{classtinyxml2_1_1XMLPrinter}{}\doxysection{tinyxml2\+::XMLPrinter Class Reference}
+\label{classtinyxml2_1_1XMLPrinter}\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+
+
+{\ttfamily \#include $<$tinyxml2.\+h$>$}
+
+Inheritance diagram for tinyxml2\+::XMLPrinter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtinyxml2_1_1XMLPrinter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aa6d3841c069085f5b8a27bc7103c04f7}{XMLPrinter}} (FILE $\ast$file=0, bool compact=false, int depth=0)
+\item 
+virtual \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_af4caefa48ea6436898fb1807de8d14c0}{$\sim$\+XMLPrinter}} ()
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a178c608ce8476043d5d6513819cde903}{Push\+Header}} (bool write\+BOM, bool write\+Declaration)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a20fb06c83bd13e5140d7dd13af06c010}{Open\+Element}} (const char $\ast$name, bool compact\+Mode=false)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}{Push\+Attribute}} (const char $\ast$name, const char $\ast$value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a69120c82088597372d28d0a98f2ee7a1}{Push\+Attribute}} (const char $\ast$name, int value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aa41039e51990aaf5342f3e0575a692c4}{Push\+Attribute}} (const char $\ast$name, unsigned value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9bc2fe21a83a70e6aa0415f2034ecbff}{Push\+Attribute}} (const char $\ast$name, int64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a0cfb03811df0873faa59a12de009bf33}{Push\+Attribute}} (const char $\ast$name, uint64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a51f7950d7b7a19f0d3a0d549a318d45f}{Push\+Attribute}} (const char $\ast$name, bool value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1714867af40e68ca404c3e84b6cac2a6}{Push\+Attribute}} (const char $\ast$name, double value)
+\item 
+virtual void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_af1fb439e5d800999646f333fa2f0699a}{Close\+Element}} (bool compact\+Mode=false)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{Push\+Text}} (const char $\ast$text, bool cdata=false)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a3e0d4d78de25d4cf081009e1431cea7e}{Push\+Text}} (int value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a661fb50e7e0a4918d2d259cb0fae647e}{Push\+Text}} (unsigned value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a96b0a0bfe105154a0a6c37d725258f0a}{Push\+Text}} (int64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a60b0a4cf57371ff8679c2c7556ccb708}{Push\+Text}} (uint64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a4390e5fa1ed05189a8686647345ab29f}{Push\+Text}} (bool value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1dbb1390e829d0673af66b9cd1928bd7}{Push\+Text}} (float value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aa715302dfc09473c77c853cbd5431965}{Push\+Text}} (double value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_afc8416814219591c2fd5656e0c233140}{Push\+Comment}} (const char $\ast$comment)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a2fe3565e262594efc6c0276723c83fe7}{Push\+Declaration}} (const char $\ast$value)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ab1efc6d1548505e9984185f58f54b713}{Push\+Unknown}} (const char $\ast$value)
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9aa1de11a55a07db55a90fde37d7afad}{Visit\+Enter}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} \&)
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a15fc1f2b922f540917dcf52808737b29}{Visit\+Exit}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} \&)
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a169b2509d8eabb70811b2bb8cfd1f5d1}{Visit\+Enter}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} \&element, const \mbox{\hyperlink{classtinyxml2_1_1XMLAttribute}{XMLAttribute}} $\ast$attribute)
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a2edd48405971a88951c71c9df86a2f50}{Visit\+Exit}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} \&element)
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_adc0e42b4f6fcb90a95630c79575d030b}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLText}{XMLText}} \&text)
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aa294c5c01af0ebb9114902456e4cb53c}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLComment}{XMLComment}} \&comment)
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_acfc625b2549304b9c7eb85ebd5c5eb39}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration}{XMLDeclaration}} \&declaration)
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ab8af5455bbf9e4be2663e6642fcd7e32}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLUnknown}{XMLUnknown}} \&unknown)
+\item 
+const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a180671d73844f159f2d4aafbc11d106e}{CStr}} () const
+\item 
+int \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a3256cf3523d4898b91abb18b924be04c}{CStr\+Size}} () const
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a690cb140ba98b7339734ff865f56b0b3}{Clear\+Buffer}} (bool reset\+To\+First\+Element=true)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a38e1ed5a779bdf63eda9e808f7a6de66}{Compact\+Mode}} (const \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} \&)
+\item 
+virtual void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1c4b2ccbe4fdb316d54f5a93f3559260}{Print\+Space}} (int depth)
+\item 
+virtual void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ab30210a7f32e45634e7a45137bf6fdf6}{Print}} (const char $\ast$format,...)
+\item 
+virtual void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}} (const char $\ast$data, size\+\_\+t size)
+\item 
+virtual void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}{Putc}} (char ch)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a4bd7f0cabca77ac95c299103fa9592f1}{Write}} (const char $\ast$data)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac6e2c72c5d796f5b4de6ce81ca95e3fa}{Seal\+Element\+If\+Just\+Opened}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}{\+\_\+element\+Just\+Opened}}
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1DynArray}{Dyn\+Array}}$<$ const char $\ast$, 10 $>$ \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a99d59e67e084714541bee3ae43884bef}{\+\_\+stack}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 1552 of file tinyxml2.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_aa6d3841c069085f5b8a27bc7103c04f7}\label{classtinyxml2_1_1XMLPrinter_aa6d3841c069085f5b8a27bc7103c04f7}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!XMLPrinter@{XMLPrinter}}
+\index{XMLPrinter@{XMLPrinter}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{XMLPrinter()}{XMLPrinter()}}
+{\footnotesize\ttfamily tinyxml2\+::\+XMLPrinter\+::\+XMLPrinter (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file = {\ttfamily 0},  }\item[{bool}]{compact = {\ttfamily false},  }\item[{int}]{depth = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2542 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2542                                                                 :}
+\DoxyCodeLine{2543             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}{\_elementJustOpened}}( \textcolor{keyword}{false} ),}
+\DoxyCodeLine{2544             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a99d59e67e084714541bee3ae43884bef}{\_stack}}(),}
+\DoxyCodeLine{2545             \_firstElement( \textcolor{keyword}{true} ),}
+\DoxyCodeLine{2546             \_fp( file ),}
+\DoxyCodeLine{2547             \_depth( depth ),}
+\DoxyCodeLine{2548             \_textDepth( -\/1 ),}
+\DoxyCodeLine{2549             \_processEntities( \textcolor{keyword}{true} ),}
+\DoxyCodeLine{2550             \_compactMode( compact ),}
+\DoxyCodeLine{2551             \_buffer()}
+\DoxyCodeLine{2552     \{}
+\DoxyCodeLine{2553         \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i=0; i<ENTITY\_RANGE; ++i ) \{}
+\DoxyCodeLine{2554             \_entityFlag[i] = \textcolor{keyword}{false};}
+\DoxyCodeLine{2555             \_restrictedEntityFlag[i] = \textcolor{keyword}{false};}
+\DoxyCodeLine{2556         \}}
+\DoxyCodeLine{2557         \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i=0; i<NUM\_ENTITIES; ++i ) \{}
+\DoxyCodeLine{2558             \textcolor{keyword}{const} \textcolor{keywordtype}{char} entityValue = entities[i].\mbox{\hyperlink{structtinyxml2_1_1Entity_a7334e81e33b4615655a403711b24f3ed}{value}};}
+\DoxyCodeLine{2559             \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} flagIndex = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(entityValue);}
+\DoxyCodeLine{2560             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( flagIndex < ENTITY\_RANGE );}
+\DoxyCodeLine{2561             \_entityFlag[flagIndex] = \textcolor{keyword}{true};}
+\DoxyCodeLine{2562         \}}
+\DoxyCodeLine{2563         \_restrictedEntityFlag[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\textcolor{charliteral}{'\&'})] = \textcolor{keyword}{true};}
+\DoxyCodeLine{2564         \_restrictedEntityFlag[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\textcolor{charliteral}{'<'})] = \textcolor{keyword}{true};}
+\DoxyCodeLine{2565         \_restrictedEntityFlag[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\textcolor{charliteral}{'>'})] = \textcolor{keyword}{true};  \textcolor{comment}{// not required, but consistency is nice}}
+\DoxyCodeLine{2566         \_buffer.Push( 0 );}
+\DoxyCodeLine{2567     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_af4caefa48ea6436898fb1807de8d14c0}\label{classtinyxml2_1_1XMLPrinter_af4caefa48ea6436898fb1807de8d14c0}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!````~XMLPrinter@{$\sim$XMLPrinter}}
+\index{````~XMLPrinter@{$\sim$XMLPrinter}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{$\sim$XMLPrinter()}{~XMLPrinter()}}
+{\footnotesize\ttfamily virtual tinyxml2\+::\+XMLPrinter\+::$\sim$\+XMLPrinter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 1556 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1556 \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a690cb140ba98b7339734ff865f56b0b3}\label{classtinyxml2_1_1XMLPrinter_a690cb140ba98b7339734ff865f56b0b3}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!ClearBuffer@{ClearBuffer}}
+\index{ClearBuffer@{ClearBuffer}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{ClearBuffer()}{ClearBuffer()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Clear\+Buffer (\begin{DoxyParamCaption}\item[{bool}]{reset\+To\+First\+Element = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1602 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1602                                                             \{}
+\DoxyCodeLine{1603             \_buffer.Clear();}
+\DoxyCodeLine{1604             \_buffer.Push(0);}
+\DoxyCodeLine{1605             \_firstElement = resetToFirstElement;}
+\DoxyCodeLine{1606         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_af1fb439e5d800999646f333fa2f0699a}\label{classtinyxml2_1_1XMLPrinter_af1fb439e5d800999646f333fa2f0699a}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!CloseElement@{CloseElement}}
+\index{CloseElement@{CloseElement}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{CloseElement()}{CloseElement()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Close\+Element (\begin{DoxyParamCaption}\item[{bool}]{compact\+Mode = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 2782 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2783     \{}
+\DoxyCodeLine{2784         -\/-\/\_depth;}
+\DoxyCodeLine{2785         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* name = \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a99d59e67e084714541bee3ae43884bef}{\_stack}}.Pop();}
+\DoxyCodeLine{2786 }
+\DoxyCodeLine{2787         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}{\_elementJustOpened}} ) \{}
+\DoxyCodeLine{2788             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}/>"{}} );}
+\DoxyCodeLine{2789         \}}
+\DoxyCodeLine{2790         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{2791             \textcolor{keywordflow}{if} ( \_textDepth < 0 \&\& !compactMode) \{}
+\DoxyCodeLine{2792                 \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}{Putc}}( \textcolor{charliteral}{'\(\backslash\)n'} );}
+\DoxyCodeLine{2793                 \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1c4b2ccbe4fdb316d54f5a93f3559260}{PrintSpace}}( \_depth );}
+\DoxyCodeLine{2794             \}}
+\DoxyCodeLine{2795             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}} ( \textcolor{stringliteral}{"{}</"{}} );}
+\DoxyCodeLine{2796             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}} ( name );}
+\DoxyCodeLine{2797             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}} ( \textcolor{stringliteral}{"{}>"{}} );}
+\DoxyCodeLine{2798         \}}
+\DoxyCodeLine{2799 }
+\DoxyCodeLine{2800         \textcolor{keywordflow}{if} ( \_textDepth == \_depth ) \{}
+\DoxyCodeLine{2801             \_textDepth = -\/1;}
+\DoxyCodeLine{2802         \}}
+\DoxyCodeLine{2803         \textcolor{keywordflow}{if} ( \_depth == 0 \&\& !compactMode) \{}
+\DoxyCodeLine{2804             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}{Putc}}( \textcolor{charliteral}{'\(\backslash\)n'} );}
+\DoxyCodeLine{2805         \}}
+\DoxyCodeLine{2806         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}{\_elementJustOpened}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{2807     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a38e1ed5a779bdf63eda9e808f7a6de66}\label{classtinyxml2_1_1XMLPrinter_a38e1ed5a779bdf63eda9e808f7a6de66}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!CompactMode@{CompactMode}}
+\index{CompactMode@{CompactMode}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{CompactMode()}{CompactMode()}}
+{\footnotesize\ttfamily virtual bool tinyxml2\+::\+XMLPrinter\+::\+Compact\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 1609 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1609 \{ \textcolor{keywordflow}{return} \_compactMode; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a180671d73844f159f2d4aafbc11d106e}\label{classtinyxml2_1_1XMLPrinter_a180671d73844f159f2d4aafbc11d106e}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!CStr@{CStr}}
+\index{CStr@{CStr}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{CStr()}{CStr()}}
+{\footnotesize\ttfamily const char$\ast$ tinyxml2\+::\+XMLPrinter\+::\+CStr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1596 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1596                                  \{}
+\DoxyCodeLine{1597             \textcolor{keywordflow}{return} \_buffer.Mem();}
+\DoxyCodeLine{1598         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a3256cf3523d4898b91abb18b924be04c}\label{classtinyxml2_1_1XMLPrinter_a3256cf3523d4898b91abb18b924be04c}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!CStrSize@{CStrSize}}
+\index{CStrSize@{CStrSize}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{CStrSize()}{CStrSize()}}
+{\footnotesize\ttfamily int tinyxml2\+::\+XMLPrinter\+::\+CStr\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1599 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1599                              \{}
+\DoxyCodeLine{1600             \textcolor{keywordflow}{return} \_buffer.Size();}
+\DoxyCodeLine{1601         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a20fb06c83bd13e5140d7dd13af06c010}\label{classtinyxml2_1_1XMLPrinter_a20fb06c83bd13e5140d7dd13af06c010}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!OpenElement@{OpenElement}}
+\index{OpenElement@{OpenElement}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{OpenElement()}{OpenElement()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Open\+Element (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{bool}]{compact\+Mode = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2710 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2711     \{}
+\DoxyCodeLine{2712         PrepareForNewNode( compactMode );}
+\DoxyCodeLine{2713         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a99d59e67e084714541bee3ae43884bef}{\_stack}}.Push( name );}
+\DoxyCodeLine{2714 }
+\DoxyCodeLine{2715         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}} ( \textcolor{stringliteral}{"{}<"{}} );}
+\DoxyCodeLine{2716         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}} ( name );}
+\DoxyCodeLine{2717 }
+\DoxyCodeLine{2718         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}{\_elementJustOpened}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{2719         ++\_depth;}
+\DoxyCodeLine{2720     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_ab30210a7f32e45634e7a45137bf6fdf6}\label{classtinyxml2_1_1XMLPrinter_ab30210a7f32e45634e7a45137bf6fdf6}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!Print@{Print}}
+\index{Print@{Print}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Print (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 2570 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2571     \{}
+\DoxyCodeLine{2572         va\_list     va;}
+\DoxyCodeLine{2573         va\_start( va, format );}
+\DoxyCodeLine{2574 }
+\DoxyCodeLine{2575         \textcolor{keywordflow}{if} ( \_fp ) \{}
+\DoxyCodeLine{2576             vfprintf( \_fp, format, va );}
+\DoxyCodeLine{2577         \}}
+\DoxyCodeLine{2578         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{2579             \textcolor{keyword}{const} \textcolor{keywordtype}{int} len = TIXML\_VSCPRINTF( format, va );}
+\DoxyCodeLine{2580             \textcolor{comment}{// Close out and re-\/start the va-\/args}}
+\DoxyCodeLine{2581             va\_end( va );}
+\DoxyCodeLine{2582             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( len >= 0 );}
+\DoxyCodeLine{2583             va\_start( va, format );}
+\DoxyCodeLine{2584             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( \_buffer.Size() > 0 \&\& \_buffer[\_buffer.Size() -\/ 1] == 0 );}
+\DoxyCodeLine{2585             \textcolor{keywordtype}{char}* p = \_buffer.PushArr( len ) -\/ 1;   \textcolor{comment}{// back up over the null terminator.}}
+\DoxyCodeLine{2586             \mbox{\hyperlink{tinyxml2_8cpp_a924d10d64b020e9dbcd2b8b024768608}{TIXML\_VSNPRINTF}}( p, len+1, format, va );}
+\DoxyCodeLine{2587         \}}
+\DoxyCodeLine{2588         va\_end( va );}
+\DoxyCodeLine{2589     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a1c4b2ccbe4fdb316d54f5a93f3559260}\label{classtinyxml2_1_1XMLPrinter_a1c4b2ccbe4fdb316d54f5a93f3559260}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PrintSpace@{PrintSpace}}
+\index{PrintSpace@{PrintSpace}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PrintSpace()}{PrintSpace()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Print\+Space (\begin{DoxyParamCaption}\item[{int}]{depth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 2618 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2619     \{}
+\DoxyCodeLine{2620         \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i=0; i<depth; ++i ) \{}
+\DoxyCodeLine{2621             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}    "{}} );}
+\DoxyCodeLine{2622         \}}
+\DoxyCodeLine{2623     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a51f7950d7b7a19f0d3a0d549a318d45f}\label{classtinyxml2_1_1XMLPrinter_a51f7950d7b7a19f0d3a0d549a318d45f}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushAttribute@{PushAttribute}}
+\index{PushAttribute@{PushAttribute}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushAttribute()}{PushAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Attribute (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2766 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2767     \{}
+\DoxyCodeLine{2768         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2769         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( v, buf, BUF\_SIZE );}
+\DoxyCodeLine{2770         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}{PushAttribute}}( name, buf );}
+\DoxyCodeLine{2771     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}\label{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushAttribute@{PushAttribute}}
+\index{PushAttribute@{PushAttribute}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushAttribute()}{PushAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Attribute (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2723 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2724     \{}
+\DoxyCodeLine{2725         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}{\_elementJustOpened}} );}
+\DoxyCodeLine{2726         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}{Putc}} ( \textcolor{charliteral}{' '} );}
+\DoxyCodeLine{2727         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( name );}
+\DoxyCodeLine{2728         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}=\(\backslash\)"{}"{}} );}
+\DoxyCodeLine{2729         PrintString( value, \textcolor{keyword}{false} );}
+\DoxyCodeLine{2730         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}{Putc}} ( \textcolor{charliteral}{'\(\backslash\)"{}'} );}
+\DoxyCodeLine{2731     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a1714867af40e68ca404c3e84b6cac2a6}\label{classtinyxml2_1_1XMLPrinter_a1714867af40e68ca404c3e84b6cac2a6}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushAttribute@{PushAttribute}}
+\index{PushAttribute@{PushAttribute}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushAttribute()}{PushAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Attribute (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2774 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2775     \{}
+\DoxyCodeLine{2776         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2777         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( v, buf, BUF\_SIZE );}
+\DoxyCodeLine{2778         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}{PushAttribute}}( name, buf );}
+\DoxyCodeLine{2779     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a69120c82088597372d28d0a98f2ee7a1}\label{classtinyxml2_1_1XMLPrinter_a69120c82088597372d28d0a98f2ee7a1}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushAttribute@{PushAttribute}}
+\index{PushAttribute@{PushAttribute}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushAttribute()}{PushAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Attribute (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2734 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2735     \{}
+\DoxyCodeLine{2736         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2737         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( v, buf, BUF\_SIZE );}
+\DoxyCodeLine{2738         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}{PushAttribute}}( name, buf );}
+\DoxyCodeLine{2739     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a9bc2fe21a83a70e6aa0415f2034ecbff}\label{classtinyxml2_1_1XMLPrinter_a9bc2fe21a83a70e6aa0415f2034ecbff}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushAttribute@{PushAttribute}}
+\index{PushAttribute@{PushAttribute}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushAttribute()}{PushAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Attribute (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2750 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2751     \{}
+\DoxyCodeLine{2752         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2753         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}(v, buf, BUF\_SIZE);}
+\DoxyCodeLine{2754         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}{PushAttribute}}(name, buf);}
+\DoxyCodeLine{2755     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a0cfb03811df0873faa59a12de009bf33}\label{classtinyxml2_1_1XMLPrinter_a0cfb03811df0873faa59a12de009bf33}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushAttribute@{PushAttribute}}
+\index{PushAttribute@{PushAttribute}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushAttribute()}{PushAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Attribute (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{uint64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2758 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2759     \{}
+\DoxyCodeLine{2760         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2761         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}(v, buf, BUF\_SIZE);}
+\DoxyCodeLine{2762         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}{PushAttribute}}(name, buf);}
+\DoxyCodeLine{2763     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_aa41039e51990aaf5342f3e0575a692c4}\label{classtinyxml2_1_1XMLPrinter_aa41039e51990aaf5342f3e0575a692c4}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushAttribute@{PushAttribute}}
+\index{PushAttribute@{PushAttribute}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushAttribute()}{PushAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Attribute (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{unsigned}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2742 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2743     \{}
+\DoxyCodeLine{2744         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2745         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( v, buf, BUF\_SIZE );}
+\DoxyCodeLine{2746         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}{PushAttribute}}( name, buf );}
+\DoxyCodeLine{2747     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_afc8416814219591c2fd5656e0c233140}\label{classtinyxml2_1_1XMLPrinter_afc8416814219591c2fd5656e0c233140}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushComment@{PushComment}}
+\index{PushComment@{PushComment}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushComment()}{PushComment()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Comment (\begin{DoxyParamCaption}\item[{const char $\ast$}]{comment }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2892 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2893     \{}
+\DoxyCodeLine{2894         PrepareForNewNode( \_compactMode );}
+\DoxyCodeLine{2895 }
+\DoxyCodeLine{2896         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}<!-\/-\/"{}} );}
+\DoxyCodeLine{2897         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( comment );}
+\DoxyCodeLine{2898         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}-\/-\/>"{}} );}
+\DoxyCodeLine{2899     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a2fe3565e262594efc6c0276723c83fe7}\label{classtinyxml2_1_1XMLPrinter_a2fe3565e262594efc6c0276723c83fe7}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushDeclaration@{PushDeclaration}}
+\index{PushDeclaration@{PushDeclaration}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushDeclaration()}{PushDeclaration()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Declaration (\begin{DoxyParamCaption}\item[{const char $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2902 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2903     \{}
+\DoxyCodeLine{2904         PrepareForNewNode( \_compactMode );}
+\DoxyCodeLine{2905 }
+\DoxyCodeLine{2906         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}<?"{}} );}
+\DoxyCodeLine{2907         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( value );}
+\DoxyCodeLine{2908         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}?>"{}} );}
+\DoxyCodeLine{2909     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a178c608ce8476043d5d6513819cde903}\label{classtinyxml2_1_1XMLPrinter_a178c608ce8476043d5d6513819cde903}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushHeader@{PushHeader}}
+\index{PushHeader@{PushHeader}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushHeader()}{PushHeader()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Header (\begin{DoxyParamCaption}\item[{bool}]{write\+BOM,  }\item[{bool}]{write\+Declaration }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2681 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2682     \{}
+\DoxyCodeLine{2683         \textcolor{keywordflow}{if} ( writeBOM ) \{}
+\DoxyCodeLine{2684             \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} bom[] = \{ TIXML\_UTF\_LEAD\_0, TIXML\_UTF\_LEAD\_1, TIXML\_UTF\_LEAD\_2, 0 \};}
+\DoxyCodeLine{2685             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{keyword}{reinterpret\_cast<} \textcolor{keyword}{const }\textcolor{keywordtype}{char}* \textcolor{keyword}{>}( bom ) );}
+\DoxyCodeLine{2686         \}}
+\DoxyCodeLine{2687         \textcolor{keywordflow}{if} ( writeDec ) \{}
+\DoxyCodeLine{2688             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a2fe3565e262594efc6c0276723c83fe7}{PushDeclaration}}( \textcolor{stringliteral}{"{}xml version=\(\backslash\)"{}1.0\(\backslash\)"{}"{}} );}
+\DoxyCodeLine{2689         \}}
+\DoxyCodeLine{2690     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a4390e5fa1ed05189a8686647345ab29f}\label{classtinyxml2_1_1XMLPrinter_a4390e5fa1ed05189a8686647345ab29f}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushText@{PushText}}
+\index{PushText@{PushText}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushText()}{PushText()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Text (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2868 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2869     \{}
+\DoxyCodeLine{2870         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2871         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( value, buf, BUF\_SIZE );}
+\DoxyCodeLine{2872         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{PushText}}( buf, \textcolor{keyword}{false} );}
+\DoxyCodeLine{2873     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}\label{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushText@{PushText}}
+\index{PushText@{PushText}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushText()}{PushText()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{text,  }\item[{bool}]{cdata = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2820 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2821     \{}
+\DoxyCodeLine{2822         \_textDepth = \_depth-\/1;}
+\DoxyCodeLine{2823 }
+\DoxyCodeLine{2824         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac6e2c72c5d796f5b4de6ce81ca95e3fa}{SealElementIfJustOpened}}();}
+\DoxyCodeLine{2825         \textcolor{keywordflow}{if} ( cdata ) \{}
+\DoxyCodeLine{2826             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}<![CDATA["{}} );}
+\DoxyCodeLine{2827             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( text );}
+\DoxyCodeLine{2828             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}]]>"{}} );}
+\DoxyCodeLine{2829         \}}
+\DoxyCodeLine{2830         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{2831             PrintString( text, \textcolor{keyword}{true} );}
+\DoxyCodeLine{2832         \}}
+\DoxyCodeLine{2833     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_aa715302dfc09473c77c853cbd5431965}\label{classtinyxml2_1_1XMLPrinter_aa715302dfc09473c77c853cbd5431965}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushText@{PushText}}
+\index{PushText@{PushText}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushText()}{PushText()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Text (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2884 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2885     \{}
+\DoxyCodeLine{2886         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2887         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( value, buf, BUF\_SIZE );}
+\DoxyCodeLine{2888         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{PushText}}( buf, \textcolor{keyword}{false} );}
+\DoxyCodeLine{2889     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a1dbb1390e829d0673af66b9cd1928bd7}\label{classtinyxml2_1_1XMLPrinter_a1dbb1390e829d0673af66b9cd1928bd7}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushText@{PushText}}
+\index{PushText@{PushText}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushText()}{PushText()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Text (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2876 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2877     \{}
+\DoxyCodeLine{2878         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2879         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( value, buf, BUF\_SIZE );}
+\DoxyCodeLine{2880         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{PushText}}( buf, \textcolor{keyword}{false} );}
+\DoxyCodeLine{2881     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a3e0d4d78de25d4cf081009e1431cea7e}\label{classtinyxml2_1_1XMLPrinter_a3e0d4d78de25d4cf081009e1431cea7e}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushText@{PushText}}
+\index{PushText@{PushText}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushText()}{PushText()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Text (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2852 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2853     \{}
+\DoxyCodeLine{2854         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2855         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( value, buf, BUF\_SIZE );}
+\DoxyCodeLine{2856         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{PushText}}( buf, \textcolor{keyword}{false} );}
+\DoxyCodeLine{2857     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a96b0a0bfe105154a0a6c37d725258f0a}\label{classtinyxml2_1_1XMLPrinter_a96b0a0bfe105154a0a6c37d725258f0a}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushText@{PushText}}
+\index{PushText@{PushText}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushText()}{PushText()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Text (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2836 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2837     \{}
+\DoxyCodeLine{2838         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2839         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( value, buf, BUF\_SIZE );}
+\DoxyCodeLine{2840         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{PushText}}( buf, \textcolor{keyword}{false} );}
+\DoxyCodeLine{2841     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a60b0a4cf57371ff8679c2c7556ccb708}\label{classtinyxml2_1_1XMLPrinter_a60b0a4cf57371ff8679c2c7556ccb708}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushText@{PushText}}
+\index{PushText@{PushText}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushText()}{PushText()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Text (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2844 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2845     \{}
+\DoxyCodeLine{2846         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2847         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}(value, buf, BUF\_SIZE);}
+\DoxyCodeLine{2848         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{PushText}}(buf, \textcolor{keyword}{false});}
+\DoxyCodeLine{2849     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a661fb50e7e0a4918d2d259cb0fae647e}\label{classtinyxml2_1_1XMLPrinter_a661fb50e7e0a4918d2d259cb0fae647e}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushText@{PushText}}
+\index{PushText@{PushText}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushText()}{PushText()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Text (\begin{DoxyParamCaption}\item[{unsigned}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2860 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2861     \{}
+\DoxyCodeLine{2862         \textcolor{keywordtype}{char} buf[BUF\_SIZE];}
+\DoxyCodeLine{2863         \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{XMLUtil::ToStr}}( value, buf, BUF\_SIZE );}
+\DoxyCodeLine{2864         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{PushText}}( buf, \textcolor{keyword}{false} );}
+\DoxyCodeLine{2865     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_ab1efc6d1548505e9984185f58f54b713}\label{classtinyxml2_1_1XMLPrinter_ab1efc6d1548505e9984185f58f54b713}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!PushUnknown@{PushUnknown}}
+\index{PushUnknown@{PushUnknown}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{PushUnknown()}{PushUnknown()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Push\+Unknown (\begin{DoxyParamCaption}\item[{const char $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2912 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2913     \{}
+\DoxyCodeLine{2914         PrepareForNewNode( \_compactMode );}
+\DoxyCodeLine{2915 }
+\DoxyCodeLine{2916         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( \textcolor{stringliteral}{"{}<!"{}} );}
+\DoxyCodeLine{2917         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}( value );}
+\DoxyCodeLine{2918         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}{Putc}}( \textcolor{charliteral}{'>'} );}
+\DoxyCodeLine{2919     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}\label{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!Putc@{Putc}}
+\index{Putc@{Putc}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{Putc()}{Putc()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Putc (\begin{DoxyParamCaption}\item[{char}]{ch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 2605 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2606     \{}
+\DoxyCodeLine{2607         \textcolor{keywordflow}{if} ( \_fp ) \{}
+\DoxyCodeLine{2608             fputc ( ch, \_fp);}
+\DoxyCodeLine{2609         \}}
+\DoxyCodeLine{2610         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{2611             \textcolor{keywordtype}{char}* p = \_buffer.PushArr( \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) ) -\/ 1;   \textcolor{comment}{// back up over the null terminator.}}
+\DoxyCodeLine{2612             p[0] = ch;}
+\DoxyCodeLine{2613             p[1] = 0;}
+\DoxyCodeLine{2614         \}}
+\DoxyCodeLine{2615     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_ac6e2c72c5d796f5b4de6ce81ca95e3fa}\label{classtinyxml2_1_1XMLPrinter_ac6e2c72c5d796f5b4de6ce81ca95e3fa}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!SealElementIfJustOpened@{SealElementIfJustOpened}}
+\index{SealElementIfJustOpened@{SealElementIfJustOpened}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{SealElementIfJustOpened()}{SealElementIfJustOpened()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Seal\+Element\+If\+Just\+Opened (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 2810 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2811     \{}
+\DoxyCodeLine{2812         \textcolor{keywordflow}{if} ( !\mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}{\_elementJustOpened}} ) \{}
+\DoxyCodeLine{2813             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{2814         \}}
+\DoxyCodeLine{2815         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}{\_elementJustOpened}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{2816         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9567b0218169ba59794f171ae2f9944c}{Putc}}( \textcolor{charliteral}{'>'} );}
+\DoxyCodeLine{2817     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_aa294c5c01af0ebb9114902456e4cb53c}\label{classtinyxml2_1_1XMLPrinter_aa294c5c01af0ebb9114902456e4cb53c}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!Visit@{Visit}}
+\index{Visit@{Visit}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{Visit()}{Visit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLPrinter\+::\+Visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLComment}{XMLComment}} \&}]{comment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLVisitor_acc8147fb5a85f6c65721654e427752d7}{tinyxml2\+::\+XMLVisitor}}.
+
+
+
+Definition at line 2962 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2963     \{}
+\DoxyCodeLine{2964         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_afc8416814219591c2fd5656e0c233140}{PushComment}}( comment.Value() );}
+\DoxyCodeLine{2965         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{2966     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_acfc625b2549304b9c7eb85ebd5c5eb39}\label{classtinyxml2_1_1XMLPrinter_acfc625b2549304b9c7eb85ebd5c5eb39}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!Visit@{Visit}}
+\index{Visit@{Visit}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{Visit()}{Visit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLPrinter\+::\+Visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLDeclaration}{XMLDeclaration}} \&}]{declaration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLVisitor_adc75bd459fc7ba8223b50f0616767f9a}{tinyxml2\+::\+XMLVisitor}}.
+
+
+
+Definition at line 2968 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2969     \{}
+\DoxyCodeLine{2970         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a2fe3565e262594efc6c0276723c83fe7}{PushDeclaration}}( declaration.Value() );}
+\DoxyCodeLine{2971         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{2972     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_adc0e42b4f6fcb90a95630c79575d030b}\label{classtinyxml2_1_1XMLPrinter_adc0e42b4f6fcb90a95630c79575d030b}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!Visit@{Visit}}
+\index{Visit@{Visit}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{Visit()}{Visit()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLPrinter\+::\+Visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLText}{XMLText}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLVisitor_af30233565856480ea48b6fa0d6dec65b}{tinyxml2\+::\+XMLVisitor}}.
+
+
+
+Definition at line 2955 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2956     \{}
+\DoxyCodeLine{2957         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a1cc16a9362df4332012cb13cff6441b3}{PushText}}( text.Value(), text.CData() );}
+\DoxyCodeLine{2958         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{2959     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_ab8af5455bbf9e4be2663e6642fcd7e32}\label{classtinyxml2_1_1XMLPrinter_ab8af5455bbf9e4be2663e6642fcd7e32}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!Visit@{Visit}}
+\index{Visit@{Visit}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{Visit()}{Visit()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLPrinter\+::\+Visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLUnknown}{XMLUnknown}} \&}]{unknown }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLVisitor_a14e4748387c34bf53d24e8119bb1f292}{tinyxml2\+::\+XMLVisitor}}.
+
+
+
+Definition at line 2975 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2976     \{}
+\DoxyCodeLine{2977         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_ab1efc6d1548505e9984185f58f54b713}{PushUnknown}}( unknown.Value() );}
+\DoxyCodeLine{2978         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{2979     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a9aa1de11a55a07db55a90fde37d7afad}\label{classtinyxml2_1_1XMLPrinter_a9aa1de11a55a07db55a90fde37d7afad}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!VisitEnter@{VisitEnter}}
+\index{VisitEnter@{VisitEnter}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{VisitEnter()}{VisitEnter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLPrinter\+::\+Visit\+Enter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} \&}]{doc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLVisitor_acb3c22fc5f60eb9db98f533f2761f67d}{tinyxml2\+::\+XMLVisitor}}.
+
+
+
+Definition at line 2922 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2923     \{}
+\DoxyCodeLine{2924         \_processEntities = doc.ProcessEntities();}
+\DoxyCodeLine{2925         \textcolor{keywordflow}{if} ( doc.HasBOM() ) \{}
+\DoxyCodeLine{2926             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a178c608ce8476043d5d6513819cde903}{PushHeader}}( \textcolor{keyword}{true}, \textcolor{keyword}{false} );}
+\DoxyCodeLine{2927         \}}
+\DoxyCodeLine{2928         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{2929     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a169b2509d8eabb70811b2bb8cfd1f5d1}\label{classtinyxml2_1_1XMLPrinter_a169b2509d8eabb70811b2bb8cfd1f5d1}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!VisitEnter@{VisitEnter}}
+\index{VisitEnter@{VisitEnter}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{VisitEnter()}{VisitEnter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLPrinter\+::\+Visit\+Enter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} \&}]{element,  }\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLAttribute}{XMLAttribute}} $\ast$}]{attribute }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLVisitor_af97980a17dd4e37448b181f5ddfa92b5}{tinyxml2\+::\+XMLVisitor}}.
+
+
+
+Definition at line 2932 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2933     \{}
+\DoxyCodeLine{2934         \textcolor{keyword}{const} XMLElement* parentElem = 0;}
+\DoxyCodeLine{2935         \textcolor{keywordflow}{if} ( element.Parent() ) \{}
+\DoxyCodeLine{2936             parentElem = element.Parent()-\/>ToElement();}
+\DoxyCodeLine{2937         \}}
+\DoxyCodeLine{2938         \textcolor{keyword}{const} \textcolor{keywordtype}{bool} compactMode = parentElem ? \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a38e1ed5a779bdf63eda9e808f7a6de66}{CompactMode}}( *parentElem ) : \_compactMode;}
+\DoxyCodeLine{2939         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a20fb06c83bd13e5140d7dd13af06c010}{OpenElement}}( element.Name(), compactMode );}
+\DoxyCodeLine{2940         \textcolor{keywordflow}{while} ( attribute ) \{}
+\DoxyCodeLine{2941             \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a9a4e2c9348b42e147629d5a99f4af3f0}{PushAttribute}}( attribute-\/>Name(), attribute-\/>Value() );}
+\DoxyCodeLine{2942             attribute = attribute-\/>Next();}
+\DoxyCodeLine{2943         \}}
+\DoxyCodeLine{2944         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{2945     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a15fc1f2b922f540917dcf52808737b29}\label{classtinyxml2_1_1XMLPrinter_a15fc1f2b922f540917dcf52808737b29}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!VisitExit@{VisitExit}}
+\index{VisitExit@{VisitExit}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{VisitExit()}{VisitExit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual bool tinyxml2\+::\+XMLPrinter\+::\+Visit\+Exit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{XMLDocument}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLVisitor_a170e9989cd046ba904f302d087e07086}{tinyxml2\+::\+XMLVisitor}}.
+
+
+
+Definition at line 1584 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1584                                                                   \{}
+\DoxyCodeLine{1585             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{1586         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a2edd48405971a88951c71c9df86a2f50}\label{classtinyxml2_1_1XMLPrinter_a2edd48405971a88951c71c9df86a2f50}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!VisitExit@{VisitExit}}
+\index{VisitExit@{VisitExit}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{VisitExit()}{VisitExit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLPrinter\+::\+Visit\+Exit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtinyxml2_1_1XMLElement}{XMLElement}} \&}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classtinyxml2_1_1XMLVisitor_a772f10ddc83f881956d32628faa16eb6}{tinyxml2\+::\+XMLVisitor}}.
+
+
+
+Definition at line 2948 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2949     \{}
+\DoxyCodeLine{2950         \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_af1fb439e5d800999646f333fa2f0699a}{CloseElement}}( \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a38e1ed5a779bdf63eda9e808f7a6de66}{CompactMode}}(element) );}
+\DoxyCodeLine{2951         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{2952     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a4bd7f0cabca77ac95c299103fa9592f1}\label{classtinyxml2_1_1XMLPrinter_a4bd7f0cabca77ac95c299103fa9592f1}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!Write@{Write}}
+\index{Write@{Write}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Write (\begin{DoxyParamCaption}\item[{const char $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 1616 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1616 \{ \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}{Write}}(data, strlen(data)); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}\label{classtinyxml2_1_1XMLPrinter_aff363b7634a27538fd691ae62adbda63}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!Write@{Write}}
+\index{Write@{Write}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLPrinter\+::\+Write (\begin{DoxyParamCaption}\item[{const char $\ast$}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 2592 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2593     \{}
+\DoxyCodeLine{2594         \textcolor{keywordflow}{if} ( \_fp ) \{}
+\DoxyCodeLine{2595             fwrite ( data , \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}), size, \_fp);}
+\DoxyCodeLine{2596         \}}
+\DoxyCodeLine{2597         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{2598             \textcolor{keywordtype}{char}* p = \_buffer.PushArr( \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(size) ) -\/ 1;   \textcolor{comment}{// back up over the null terminator.}}
+\DoxyCodeLine{2599             memcpy( p, data, size );}
+\DoxyCodeLine{2600             p[size] = 0;}
+\DoxyCodeLine{2601         \}}
+\DoxyCodeLine{2602     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}\label{classtinyxml2_1_1XMLPrinter_ac07169d58b465214a2b1fa306e617c26}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!\_elementJustOpened@{\_elementJustOpened}}
+\index{\_elementJustOpened@{\_elementJustOpened}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{\_elementJustOpened}{\_elementJustOpened}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLPrinter\+::\+\_\+element\+Just\+Opened\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 1619 of file tinyxml2.\+h.
+
+\mbox{\Hypertarget{classtinyxml2_1_1XMLPrinter_a99d59e67e084714541bee3ae43884bef}\label{classtinyxml2_1_1XMLPrinter_a99d59e67e084714541bee3ae43884bef}} 
+\index{tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}!\_stack@{\_stack}}
+\index{\_stack@{\_stack}!tinyxml2::XMLPrinter@{tinyxml2::XMLPrinter}}
+\doxysubsubsection{\texorpdfstring{\_stack}{\_stack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtinyxml2_1_1DynArray}{Dyn\+Array}}$<$ const char$\ast$, 10 $>$ tinyxml2\+::\+XMLPrinter\+::\+\_\+stack\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 1620 of file tinyxml2.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tinyxml2_8h}{tinyxml2.\+h}}\item 
+\mbox{\hyperlink{tinyxml2_8cpp}{tinyxml2.\+cpp}}\end{DoxyCompactItemize}

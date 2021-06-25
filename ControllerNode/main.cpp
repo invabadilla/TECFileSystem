@@ -22,9 +22,12 @@ using json = nlohmann::json;
 int globalPort;
 List<string> nameMD;
 
-
-
-
+/**
+ * Method to parse a list of string to json
+ * @param toSend list of string
+ * @param key identifier
+ * @return json
+ */
 json parseJson (List<string> toSend, string key){
     json mymessage =
             {
@@ -36,6 +39,13 @@ json parseJson (List<string> toSend, string key){
             };
     return mymessage;
 }
+
+/**
+ * Parse String to list of string
+ * @param text string
+ * @param char_ identifier to split
+ * @return list of string
+ */
 List<string> StoL (string text, char char_){
     string insert;
     List<string> result;
@@ -54,6 +64,11 @@ List<string> StoL (string text, char char_){
     return result;
 }
 
+/**
+ * Parse list of string to string
+ * @param text list of string
+ * @return string
+ */
 string LtoS (List<string> text){
     string result;
     for (int i = 0; i < text.getSize(); i++) {
@@ -62,6 +77,11 @@ string LtoS (List<string> text){
     return result;
 }
 
+/**
+ * Method to convert binary string to string
+ * @param input_ binary string
+ * @return string
+ */
 string convert(string input_){
     ifstream input(input_, ios::binary);
     vector<char> bytes(
@@ -77,8 +97,14 @@ string convert(string input_){
 
 }
 
+/**
+ * Method to search the word in the files od the RAID
+ * @param name word to search
+ * @return
+ */
 string requestSearch(string name){
-    string texto = convert("/home/usuario/Proyectos/TECFileSystem/ControllerNode/METADATA.txt");
+    //string texto = convert("/home/usuario/Proyectos/TECFileSystem/ControllerNode/METADATA.txt");
+    string texto = convert("/home/ingrid/Documents/TECFileSystem/ControllerNode/METADATA.txt");
     List<string> names = StoL(texto, '%');
     List<string> nameResult;
 
@@ -101,7 +127,11 @@ string requestSearch(string name){
 
 }
 
-
+/**
+ * Method to start listening messages
+ * @param port to listen
+ * @return
+ */
 int StartListenign(int port){
     int listening = socket(AF_INET, SOCK_STREAM, 0);
     if (listening == -1)
@@ -180,6 +210,8 @@ int StartListenign(int port){
 
             divider divider;
 
+            string parityDisk = divider.DiskParity();
+
             // Print 3 equal parts of the string
             divider.divideString(const_cast<char *>(texto.c_str()), 3, texto);
             List<string> result = StoL(input_, '/');
@@ -222,7 +254,8 @@ int StartListenign(int port){
             string metadata = LtoS(nameMD);
 
             std::fstream toWrite;
-            toWrite.open("/home/usuario/Proyectos/TECFileSystem/ControllerNode/METADATA.txt", std::ios::out | std::ios::binary);
+            //toWrite.open("/home/usuario/Proyectos/TECFileSystem/ControllerNode/METADATA.txt", std::ios::out | std::ios::binary);
+            toWrite.open("/home/ingrid/Documents/TECFileSystem/ControllerNode/METADATA.txt", std::ios::out | std::ios::binary);
             toWrite.write(metadata.c_str(), metadata.size());
             //Ahora cierro el archivo
             toWrite.close();
@@ -326,29 +359,6 @@ int StartListenign(int port){
 
 int main() {
 
-//    //string input_ ="/home/usuario/Proyectos/TECFileSystem/ControllerNode/hola.txt";
-//    string input_ = "/home/ingrid/Documents/TECFileSystem/ControllerNode/hola.txt";
-//
-//    ifstream input(input_, ios::binary);
-//    vector<char> bytes(
-//            (istreambuf_iterator<char>(input)),
-//            (istreambuf_iterator<char>()));
-//    input.close();
-//
-//    string texto;
-//    for (int i = 0; i < bytes.size(); i++) {
-//        texto+=bytes.at(i);
-//    }
-//
-//    divider divider;
-//
-//    // Print 3 equal parts of the string
-//    divider.divideString(const_cast<char *>(texto.c_str()), 3, texto);
-//    List<string> result = StoL(input_, '/');
-//    string name = result.find(result.getSize()-1)->getValue();
-//    name.erase(name.end()-4, name.end());
-//    divider.createDatcopy("", name);
-
     XMLDocument xml_doc;
     path temp = current_path().parent_path().parent_path();
     string dn =temp.string()+"/RAID/Parameters_TECFS_Disk.xml"; const char *document_name = dn.c_str();
@@ -359,181 +369,6 @@ int main() {
 
     StartListenign(56000);
 
-    //**********************************************************************//
-
-//    remove("/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola2.dat");
-//
-//
-//    int numError = -1;
-//    string firstPath;
-//    string firstBin;
-//    string secondPath;
-//    string secondBin;
-//    string thirdPath;
-//    string thirdBin;
-//    string fourthPath;
-//    string fourthBin;
-//    int i;
-//    for (i = 0; i < 3; ++i) {
-//        // /home/ingrid/Documents/TECFileSystem/RAID/DiskNodes/DiskNode+i+/Block+j/name+i.dat
-//        string pathToRead = "/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola" + to_string(i) + ".dat" ;
-//        ifstream my_file(pathToRead);
-//        if (my_file.good())
-//        {
-//            switch(i){
-//                case 0:
-//                    firstPath = pathToRead;
-//                    firstBin = convert(pathToRead);
-//                    break;
-//                case 1:
-//                    secondPath = pathToRead;
-//                    secondBin = convert(pathToRead);
-//                    break;
-//                case 2:
-//                    thirdPath = pathToRead;
-//                    thirdBin = convert(pathToRead);
-//                    break;
-//                default:
-//                    break;
-//            }
-//
-//        }
-//        else{
-//            cout<<"El "<<i<<" no existe"<<endl;
-//            numError = i;
-//        }
-//    }
-//    fourthPath = "/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola3.dat";
-//    fourthBin = convert("/home/ingrid/Documents/TECFileSystem/ControllerNode/cmake-build-debug/hola3.dat");
-//
-//
-//    string convertido = "";
-//    if(numError == -1){
-//        cout<<"Resultado: ";
-//        convertido += divider.readData(firstPath);
-//        convertido.pop_back();
-//        convertido += divider.readData(secondPath);
-//        convertido.pop_back();
-//        convertido += divider.readData(thirdPath);
-//        convertido.pop_back();
-//        cout<<convertido<<endl;
-//    }else{
-//        string paridad;
-//        switch(numError){
-//            case 0:
-//
-//                paridad = divider.XoR(secondBin, thirdBin);
-//                paridad = divider.XoR(paridad, fourthBin);
-//                cout<<"Mensaje recuperado: ";
-//                convertido += divider.BinToS(paridad);
-//                convertido.pop_back();
-//                convertido += divider.readData(secondPath);
-//                convertido.pop_back();
-//                convertido += divider.readData(thirdPath);
-//                convertido.pop_back();
-//                cout<<convertido<<endl;
-//                break;
-//            case 1:
-//                paridad = divider.XoR(firstBin, thirdBin);
-//                paridad = divider.XoR(paridad, fourthBin);
-//                cout<<"Mensaje recuperado: ";
-//                convertido += divider.readData(firstPath);
-//                convertido.pop_back();
-//                convertido += divider.BinToS(paridad);
-//                convertido.pop_back();
-//                convertido += divider.readData(thirdPath);
-//                convertido.pop_back();
-//                cout<<convertido<<endl;
-//                break;
-//            case 2:
-//                paridad = divider.XoR(firstBin, secondBin);
-//                paridad = divider.XoR(paridad, fourthBin);
-//                cout<<"Mensaje recuperado: ";
-//                convertido += divider.readData(firstPath);
-//                convertido.pop_back();
-//                convertido += divider.readData(secondPath);
-//                convertido.pop_back();
-//                convertido += divider.BinToS(paridad);
-//                convertido.pop_back();
-//                cout<<convertido<<endl;
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-
-
-
-//    string size_ = to_string(file_size(name+to_string(0)+".dat"));
-//    List<string> list = buildHuffmanTree("0"+size_);
-//    json js = parseJson(list, "save");
-//    cout<<js.dump()<<endl;
-//    Client *client = Client::getInstance(globalPort);
-//
-//    string messageR = client->sendJson(js.dump());
-//    json jmessageR = json::parse(messageR);
-//
-//    string message = jmessageR.value("message", "oops");
-//    string pre = jmessageR.value("pre", "oops");
-//    string in = jmessageR.value("in", "oops");
-//
-//    cout<<"message: "<<message<<endl;
-//    cout<<"pre: "<<pre<<endl;
-//    cout<<"in: "<<in<<endl;
-//
-//    List<string> pre_list = StoL(pre, '$');
-//    List<string> in_list = StoL(in, '$');
-//    preIndex = 0;
-//    Tree_Node *root_ = buildTree(in_list, pre_list, 0, in_list.getSize()-1);
-//
-//    int index = -1;
-//    string strDecode;
-//    while (index < (int)message.size() - 2) {
-//        decode(root_, index, message, &strDecode);
-//    }
-//    cout<<"message: "<<strDecode<<endl;
-//    List<string> create = StoL(strDecode, '#');
-//    divider.createDat(create.find(0)->getValue(), name, create.find(1)->getValue());
-//
-//    nameMD.insertLast(name+"$");
-//    string metadata = LtoS(nameMD);
-//
-//    std::fstream toWrite;
-//    toWrite.open("/home/ingrid/Documents/TECFileSystem/ControllerNode/METADATA.txt", std::ios::out | std::ios::binary);
-//    toWrite.write(metadata.c_str(), metadata.size());
-//    //Ahora cierro el archivo
-//    toWrite.close();
-
-
-
-
-    //meter la lista en un txt para la metadata
-
-//    string convertido = "";
-//    cout<<"Resultado "<<endl;
-//    convertido += divider.readData("Dat1.dat");
-//    convertido.pop_back();
-//    convertido += divider.readData("Dat2.dat");
-//    convertido.pop_back();
-//    convertido += divider.readData("Dat3.dat");
-//    convertido.pop_back();
-//    cout<<convertido<<endl;
-
-//    divider.strToBin(divider.result.at(0));
-//    string first = divider.tot;
-//    divider.strToBin(divider.result.at(1));
-//    string second = divider.tot;
-//    divider.strToBin(divider.result.at(2));
-//    string third = divider.tot;
-//
-//    string paridad = divider.XoR(first, second);
-//    paridad = divider.XoR(paridad, third);
-//    cout<<"Bit de paridad: " <<paridad<<endl;
-
-
-//    for (int i=0; i< list.getSize(); i++){
-//        cout<<list.find(i)->getValue()<<endl;
-//    }
 
     return 0;
 }

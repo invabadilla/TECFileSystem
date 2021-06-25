@@ -9,9 +9,16 @@
 #include "json.hpp"
 #include "Huffman.h"
 #include <filesystem>
-//#include "Tree_Node.h"
+
 using namespace filesystem;
 using json = nlohmann::json;
+
+/**
+ * Parse String to list of string
+ * @param text string
+ * @param char_ identifier to split
+ * @return list of string
+ */
 List<string> StoL (string text){
     string insert;
     List<string> result;
@@ -26,6 +33,13 @@ List<string> StoL (string text){
     }
     return result;
 }
+
+/**
+ * Method to parse a list of string to json
+ * @param toSend list of string
+ * @param key identifier
+ * @return json
+ */
 json parseJson (List<string> toSend, string key){
     json mymessage =
             {
@@ -38,6 +52,11 @@ json parseJson (List<string> toSend, string key){
     return mymessage;
 }
 
+/**
+ * Method to start listening messages
+ * @param port to listen
+ * @return
+ */
 int StartListenign(int port, RAID_5* raid5){
     int listening = socket(AF_INET, SOCK_STREAM, 0);
     if (listening == -1)

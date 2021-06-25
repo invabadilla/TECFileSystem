@@ -1,0 +1,399 @@
+\hypertarget{classdivider}{}\doxysection{divider Class Reference}
+\label{classdivider}\index{divider@{divider}}
+
+
+{\ttfamily \#include $<$Divider.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdivider_ab48b3d56996e1cd4998047be34ef05e4}{divide\+String}} (char str\mbox{[}$\,$\mbox{]}, int n, string texto)
+\item 
+void \mbox{\hyperlink{classdivider_a0abcb7c0a61e920a352781dbfbc526e8}{str\+To\+Bin}} (string s)
+\item 
+void \mbox{\hyperlink{classdivider_ac7edcae4bc43bd8ed5f37f209fde5491}{create\+Datcopy}} (string path, string name)
+\item 
+void \mbox{\hyperlink{classdivider_a6e6a722f3c9b3c88d4ba4525e04cbcf2}{create\+Dat}} (string path, string name, string j)
+\item 
+string \mbox{\hyperlink{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}{read\+Data}} (string Path)
+\item 
+string \mbox{\hyperlink{classdivider_aeaa67333cf7caea22ed9488041950b64}{Bin\+ToS}} (string bin)
+\item 
+string \mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}} (string first, string second)
+\item 
+string \mbox{\hyperlink{classdivider_a685cd61a8c4a50043b478c85b479ead0}{Disk\+Parity}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}
+\item 
+string \mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}} = \char`\"{}\char`\"{}
+\item 
+int \mbox{\hyperlink{classdivider_a1b1f43e2845d0309c2091f24380e6cbd}{parity}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to split the file for storage in the blocks 
+
+Definition at line 23 of file Divider.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdivider_aeaa67333cf7caea22ed9488041950b64}\label{classdivider_aeaa67333cf7caea22ed9488041950b64}} 
+\index{divider@{divider}!BinToS@{BinToS}}
+\index{BinToS@{BinToS}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{BinToS()}{BinToS()}}
+{\footnotesize\ttfamily string divider\+::\+Bin\+ToS (\begin{DoxyParamCaption}\item[{string}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Parse binary information to string data 
+\begin{DoxyParams}{Parameters}
+{\em bin} & binary string to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string with the information 
+\end{DoxyReturn}
+
+
+Definition at line 186 of file Divider.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186                              \{}
+\DoxyCodeLine{187         stringstream sstream(bin);}
+\DoxyCodeLine{188         \textcolor{keywordtype}{string} output;}
+\DoxyCodeLine{189         \textcolor{keywordflow}{while}(sstream.good())}
+\DoxyCodeLine{190         \{}
+\DoxyCodeLine{191             bitset<7> bits;}
+\DoxyCodeLine{192             sstream >> bits;}
+\DoxyCodeLine{193             \textcolor{keywordtype}{char} c = char(bits.to\_ulong());}
+\DoxyCodeLine{194             output += c;}
+\DoxyCodeLine{195         \}}
+\DoxyCodeLine{196         \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{197     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classdivider_a6e6a722f3c9b3c88d4ba4525e04cbcf2}\label{classdivider_a6e6a722f3c9b3c88d4ba4525e04cbcf2}} 
+\index{divider@{divider}!createDat@{createDat}}
+\index{createDat@{createDat}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{createDat()}{createDat()}}
+{\footnotesize\ttfamily void divider\+::create\+Dat (\begin{DoxyParamCaption}\item[{string}]{path,  }\item[{string}]{name,  }\item[{string}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create the directory to save the binary information in the RAID 
+\begin{DoxyParams}{Parameters}
+{\em path} & where it is stored \\
+\hline
+{\em name} & from the file \\
+\hline
+{\em j} & Number of the block in the RAID \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file Divider.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{132                                                       \{}
+\DoxyCodeLine{133         std::fstream toWrite;}
+\DoxyCodeLine{134         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i < 3;i++)\{}
+\DoxyCodeLine{135             toWrite.open(path+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i)+\textcolor{stringliteral}{"{}/Block"{}}+j+\textcolor{stringliteral}{"{}/"{}}+name+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i)+\textcolor{stringliteral}{"{}.dat"{}}, std::ios::out | std::ios::binary);}
+\DoxyCodeLine{136             \mbox{\hyperlink{classdivider_a0abcb7c0a61e920a352781dbfbc526e8}{strToBin}}(\mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(i));}
+\DoxyCodeLine{137             toWrite.write(\mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}}.c\_str(), \mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}}.size());}
+\DoxyCodeLine{138             toWrite.close();}
+\DoxyCodeLine{139         \}}
+\DoxyCodeLine{140         toWrite.open(path+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(3)+\textcolor{stringliteral}{"{}/Block"{}}+j+\textcolor{stringliteral}{"{}/"{}}+name+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(3)+\textcolor{stringliteral}{"{}.dat"{}}, std::ios::out | std::ios::binary);}
+\DoxyCodeLine{141         toWrite.write(\mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(3).c\_str(), \mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(3).size());}
+\DoxyCodeLine{142         toWrite.close();}
+\DoxyCodeLine{143     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classdivider_ac7edcae4bc43bd8ed5f37f209fde5491}\label{classdivider_ac7edcae4bc43bd8ed5f37f209fde5491}} 
+\index{divider@{divider}!createDatcopy@{createDatcopy}}
+\index{createDatcopy@{createDatcopy}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{createDatcopy()}{createDatcopy()}}
+{\footnotesize\ttfamily void divider\+::create\+Datcopy (\begin{DoxyParamCaption}\item[{string}]{path,  }\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create the directory to save the binary information 
+\begin{DoxyParams}{Parameters}
+{\em path} & where it is stored \\
+\hline
+{\em name} & from the file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 113 of file Divider.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113                                                 \{}
+\DoxyCodeLine{114         std::fstream toWrite;}
+\DoxyCodeLine{115         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i < 3;i++)\{}
+\DoxyCodeLine{116             toWrite.open(path+name+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i)+\textcolor{stringliteral}{"{}.dat"{}}, ios::out | ios::binary);}
+\DoxyCodeLine{117             \mbox{\hyperlink{classdivider_a0abcb7c0a61e920a352781dbfbc526e8}{strToBin}}(\mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(i));}
+\DoxyCodeLine{118             toWrite.write(\mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}}.c\_str(), \mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}}.size());}
+\DoxyCodeLine{119             toWrite.close();}
+\DoxyCodeLine{120         \}}
+\DoxyCodeLine{121         toWrite.open(path+name+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(3)+\textcolor{stringliteral}{"{}.dat"{}}, ios::out | ios::binary);}
+\DoxyCodeLine{122         toWrite.write(\mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(3).c\_str(), \mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(3).size());}
+\DoxyCodeLine{123         toWrite.close();}
+\DoxyCodeLine{124     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classdivider_a685cd61a8c4a50043b478c85b479ead0}\label{classdivider_a685cd61a8c4a50043b478c85b479ead0}} 
+\index{divider@{divider}!DiskParity@{DiskParity}}
+\index{DiskParity@{DiskParity}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{DiskParity()}{DiskParity()}}
+{\footnotesize\ttfamily string divider\+::\+Disk\+Parity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Search the block to store the parity information \begin{DoxyReturn}{Returns}
+number of the block 
+\end{DoxyReturn}
+
+
+Definition at line 228 of file Divider.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                        \{}
+\DoxyCodeLine{229         \textcolor{comment}{//block;}}
+\DoxyCodeLine{230         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}hola"{}};}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classdivider_ab48b3d56996e1cd4998047be34ef05e4}\label{classdivider_ab48b3d56996e1cd4998047be34ef05e4}} 
+\index{divider@{divider}!divideString@{divideString}}
+\index{divideString@{divideString}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{divideString()}{divideString()}}
+{\footnotesize\ttfamily void divider\+::divide\+String (\begin{DoxyParamCaption}\item[{char}]{str\mbox{[}$\,$\mbox{]},  }\item[{int}]{n,  }\item[{string}]{texto }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to split n equal parts of str 
+
+Definition at line 34 of file Divider.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{keywordtype}{string} temp;}
+\DoxyCodeLine{37         \textcolor{keywordtype}{int} str\_size = strlen(str);}
+\DoxyCodeLine{38         \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{39         \textcolor{keywordtype}{int} part\_size;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \textcolor{comment}{// Check if string can be divided in n equal parts}}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} (str\_size \% n != 0)}
+\DoxyCodeLine{43         \{}
+\DoxyCodeLine{44             texto.push\_back(\textcolor{charliteral}{' '});}
+\DoxyCodeLine{45             \mbox{\hyperlink{classdivider_ab48b3d56996e1cd4998047be34ef05e4}{divideString}}(\textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(texto.c\_str()), 3, texto);}
+\DoxyCodeLine{46             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{47         \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{comment}{// Calculate the size of parts to find the division points}}
+\DoxyCodeLine{50         part\_size = str\_size / n;}
+\DoxyCodeLine{51         \textcolor{keywordflow}{for} (i = 0; i< str\_size; i++)}
+\DoxyCodeLine{52         \{}
+\DoxyCodeLine{53             \textcolor{keywordflow}{if} (i \% part\_size == 0)\{}
+\DoxyCodeLine{54                 \textcolor{keywordflow}{if} (temp != \textcolor{stringliteral}{"{}"{}}) \{ \mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.push\_back(temp); \}}
+\DoxyCodeLine{55                 temp = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{56             \}}
+\DoxyCodeLine{57             temp += str[i];}
+\DoxyCodeLine{58         \}}
+\DoxyCodeLine{59         \mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.push\_back(temp);}
+\DoxyCodeLine{60         \mbox{\hyperlink{classdivider_a0abcb7c0a61e920a352781dbfbc526e8}{strToBin}}(\mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(0));}
+\DoxyCodeLine{61         \textcolor{keywordtype}{string} first = \mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}};}
+\DoxyCodeLine{62         \mbox{\hyperlink{classdivider_a0abcb7c0a61e920a352781dbfbc526e8}{strToBin}}(\mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(1));}
+\DoxyCodeLine{63         \textcolor{keywordtype}{string} second = \mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}};}
+\DoxyCodeLine{64         \mbox{\hyperlink{classdivider_a0abcb7c0a61e920a352781dbfbc526e8}{strToBin}}(\mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.at(2));}
+\DoxyCodeLine{65         \textcolor{keywordtype}{string} third = \mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         \textcolor{keywordtype}{string} paridad = \mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}}(first, second);}
+\DoxyCodeLine{68         paridad = \mbox{\hyperlink{classdivider_a6a32bbaad485f9ead643460f209dc48c}{XoR}}(paridad, third);}
+\DoxyCodeLine{69         \mbox{\hyperlink{classdivider_a7b829f40992a94b43f2408faa5bf3b77}{result}}.push\_back(paridad);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}\label{classdivider_a2cb425f9d1e9bd2830da66e4b99a047b}} 
+\index{divider@{divider}!readData@{readData}}
+\index{readData@{readData}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily string divider\+::read\+Data (\begin{DoxyParamCaption}\item[{string}]{Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Read binary data in the file 
+\begin{DoxyParams}{Parameters}
+{\em Path} & of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+information in the file 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file Divider.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{150                                 \{}
+\DoxyCodeLine{151         std::fstream toRead;}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153         toRead.open(Path, std::ios::in | std::ios::binary);}
+\DoxyCodeLine{154         toRead.seekg(0, toRead.end);}
+\DoxyCodeLine{155         \textcolor{keywordtype}{int} tam = toRead.tellg();}
+\DoxyCodeLine{156         toRead.seekg(0, toRead.beg);}
+\DoxyCodeLine{157         \textcolor{comment}{//Para almacenar los datos}}
+\DoxyCodeLine{158         \textcolor{keywordtype}{char} * datos = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[tam];}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160         toRead.read(datos, tam);}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \textcolor{keywordtype}{string} cadena = \{\};}
+\DoxyCodeLine{163         cadena.assign(datos, tam );}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165         stringstream sstream(cadena);}
+\DoxyCodeLine{166         \textcolor{keywordtype}{string} output;}
+\DoxyCodeLine{167         \textcolor{keywordflow}{while}(sstream.good())}
+\DoxyCodeLine{168         \{}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170             bitset<7> bits;}
+\DoxyCodeLine{171             sstream >> bits;}
+\DoxyCodeLine{172             \textcolor{keywordtype}{char} c = char(bits.to\_ulong());}
+\DoxyCodeLine{173             output += c;}
+\DoxyCodeLine{174         \}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         toRead.close();}
+\DoxyCodeLine{177         \textcolor{keyword}{delete}[] datos;}
+\DoxyCodeLine{178         \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{179     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classdivider_a0abcb7c0a61e920a352781dbfbc526e8}\label{classdivider_a0abcb7c0a61e920a352781dbfbc526e8}} 
+\index{divider@{divider}!strToBin@{strToBin}}
+\index{strToBin@{strToBin}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{strToBin()}{strToBin()}}
+{\footnotesize\ttfamily void divider\+::str\+To\+Bin (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Parse the string data to binary data to store it in blocks 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file Divider.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79         \textcolor{keywordtype}{int} n = s.length();}
+\DoxyCodeLine{80         \mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{81         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= n; i++)}
+\DoxyCodeLine{82         \{}
+\DoxyCodeLine{83             \textcolor{comment}{// convert each char to ASCII value}}
+\DoxyCodeLine{84             \textcolor{keywordtype}{int} val = int(s[i]);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86             \textcolor{comment}{// Convert ASCII value to binary}}
+\DoxyCodeLine{87             \textcolor{keywordtype}{string} bin = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{88             \textcolor{keywordflow}{while} (val > 0)}
+\DoxyCodeLine{89             \{}
+\DoxyCodeLine{90                 (val \% 2)? bin.push\_back(\textcolor{charliteral}{'1'}) :}
+\DoxyCodeLine{91                 bin.push\_back(\textcolor{charliteral}{'0'});}
+\DoxyCodeLine{92                 val /= 2;}
+\DoxyCodeLine{93             \}}
+\DoxyCodeLine{94             \textcolor{keywordflow}{if}(bin.size() < 7 \&\& bin.size()!=0)\{}
+\DoxyCodeLine{95                 \textcolor{keywordtype}{int} ajuste = 7-\/bin.size();}
+\DoxyCodeLine{96                 \textcolor{keywordtype}{string} strajuste = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{97                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < ajuste; ++j) \{}
+\DoxyCodeLine{98                     strajuste += \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{99                 \}}
+\DoxyCodeLine{100                 bin += strajuste;}
+\DoxyCodeLine{101             \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103             reverse(bin.begin(), bin.end());}
+\DoxyCodeLine{104             \mbox{\hyperlink{classdivider_ad28ab4edd8f4a6600960991853723ce9}{tot}} += bin + \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{105         \}}
+\DoxyCodeLine{106     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classdivider_a6a32bbaad485f9ead643460f209dc48c}\label{classdivider_a6a32bbaad485f9ead643460f209dc48c}} 
+\index{divider@{divider}!XoR@{XoR}}
+\index{XoR@{XoR}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{XoR()}{XoR()}}
+{\footnotesize\ttfamily string divider\+::\+XoR (\begin{DoxyParamCaption}\item[{string}]{first,  }\item[{string}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Parity calculation of the binary information 
+\begin{DoxyParams}{Parameters}
+{\em first} & binary information \\
+\hline
+{\em second} & binary information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+parity in the first and the second 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file Divider.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{205                                            \{}
+\DoxyCodeLine{206         \textcolor{keywordtype}{string} \textcolor{keyword}{final} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208         \textcolor{keywordflow}{if} (first.size() == second.size()) \{}
+\DoxyCodeLine{209             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < first.size(); ++i) \{}
+\DoxyCodeLine{210                 \textcolor{keywordtype}{char} first\_bit = first[i];}
+\DoxyCodeLine{211                 \textcolor{keywordtype}{char} second\_bit = second[i];}
+\DoxyCodeLine{212                 \textcolor{keywordflow}{if}(first\_bit == \textcolor{charliteral}{'1'} \&\& second\_bit == \textcolor{charliteral}{'1'})\{\textcolor{keyword}{final} += \textcolor{stringliteral}{"{}0"{}};\}}
+\DoxyCodeLine{213                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(first\_bit == \textcolor{charliteral}{'1'} \&\& second\_bit == \textcolor{charliteral}{'0'})\{\textcolor{keyword}{final} += \textcolor{stringliteral}{"{}1"{}};\}}
+\DoxyCodeLine{214                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(first\_bit == \textcolor{charliteral}{'0'} \&\& second\_bit == \textcolor{charliteral}{'0'})\{\textcolor{keyword}{final} += \textcolor{stringliteral}{"{}0"{}};\}}
+\DoxyCodeLine{215                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(first\_bit == \textcolor{charliteral}{'0'} \&\& second\_bit == \textcolor{charliteral}{'1'})\{\textcolor{keyword}{final} += \textcolor{stringliteral}{"{}1"{}};\}}
+\DoxyCodeLine{216                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(first\_bit == \textcolor{charliteral}{' '} \&\& second\_bit == \textcolor{charliteral}{' '})\{\textcolor{keyword}{final} += \textcolor{stringliteral}{"{} "{}};\}}
+\DoxyCodeLine{217             \}}
+\DoxyCodeLine{218         \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         \}}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} \textcolor{keyword}{final};}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classdivider_a1b1f43e2845d0309c2091f24380e6cbd}\label{classdivider_a1b1f43e2845d0309c2091f24380e6cbd}} 
+\index{divider@{divider}!parity@{parity}}
+\index{parity@{parity}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{parity}{parity}}
+{\footnotesize\ttfamily int divider\+::parity = 0}
+
+
+
+Definition at line 29 of file Divider.\+h.
+
+\mbox{\Hypertarget{classdivider_a7b829f40992a94b43f2408faa5bf3b77}\label{classdivider_a7b829f40992a94b43f2408faa5bf3b77}} 
+\index{divider@{divider}!result@{result}}
+\index{result@{result}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{result}{result}}
+{\footnotesize\ttfamily vector$<$string$>$ divider\+::result}
+
+
+
+Definition at line 27 of file Divider.\+h.
+
+\mbox{\Hypertarget{classdivider_ad28ab4edd8f4a6600960991853723ce9}\label{classdivider_ad28ab4edd8f4a6600960991853723ce9}} 
+\index{divider@{divider}!tot@{tot}}
+\index{tot@{tot}!divider@{divider}}
+\doxysubsubsection{\texorpdfstring{tot}{tot}}
+{\footnotesize\ttfamily string divider\+::tot = \char`\"{}\char`\"{}}
+
+
+
+Definition at line 28 of file Divider.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Divider_8h}{Divider.\+h}}\end{DoxyCompactItemize}

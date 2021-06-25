@@ -1,0 +1,760 @@
+\hypertarget{classtinyxml2_1_1XMLUtil}{}\doxysection{tinyxml2\+::XMLUtil Class Reference}
+\label{classtinyxml2_1_1XMLUtil}\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+
+
+{\ttfamily \#include $<$tinyxml2.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ab626a194b3523a5ba8b9dbaa2a165202}{Skip\+White\+Space}} (const char $\ast$p, int $\ast$cur\+Line\+Num\+Ptr)
+\item 
+static char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a490c8e74b25a34a1d09342d447375726}{Skip\+White\+Space}} (char $\ast$const p, int $\ast$cur\+Line\+Num\+Ptr)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a357ec3af8fc433d19023a815f45e8e33}{Is\+White\+Space}} (char p)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_abe106a69ac4d942a4381a4d9dfd0e0bd}{Is\+Name\+Start\+Char}} (unsigned char ch)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a04b17341538fa11752f24b4301d19485}{Is\+Name\+Char}} (unsigned char ch)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a28c5a73c3d557ae0090191ef31d2f59a}{Is\+Prefix\+Hex}} (const char $\ast$p)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_acfcd287cacfd2533e1bc9ea4dfb56602}{String\+Equal}} (const char $\ast$p, const char $\ast$q, int n\+Char=INT\+\_\+\+MAX)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a9780b5926e30fe6222e10f0e6cf5a04a}{Is\+UTF8\+Continuation}} (const char p)
+\item 
+static const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ae9bcb2bc3cd6475fdc644c8c17790555}{Read\+BOM}} (const char $\ast$p, bool $\ast$has\+BOM)
+\item 
+static const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a5a96e5144a8d693dc4bcd783d9964648}{Get\+Character\+Ref}} (const char $\ast$p, char $\ast$value, int $\ast$length)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a31c00d5c5dfb38382de1dfcaf4be3595}{Convert\+UTF32\+To\+UTF8}} (unsigned long input, char $\ast$output, int $\ast$length)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{To\+Str}} (int v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ac00c2e52c1c36dab3ff41d86a9bf60f9}{To\+Str}} (unsigned v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_adba0718527ae9e80f663a71ea325cb11}{To\+Str}} (bool v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a8957ad44fee5fa02ba52d73aad4d0a31}{To\+Str}} (float v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a1cd141e50980fcddd6bf9af5de4b1db7}{To\+Str}} (double v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a26a8cb5b833ad587b3af39469c8111de}{To\+Str}} (int64\+\_\+t v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a51fe7464aeb97c83be0cbc071c72404e}{To\+Str}} (uint64\+\_\+t v, char $\ast$buffer, int buffer\+Size)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ad4df4023d11ee3fca9689c49b9707323}{To\+Int}} (const char $\ast$str, int $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a210c8637d5eb4ce3d4625294af0efc2f}{To\+Unsigned}} (const char $\ast$str, unsigned $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ae5b03e0a1ca5d42052a7ac540f7aa12a}{To\+Bool}} (const char $\ast$str, bool $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a399e71edb5f29d61ea81d91ee0332bb9}{To\+Float}} (const char $\ast$str, float $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ad8f75ac140fb19c1c6e164a957c4cd53}{To\+Double}} (const char $\ast$str, double $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_afe2ea09257431cd2b4b6d440552e4195}{To\+Int64}} (const char $\ast$str, int64\+\_\+t $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ae1a49d5df42fbd5dbb36c2261f7e8aaf}{To\+Unsigned64}} (const char $\ast$str, uint64\+\_\+t $\ast$value)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_af98a6a80dbeec4679366c1aba4c5b747}{Set\+Bool\+Serialization}} (const char $\ast$write\+True, const char $\ast$write\+False)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 524 of file tinyxml2.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a31c00d5c5dfb38382de1dfcaf4be3595}\label{classtinyxml2_1_1XMLUtil_a31c00d5c5dfb38382de1dfcaf4be3595}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ConvertUTF32ToUTF8@{ConvertUTF32ToUTF8}}
+\index{ConvertUTF32ToUTF8@{ConvertUTF32ToUTF8}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ConvertUTF32ToUTF8()}{ConvertUTF32ToUTF8()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+Convert\+UTF32\+To\+UTF8 (\begin{DoxyParamCaption}\item[{unsigned long}]{input,  }\item[{char $\ast$}]{output,  }\item[{int $\ast$}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 412 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{413     \{}
+\DoxyCodeLine{414         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} BYTE\_MASK = 0xBF;}
+\DoxyCodeLine{415         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} BYTE\_MARK = 0x80;}
+\DoxyCodeLine{416         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} FIRST\_BYTE\_MARK[7] = \{ 0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC \};}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418         \textcolor{keywordflow}{if} (input < 0x80) \{}
+\DoxyCodeLine{419             *length = 1;}
+\DoxyCodeLine{420         \}}
+\DoxyCodeLine{421         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( input < 0x800 ) \{}
+\DoxyCodeLine{422             *length = 2;}
+\DoxyCodeLine{423         \}}
+\DoxyCodeLine{424         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( input < 0x10000 ) \{}
+\DoxyCodeLine{425             *length = 3;}
+\DoxyCodeLine{426         \}}
+\DoxyCodeLine{427         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( input < 0x200000 ) \{}
+\DoxyCodeLine{428             *length = 4;}
+\DoxyCodeLine{429         \}}
+\DoxyCodeLine{430         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{431             *length = 0;    \textcolor{comment}{// This code won't convert this correctly anyway.}}
+\DoxyCodeLine{432             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{433         \}}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435         output += *length;}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437         \textcolor{comment}{// Scary scary fall throughs are annotated with carefully designed comments}}
+\DoxyCodeLine{438         \textcolor{comment}{// to suppress compiler warnings such as -\/Wimplicit-\/fallthrough in gcc}}
+\DoxyCodeLine{439         \textcolor{keywordflow}{switch} (*length) \{}
+\DoxyCodeLine{440             \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{441                 -\/-\/output;}
+\DoxyCodeLine{442                 *output = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}((input | BYTE\_MARK) \& BYTE\_MASK);}
+\DoxyCodeLine{443                 input >>= 6;}
+\DoxyCodeLine{444                 \textcolor{comment}{//fall through}}
+\DoxyCodeLine{445             \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{446                 -\/-\/output;}
+\DoxyCodeLine{447                 *output = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}((input | BYTE\_MARK) \& BYTE\_MASK);}
+\DoxyCodeLine{448                 input >>= 6;}
+\DoxyCodeLine{449                 \textcolor{comment}{//fall through}}
+\DoxyCodeLine{450             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{451                 -\/-\/output;}
+\DoxyCodeLine{452                 *output = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}((input | BYTE\_MARK) \& BYTE\_MASK);}
+\DoxyCodeLine{453                 input >>= 6;}
+\DoxyCodeLine{454                 \textcolor{comment}{//fall through}}
+\DoxyCodeLine{455             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{456                 -\/-\/output;}
+\DoxyCodeLine{457                 *output = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(input | FIRST\_BYTE\_MARK[*length]);}
+\DoxyCodeLine{458                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{459             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{460             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( \textcolor{keyword}{false} );}
+\DoxyCodeLine{461         \}}
+\DoxyCodeLine{462     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a5a96e5144a8d693dc4bcd783d9964648}\label{classtinyxml2_1_1XMLUtil_a5a96e5144a8d693dc4bcd783d9964648}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!GetCharacterRef@{GetCharacterRef}}
+\index{GetCharacterRef@{GetCharacterRef}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{GetCharacterRef()}{GetCharacterRef()}}
+{\footnotesize\ttfamily const char $\ast$ tinyxml2\+::\+XMLUtil\+::\+Get\+Character\+Ref (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p,  }\item[{char $\ast$}]{value,  }\item[{int $\ast$}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 465 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{466     \{}
+\DoxyCodeLine{467         \textcolor{comment}{// Presume an entity, and pull it out.}}
+\DoxyCodeLine{468         *length = 0;}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470         \textcolor{keywordflow}{if} ( *(p+1) == \textcolor{charliteral}{'\#'} \&\& *(p+2) ) \{}
+\DoxyCodeLine{471             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} ucs = 0;}
+\DoxyCodeLine{472             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( \textcolor{keyword}{sizeof}( ucs ) >= 4 );}
+\DoxyCodeLine{473             ptrdiff\_t delta = 0;}
+\DoxyCodeLine{474             \textcolor{keywordtype}{unsigned} mult = 1;}
+\DoxyCodeLine{475             \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} SEMICOLON = \textcolor{charliteral}{';'};}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477             \textcolor{keywordflow}{if} ( *(p+2) == \textcolor{charliteral}{'x'} ) \{}
+\DoxyCodeLine{478                 \textcolor{comment}{// Hexadecimal.}}
+\DoxyCodeLine{479                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}* q = p+3;}
+\DoxyCodeLine{480                 \textcolor{keywordflow}{if} ( !(*q) ) \{}
+\DoxyCodeLine{481                     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{482                 \}}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{484                 q = strchr( q, SEMICOLON );}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{486                 \textcolor{keywordflow}{if} ( !q ) \{}
+\DoxyCodeLine{487                     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{488                 \}}
+\DoxyCodeLine{489                 \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( *q == SEMICOLON );}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{491                 delta = q-\/p;}
+\DoxyCodeLine{492                 -\/-\/q;}
+\DoxyCodeLine{493 }
+\DoxyCodeLine{494                 \textcolor{keywordflow}{while} ( *q != \textcolor{charliteral}{'x'} ) \{}
+\DoxyCodeLine{495                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} digit = 0;}
+\DoxyCodeLine{496 }
+\DoxyCodeLine{497                     \textcolor{keywordflow}{if} ( *q >= \textcolor{charliteral}{'0'} \&\& *q <= \textcolor{charliteral}{'9'} ) \{}
+\DoxyCodeLine{498                         digit = *q -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{499                     \}}
+\DoxyCodeLine{500                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( *q >= \textcolor{charliteral}{'a'} \&\& *q <= \textcolor{charliteral}{'f'} ) \{}
+\DoxyCodeLine{501                         digit = *q -\/ \textcolor{charliteral}{'a'} + 10;}
+\DoxyCodeLine{502                     \}}
+\DoxyCodeLine{503                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( *q >= \textcolor{charliteral}{'A'} \&\& *q <= \textcolor{charliteral}{'F'} ) \{}
+\DoxyCodeLine{504                         digit = *q -\/ \textcolor{charliteral}{'A'} + 10;}
+\DoxyCodeLine{505                     \}}
+\DoxyCodeLine{506                     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{507                         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{508                     \}}
+\DoxyCodeLine{509                     \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( digit < 16 );}
+\DoxyCodeLine{510                     \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( digit == 0 || mult <= UINT\_MAX / digit );}
+\DoxyCodeLine{511                     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} digitScaled = mult * digit;}
+\DoxyCodeLine{512                     \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( ucs <= ULONG\_MAX -\/ digitScaled );}
+\DoxyCodeLine{513                     ucs += digitScaled;}
+\DoxyCodeLine{514                     \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( mult <= UINT\_MAX / 16 );}
+\DoxyCodeLine{515                     mult *= 16;}
+\DoxyCodeLine{516                     -\/-\/q;}
+\DoxyCodeLine{517                 \}}
+\DoxyCodeLine{518             \}}
+\DoxyCodeLine{519             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{520                 \textcolor{comment}{// Decimal.}}
+\DoxyCodeLine{521                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}* q = p+2;}
+\DoxyCodeLine{522                 \textcolor{keywordflow}{if} ( !(*q) ) \{}
+\DoxyCodeLine{523                     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{524                 \}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{526                 q = strchr( q, SEMICOLON );}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{528                 \textcolor{keywordflow}{if} ( !q ) \{}
+\DoxyCodeLine{529                     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{530                 \}}
+\DoxyCodeLine{531                 \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( *q == SEMICOLON );}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{533                 delta = q-\/p;}
+\DoxyCodeLine{534                 -\/-\/q;}
+\DoxyCodeLine{535 }
+\DoxyCodeLine{536                 \textcolor{keywordflow}{while} ( *q != \textcolor{charliteral}{'\#'} ) \{}
+\DoxyCodeLine{537                     \textcolor{keywordflow}{if} ( *q >= \textcolor{charliteral}{'0'} \&\& *q <= \textcolor{charliteral}{'9'} ) \{}
+\DoxyCodeLine{538                         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} digit = *q -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{539                         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( digit < 10 );}
+\DoxyCodeLine{540                         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( digit == 0 || mult <= UINT\_MAX / digit );}
+\DoxyCodeLine{541                         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} digitScaled = mult * digit;}
+\DoxyCodeLine{542                         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( ucs <= ULONG\_MAX -\/ digitScaled );}
+\DoxyCodeLine{543                         ucs += digitScaled;}
+\DoxyCodeLine{544                     \}}
+\DoxyCodeLine{545                     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{546                         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{547                     \}}
+\DoxyCodeLine{548                     \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( mult <= UINT\_MAX / 10 );}
+\DoxyCodeLine{549                     mult *= 10;}
+\DoxyCodeLine{550                     -\/-\/q;}
+\DoxyCodeLine{551                 \}}
+\DoxyCodeLine{552             \}}
+\DoxyCodeLine{553             \textcolor{comment}{// convert the UCS to UTF-\/8}}
+\DoxyCodeLine{554             \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a31c00d5c5dfb38382de1dfcaf4be3595}{ConvertUTF32ToUTF8}}( ucs, value, length );}
+\DoxyCodeLine{555             \textcolor{keywordflow}{return} p + delta + 1;}
+\DoxyCodeLine{556         \}}
+\DoxyCodeLine{557         \textcolor{keywordflow}{return} p+1;}
+\DoxyCodeLine{558     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a04b17341538fa11752f24b4301d19485}\label{classtinyxml2_1_1XMLUtil_a04b17341538fa11752f24b4301d19485}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsNameChar@{IsNameChar}}
+\index{IsNameChar@{IsNameChar}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsNameChar()}{IsNameChar()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+Name\+Char (\begin{DoxyParamCaption}\item[{unsigned char}]{ch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 560 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{560                                                           \{}
+\DoxyCodeLine{561             \textcolor{keywordflow}{return} \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_abe106a69ac4d942a4381a4d9dfd0e0bd}{IsNameStartChar}}( ch )}
+\DoxyCodeLine{562                    || isdigit( ch )}
+\DoxyCodeLine{563                    || ch == \textcolor{charliteral}{'.'}}
+\DoxyCodeLine{564                    || ch == \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{565         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_abe106a69ac4d942a4381a4d9dfd0e0bd}\label{classtinyxml2_1_1XMLUtil_abe106a69ac4d942a4381a4d9dfd0e0bd}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsNameStartChar@{IsNameStartChar}}
+\index{IsNameStartChar@{IsNameStartChar}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsNameStartChar()}{IsNameStartChar()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+Name\+Start\+Char (\begin{DoxyParamCaption}\item[{unsigned char}]{ch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 549 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{549                                                                \{}
+\DoxyCodeLine{550             \textcolor{keywordflow}{if} ( ch >= 128 ) \{}
+\DoxyCodeLine{551                 \textcolor{comment}{// This is a heuristic guess in attempt to not implement Unicode-\/aware isalpha()}}
+\DoxyCodeLine{552                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{553             \}}
+\DoxyCodeLine{554             \textcolor{keywordflow}{if} ( isalpha( ch ) ) \{}
+\DoxyCodeLine{555                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{556             \}}
+\DoxyCodeLine{557             \textcolor{keywordflow}{return} ch == \textcolor{charliteral}{':'} || ch == \textcolor{charliteral}{'\_'};}
+\DoxyCodeLine{558         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a28c5a73c3d557ae0090191ef31d2f59a}\label{classtinyxml2_1_1XMLUtil_a28c5a73c3d557ae0090191ef31d2f59a}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsPrefixHex@{IsPrefixHex}}
+\index{IsPrefixHex@{IsPrefixHex}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsPrefixHex()}{IsPrefixHex()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+Prefix\+Hex (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 567 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{567                                                        \{}
+\DoxyCodeLine{568             p = \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ab626a194b3523a5ba8b9dbaa2a165202}{SkipWhiteSpace}}(p, 0);}
+\DoxyCodeLine{569             \textcolor{keywordflow}{return} p \&\& *p == \textcolor{charliteral}{'0'} \&\& ( *(p + 1) == \textcolor{charliteral}{'x'} || *(p + 1) == \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{570         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a9780b5926e30fe6222e10f0e6cf5a04a}\label{classtinyxml2_1_1XMLUtil_a9780b5926e30fe6222e10f0e6cf5a04a}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsUTF8Continuation@{IsUTF8Continuation}}
+\index{IsUTF8Continuation@{IsUTF8Continuation}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsUTF8Continuation()}{IsUTF8Continuation()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+UTF8\+Continuation (\begin{DoxyParamCaption}\item[{const char}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 582 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{582                                                               \{}
+\DoxyCodeLine{583             \textcolor{keywordflow}{return} ( p \& 0x80 ) != 0;}
+\DoxyCodeLine{584         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a357ec3af8fc433d19023a815f45e8e33}\label{classtinyxml2_1_1XMLUtil_a357ec3af8fc433d19023a815f45e8e33}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsWhiteSpace@{IsWhiteSpace}}
+\index{IsWhiteSpace@{IsWhiteSpace}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsWhiteSpace()}{IsWhiteSpace()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+White\+Space (\begin{DoxyParamCaption}\item[{char}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 545 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{545                                                             \{}
+\DoxyCodeLine{546             \textcolor{keywordflow}{return} !\mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a9780b5926e30fe6222e10f0e6cf5a04a}{IsUTF8Continuation}}(p) \&\& isspace( \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(p) );}
+\DoxyCodeLine{547         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_ae9bcb2bc3cd6475fdc644c8c17790555}\label{classtinyxml2_1_1XMLUtil_ae9bcb2bc3cd6475fdc644c8c17790555}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ReadBOM@{ReadBOM}}
+\index{ReadBOM@{ReadBOM}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ReadBOM()}{ReadBOM()}}
+{\footnotesize\ttfamily const char $\ast$ tinyxml2\+::\+XMLUtil\+::\+Read\+BOM (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p,  }\item[{bool $\ast$}]{has\+BOM }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 394 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{395     \{}
+\DoxyCodeLine{396         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( p );}
+\DoxyCodeLine{397         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( bom );}
+\DoxyCodeLine{398         *bom = \textcolor{keyword}{false};}
+\DoxyCodeLine{399         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* pu = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}*\textcolor{keyword}{>}(p);}
+\DoxyCodeLine{400         \textcolor{comment}{// Check for BOM:}}
+\DoxyCodeLine{401         \textcolor{keywordflow}{if} (    *(pu+0) == TIXML\_UTF\_LEAD\_0}
+\DoxyCodeLine{402                 \&\& *(pu+1) == TIXML\_UTF\_LEAD\_1}
+\DoxyCodeLine{403                 \&\& *(pu+2) == TIXML\_UTF\_LEAD\_2 ) \{}
+\DoxyCodeLine{404             *bom = \textcolor{keyword}{true};}
+\DoxyCodeLine{405             p += 3;}
+\DoxyCodeLine{406         \}}
+\DoxyCodeLine{407         \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( p );}
+\DoxyCodeLine{408         \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{409     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_af98a6a80dbeec4679366c1aba4c5b747}\label{classtinyxml2_1_1XMLUtil_af98a6a80dbeec4679366c1aba4c5b747}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!SetBoolSerialization@{SetBoolSerialization}}
+\index{SetBoolSerialization@{SetBoolSerialization}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{SetBoolSerialization()}{SetBoolSerialization()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+Set\+Bool\+Serialization (\begin{DoxyParamCaption}\item[{const char $\ast$}]{write\+True,  }\item[{const char $\ast$}]{write\+False }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 384 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{385     \{}
+\DoxyCodeLine{386         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* defTrue  = \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{387         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* defFalse = \textcolor{stringliteral}{"{}false"{}};}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389         writeBoolTrue = (writeTrue) ? writeTrue : defTrue;}
+\DoxyCodeLine{390         writeBoolFalse = (writeFalse) ? writeFalse : defFalse;}
+\DoxyCodeLine{391     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a490c8e74b25a34a1d09342d447375726}\label{classtinyxml2_1_1XMLUtil_a490c8e74b25a34a1d09342d447375726}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!SkipWhiteSpace@{SkipWhiteSpace}}
+\index{SkipWhiteSpace@{SkipWhiteSpace}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{SkipWhiteSpace()}{SkipWhiteSpace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static char$\ast$ tinyxml2\+::\+XMLUtil\+::\+Skip\+White\+Space (\begin{DoxyParamCaption}\item[{char $\ast$const}]{p,  }\item[{int $\ast$}]{cur\+Line\+Num\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 539 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{539                                                                          \{}
+\DoxyCodeLine{540             \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}( \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ab626a194b3523a5ba8b9dbaa2a165202}{SkipWhiteSpace}}( \textcolor{keyword}{const\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(p), curLineNumPtr ) );}
+\DoxyCodeLine{541         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_ab626a194b3523a5ba8b9dbaa2a165202}\label{classtinyxml2_1_1XMLUtil_ab626a194b3523a5ba8b9dbaa2a165202}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!SkipWhiteSpace@{SkipWhiteSpace}}
+\index{SkipWhiteSpace@{SkipWhiteSpace}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{SkipWhiteSpace()}{SkipWhiteSpace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static const char$\ast$ tinyxml2\+::\+XMLUtil\+::\+Skip\+White\+Space (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p,  }\item[{int $\ast$}]{cur\+Line\+Num\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 527 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{527                                                                                 \{}
+\DoxyCodeLine{528             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( p );}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{530             \textcolor{keywordflow}{while}( \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a357ec3af8fc433d19023a815f45e8e33}{IsWhiteSpace}}(*p) ) \{}
+\DoxyCodeLine{531                 \textcolor{keywordflow}{if} (curLineNumPtr \&\& *p == \textcolor{charliteral}{'\(\backslash\)n'}) \{}
+\DoxyCodeLine{532                     ++(*curLineNumPtr);}
+\DoxyCodeLine{533                 \}}
+\DoxyCodeLine{534                 ++p;}
+\DoxyCodeLine{535             \}}
+\DoxyCodeLine{536             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( p );}
+\DoxyCodeLine{537             \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{538         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_acfcd287cacfd2533e1bc9ea4dfb56602}\label{classtinyxml2_1_1XMLUtil_acfcd287cacfd2533e1bc9ea4dfb56602}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!StringEqual@{StringEqual}}
+\index{StringEqual@{StringEqual}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{StringEqual()}{StringEqual()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+String\+Equal (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p,  }\item[{const char $\ast$}]{q,  }\item[{int}]{n\+Char = {\ttfamily INT\+\_\+MAX} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 572 of file tinyxml2.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{572                                                                                            \{}
+\DoxyCodeLine{573             \textcolor{keywordflow}{if} ( p == q ) \{}
+\DoxyCodeLine{574                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{575             \}}
+\DoxyCodeLine{576             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( p );}
+\DoxyCodeLine{577             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( q );}
+\DoxyCodeLine{578             \mbox{\hyperlink{tinyxml2_8h_a029877acb3c6fd71698561044953bd14}{TIXMLASSERT}}( nChar >= 0 );}
+\DoxyCodeLine{579             \textcolor{keywordflow}{return} strncmp( p, q, nChar ) == 0;}
+\DoxyCodeLine{580         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_ae5b03e0a1ca5d42052a7ac540f7aa12a}\label{classtinyxml2_1_1XMLUtil_ae5b03e0a1ca5d42052a7ac540f7aa12a}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToBool@{ToBool}}
+\index{ToBool@{ToBool}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToBool()}{ToBool()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Bool (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{bool $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 631 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{632     \{}
+\DoxyCodeLine{633         \textcolor{keywordtype}{int} ival = 0;}
+\DoxyCodeLine{634         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_ad4df4023d11ee3fca9689c49b9707323}{ToInt}}( str, \&ival )) \{}
+\DoxyCodeLine{635             *\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = (ival==0) ? \textcolor{keyword}{false} : \textcolor{keyword}{true};}
+\DoxyCodeLine{636             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{637         \}}
+\DoxyCodeLine{638         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* TRUE\_VALS[] = \{ \textcolor{stringliteral}{"{}true"{}}, \textcolor{stringliteral}{"{}True"{}}, \textcolor{stringliteral}{"{}TRUE"{}}, 0 \};}
+\DoxyCodeLine{639         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* FALSE\_VALS[] = \{ \textcolor{stringliteral}{"{}false"{}}, \textcolor{stringliteral}{"{}False"{}}, \textcolor{stringliteral}{"{}FALSE"{}}, 0 \};}
+\DoxyCodeLine{640 }
+\DoxyCodeLine{641         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; TRUE\_VALS[i]; ++i) \{}
+\DoxyCodeLine{642             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classtinyxml2_1_1XMLUtil_acfcd287cacfd2533e1bc9ea4dfb56602}{StringEqual}}(str, TRUE\_VALS[i])) \{}
+\DoxyCodeLine{643                 *\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{644                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{645             \}}
+\DoxyCodeLine{646         \}}
+\DoxyCodeLine{647         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; FALSE\_VALS[i]; ++i) \{}
+\DoxyCodeLine{648             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classtinyxml2_1_1XMLUtil_acfcd287cacfd2533e1bc9ea4dfb56602}{StringEqual}}(str, FALSE\_VALS[i])) \{}
+\DoxyCodeLine{649                 *\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{650                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{651             \}}
+\DoxyCodeLine{652         \}}
+\DoxyCodeLine{653         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{654     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_ad8f75ac140fb19c1c6e164a957c4cd53}\label{classtinyxml2_1_1XMLUtil_ad8f75ac140fb19c1c6e164a957c4cd53}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToDouble@{ToDouble}}
+\index{ToDouble@{ToDouble}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToDouble()}{ToDouble()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Double (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{double $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 666 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{667     \{}
+\DoxyCodeLine{668         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{tinyxml2_8cpp_a96f54d7c855ad92e705510904a040393}{TIXML\_SSCANF}}( str, \textcolor{stringliteral}{"{}\%lf"{}}, value ) == 1 ) \{}
+\DoxyCodeLine{669             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{670         \}}
+\DoxyCodeLine{671         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{672     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a399e71edb5f29d61ea81d91ee0332bb9}\label{classtinyxml2_1_1XMLUtil_a399e71edb5f29d61ea81d91ee0332bb9}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToFloat@{ToFloat}}
+\index{ToFloat@{ToFloat}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToFloat()}{ToFloat()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Float (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{float $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 657 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{658     \{}
+\DoxyCodeLine{659         \textcolor{keywordflow}{if} ( \mbox{\hyperlink{tinyxml2_8cpp_a96f54d7c855ad92e705510904a040393}{TIXML\_SSCANF}}( str, \textcolor{stringliteral}{"{}\%f"{}}, value ) == 1 ) \{}
+\DoxyCodeLine{660             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{661         \}}
+\DoxyCodeLine{662         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{663     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_ad4df4023d11ee3fca9689c49b9707323}\label{classtinyxml2_1_1XMLUtil_ad4df4023d11ee3fca9689c49b9707323}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToInt@{ToInt}}
+\index{ToInt@{ToInt}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToInt()}{ToInt()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Int (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{int $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 606 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{607     \{}
+\DoxyCodeLine{608         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a28c5a73c3d557ae0090191ef31d2f59a}{IsPrefixHex}}(str)) \{}
+\DoxyCodeLine{609             \textcolor{keywordtype}{unsigned} v;}
+\DoxyCodeLine{610             \textcolor{keywordflow}{if} (\mbox{\hyperlink{tinyxml2_8cpp_a96f54d7c855ad92e705510904a040393}{TIXML\_SSCANF}}(str, \textcolor{stringliteral}{"{}\%x"{}}, \&v) == 1) \{}
+\DoxyCodeLine{611                 *\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(v);}
+\DoxyCodeLine{612                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{613             \}}
+\DoxyCodeLine{614         \}}
+\DoxyCodeLine{615         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{616             \textcolor{keywordflow}{if} (\mbox{\hyperlink{tinyxml2_8cpp_a96f54d7c855ad92e705510904a040393}{TIXML\_SSCANF}}(str, \textcolor{stringliteral}{"{}\%d"{}}, value) == 1) \{}
+\DoxyCodeLine{617                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{618             \}}
+\DoxyCodeLine{619         \}}
+\DoxyCodeLine{620         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{621     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_afe2ea09257431cd2b4b6d440552e4195}\label{classtinyxml2_1_1XMLUtil_afe2ea09257431cd2b4b6d440552e4195}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToInt64@{ToInt64}}
+\index{ToInt64@{ToInt64}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToInt64()}{ToInt64()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Int64 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{int64\+\_\+t $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 675 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{676     \{}
+\DoxyCodeLine{677         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a28c5a73c3d557ae0090191ef31d2f59a}{IsPrefixHex}}(str)) \{}
+\DoxyCodeLine{678             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} v = 0;   \textcolor{comment}{// horrible syntax trick to make the compiler happy about \%llx}}
+\DoxyCodeLine{679             \textcolor{keywordflow}{if} (\mbox{\hyperlink{tinyxml2_8cpp_a96f54d7c855ad92e705510904a040393}{TIXML\_SSCANF}}(str, \textcolor{stringliteral}{"{}\%llx"{}}, \&v) == 1) \{}
+\DoxyCodeLine{680                 *\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(v);}
+\DoxyCodeLine{681                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{682             \}}
+\DoxyCodeLine{683         \}}
+\DoxyCodeLine{684         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{685             \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} v = 0;    \textcolor{comment}{// horrible syntax trick to make the compiler happy about \%lld}}
+\DoxyCodeLine{686             \textcolor{keywordflow}{if} (\mbox{\hyperlink{tinyxml2_8cpp_a96f54d7c855ad92e705510904a040393}{TIXML\_SSCANF}}(str, \textcolor{stringliteral}{"{}\%lld"{}}, \&v) == 1) \{}
+\DoxyCodeLine{687                 *\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(v);}
+\DoxyCodeLine{688                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{689             \}}
+\DoxyCodeLine{690         \}}
+\DoxyCodeLine{691         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{692     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_adba0718527ae9e80f663a71ea325cb11}\label{classtinyxml2_1_1XMLUtil_adba0718527ae9e80f663a71ea325cb11}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{bool}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 573 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{574     \{}
+\DoxyCodeLine{575         \mbox{\hyperlink{tinyxml2_8cpp_afc6433f9b56e4f18833089b1df629e0a}{TIXML\_SNPRINTF}}( buffer, bufferSize, \textcolor{stringliteral}{"{}\%s"{}}, v ? writeBoolTrue : writeBoolFalse);}
+\DoxyCodeLine{576     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a1cd141e50980fcddd6bf9af5de4b1db7}\label{classtinyxml2_1_1XMLUtil_a1cd141e50980fcddd6bf9af5de4b1db7}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{double}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 588 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{589     \{}
+\DoxyCodeLine{590         \mbox{\hyperlink{tinyxml2_8cpp_afc6433f9b56e4f18833089b1df629e0a}{TIXML\_SNPRINTF}}( buffer, bufferSize, \textcolor{stringliteral}{"{}\%.17g"{}}, v );}
+\DoxyCodeLine{591     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a8957ad44fee5fa02ba52d73aad4d0a31}\label{classtinyxml2_1_1XMLUtil_a8957ad44fee5fa02ba52d73aad4d0a31}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{float}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 582 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{583     \{}
+\DoxyCodeLine{584         \mbox{\hyperlink{tinyxml2_8cpp_afc6433f9b56e4f18833089b1df629e0a}{TIXML\_SNPRINTF}}( buffer, bufferSize, \textcolor{stringliteral}{"{}\%.8g"{}}, v );}
+\DoxyCodeLine{585     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}\label{classtinyxml2_1_1XMLUtil_a3cd6c703d49b9d51bdf0f4ff6aa021c7}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 561 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{562     \{}
+\DoxyCodeLine{563         \mbox{\hyperlink{tinyxml2_8cpp_afc6433f9b56e4f18833089b1df629e0a}{TIXML\_SNPRINTF}}( buffer, bufferSize, \textcolor{stringliteral}{"{}\%d"{}}, v );}
+\DoxyCodeLine{564     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a26a8cb5b833ad587b3af39469c8111de}\label{classtinyxml2_1_1XMLUtil_a26a8cb5b833ad587b3af39469c8111de}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 594 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{595     \{}
+\DoxyCodeLine{596         \textcolor{comment}{// horrible syntax trick to make the compiler happy about \%lld}}
+\DoxyCodeLine{597         \mbox{\hyperlink{tinyxml2_8cpp_afc6433f9b56e4f18833089b1df629e0a}{TIXML\_SNPRINTF}}(buffer, bufferSize, \textcolor{stringliteral}{"{}\%lld"{}}, \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long} \textcolor{keywordtype}{long}\textcolor{keyword}{>}(v));}
+\DoxyCodeLine{598     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a51fe7464aeb97c83be0cbc071c72404e}\label{classtinyxml2_1_1XMLUtil_a51fe7464aeb97c83be0cbc071c72404e}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 600 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{601     \{}
+\DoxyCodeLine{602         \textcolor{comment}{// horrible syntax trick to make the compiler happy about \%llu}}
+\DoxyCodeLine{603         \mbox{\hyperlink{tinyxml2_8cpp_afc6433f9b56e4f18833089b1df629e0a}{TIXML\_SNPRINTF}}(buffer, bufferSize, \textcolor{stringliteral}{"{}\%llu"{}}, (\textcolor{keywordtype}{long} \textcolor{keywordtype}{long})v);}
+\DoxyCodeLine{604     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_ac00c2e52c1c36dab3ff41d86a9bf60f9}\label{classtinyxml2_1_1XMLUtil_ac00c2e52c1c36dab3ff41d86a9bf60f9}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{unsigned}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 567 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{568     \{}
+\DoxyCodeLine{569         \mbox{\hyperlink{tinyxml2_8cpp_afc6433f9b56e4f18833089b1df629e0a}{TIXML\_SNPRINTF}}( buffer, bufferSize, \textcolor{stringliteral}{"{}\%u"{}}, v );}
+\DoxyCodeLine{570     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_a210c8637d5eb4ce3d4625294af0efc2f}\label{classtinyxml2_1_1XMLUtil_a210c8637d5eb4ce3d4625294af0efc2f}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToUnsigned@{ToUnsigned}}
+\index{ToUnsigned@{ToUnsigned}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToUnsigned()}{ToUnsigned()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Unsigned (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{unsigned $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 623 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{624     \{}
+\DoxyCodeLine{625         \textcolor{keywordflow}{if} (\mbox{\hyperlink{tinyxml2_8cpp_a96f54d7c855ad92e705510904a040393}{TIXML\_SSCANF}}(str, \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a28c5a73c3d557ae0090191ef31d2f59a}{IsPrefixHex}}(str) ? \textcolor{stringliteral}{"{}\%x"{}} : \textcolor{stringliteral}{"{}\%u"{}}, value) == 1) \{}
+\DoxyCodeLine{626             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{627         \}}
+\DoxyCodeLine{628         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{629     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtinyxml2_1_1XMLUtil_ae1a49d5df42fbd5dbb36c2261f7e8aaf}\label{classtinyxml2_1_1XMLUtil_ae1a49d5df42fbd5dbb36c2261f7e8aaf}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToUnsigned64@{ToUnsigned64}}
+\index{ToUnsigned64@{ToUnsigned64}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToUnsigned64()}{ToUnsigned64()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Unsigned64 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{uint64\+\_\+t $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 695 of file tinyxml2.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{695                                                                \{}
+\DoxyCodeLine{696         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} v = 0;   \textcolor{comment}{// horrible syntax trick to make the compiler happy about \%llu}}
+\DoxyCodeLine{697         \textcolor{keywordflow}{if}(\mbox{\hyperlink{tinyxml2_8cpp_a96f54d7c855ad92e705510904a040393}{TIXML\_SSCANF}}(str, \mbox{\hyperlink{classtinyxml2_1_1XMLUtil_a28c5a73c3d557ae0090191ef31d2f59a}{IsPrefixHex}}(str) ? \textcolor{stringliteral}{"{}\%llx"{}} : \textcolor{stringliteral}{"{}\%llu"{}}, \&v) == 1) \{}
+\DoxyCodeLine{698             *\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = (uint64\_t)v;}
+\DoxyCodeLine{699             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{700         \}}
+\DoxyCodeLine{701         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{702     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tinyxml2_8h}{tinyxml2.\+h}}\item 
+\mbox{\hyperlink{tinyxml2_8cpp}{tinyxml2.\+cpp}}\end{DoxyCompactItemize}

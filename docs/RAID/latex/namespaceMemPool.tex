@@ -1,0 +1,86 @@
+\hypertarget{namespaceMemPool}{}\doxysection{Mem\+Pool Namespace Reference}
+\label{namespaceMemPool}\index{MemPool@{MemPool}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMemPool_1_1MemoryBlock}{Memory\+Block}}
+\item 
+class \mbox{\hyperlink{classMemPool_1_1IMemoryBlock}{IMemory\+Block}}
+\item 
+class \mbox{\hyperlink{classMemPool_1_1DiskNode}{Disk\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structMemPool_1_1MemoryBlock}{Mem\+Pool\+::\+Memory\+Block}} \mbox{\hyperlink{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}{Memory\+Block}}
+\item 
+typedef unsigned char \mbox{\hyperlink{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}{TByte}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classList}{List}}$<$ string $>$ \mbox{\hyperlink{namespaceMemPool_af67fdb58215d5610bdfaeddfce5905b2}{StoL}} (string text, char char\+\_\+)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}\label{namespaceMemPool_a1378566a13cf9aeb367e33a86eca998a}} 
+\index{MemPool@{MemPool}!MemoryBlock@{MemoryBlock}}
+\index{MemoryBlock@{MemoryBlock}!MemPool@{MemPool}}
+\doxysubsubsection{\texorpdfstring{MemoryBlock}{MemoryBlock}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structMemPool_1_1MemoryBlock}{Mem\+Pool\+::\+Memory\+Block}} \mbox{\hyperlink{structMemPool_1_1MemoryBlock}{Mem\+Pool\+::\+Memory\+Block}}}
+
+Struct for the creation of each Block of the Disk \mbox{\hyperlink{classNode}{Node}} \mbox{\Hypertarget{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}\label{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}} 
+\index{MemPool@{MemPool}!TByte@{TByte}}
+\index{TByte@{TByte}!MemPool@{MemPool}}
+\doxysubsubsection{\texorpdfstring{TByte}{TByte}}
+{\footnotesize\ttfamily typedef unsigned char \mbox{\hyperlink{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}{Mem\+Pool\+::\+TByte}}}
+
+
+
+Definition at line 17 of file IMemory\+Block.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceMemPool_af67fdb58215d5610bdfaeddfce5905b2}\label{namespaceMemPool_af67fdb58215d5610bdfaeddfce5905b2}} 
+\index{MemPool@{MemPool}!StoL@{StoL}}
+\index{StoL@{StoL}!MemPool@{MemPool}}
+\doxysubsubsection{\texorpdfstring{StoL()}{StoL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classList}{List}}$<$string$>$ Mem\+Pool\+::\+StoL (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{char}]{char\+\_\+ }\end{DoxyParamCaption})}
+
+Parse strong to list 
+\begin{DoxyParams}{Parameters}
+{\em text} & to parse \\
+\hline
+{\em char\+\_\+} & to limit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result list 
+\end{DoxyReturn}
+
+
+Definition at line 423 of file Disk\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{423                                                \{}
+\DoxyCodeLine{424         \textcolor{keywordtype}{string} insert;}
+\DoxyCodeLine{425         \mbox{\hyperlink{classList}{List<string>}} result;}
+\DoxyCodeLine{426         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < text.size(); i++) \{}
+\DoxyCodeLine{427             \textcolor{keywordflow}{if} (text[i]==char\_)\{}
+\DoxyCodeLine{428                 result.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(insert);}
+\DoxyCodeLine{429                 insert =\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{430             \}}
+\DoxyCodeLine{431             \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{432                 insert.push\_back(text[i]);}
+\DoxyCodeLine{433             \}}
+\DoxyCodeLine{434         \}}
+\DoxyCodeLine{435         \textcolor{keywordflow}{if} (char\_ != \textcolor{charliteral}{'\$'})\{}
+\DoxyCodeLine{436             result.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(insert);}
+\DoxyCodeLine{437         \}}
+\DoxyCodeLine{438         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{439     \}}
+
+\end{DoxyCode}

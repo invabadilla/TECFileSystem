@@ -1,0 +1,44 @@
+\hypertarget{structcomp}{}\doxysection{comp Struct Reference}
+\label{structcomp}\index{comp@{comp}}
+
+
+{\ttfamily \#include $<$Huffman.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structcomp_a7bc6777d8f80f00da6bda719646f38f4}{operator()}} (\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$l, \mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$r)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Comparison object to be used to order the heap 
+
+Definition at line 40 of file Huffman.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structcomp_a7bc6777d8f80f00da6bda719646f38f4}\label{structcomp_a7bc6777d8f80f00da6bda719646f38f4}} 
+\index{comp@{comp}!operator()@{operator()}}
+\index{operator()@{operator()}!comp@{comp}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily bool comp\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{classTree__Node}{Tree\+\_\+\+Node}} $\ast$}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 42 of file Huffman.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44         \textcolor{comment}{// highest priority item has lowest frequency}}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} l-\/>\mbox{\hyperlink{classTree__Node_a8964bf99d3d555de63c73db14f4d3119}{freq}} > r-\/>\mbox{\hyperlink{classTree__Node_a8964bf99d3d555de63c73db14f4d3119}{freq}};}
+\DoxyCodeLine{46     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Huffman_8h}{Huffman.\+h}}\end{DoxyCompactItemize}
