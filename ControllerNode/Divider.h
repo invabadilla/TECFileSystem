@@ -16,9 +16,9 @@
 
 using namespace std;
 
-int actualData;
-int maxData;
-int parityRaid;
+int actualData = 0;
+int maxData = 0;
+int parityRaid = 0;
 
 /**
  * Class to split the file for storage in the blocks
@@ -134,6 +134,7 @@ public:
      */
     void createDat(string path, string name, string j){
         std::fstream toWrite;
+        string parity = DiskParity(path, name, j);
         for (int i=0; i < 3;i++){
             toWrite.open(path+to_string(i)+"/Block"+j+"/"+name+to_string(i)+".dat", std::ios::out | std::ios::binary);
             strToBin(result.at(i));
@@ -228,12 +229,16 @@ public:
      * Search the block to store the parity information
      * @return number of the block
      */
-    string DiskParity(){
+    string DiskParity(string path, string name, string j){
         if(maxData <= actualData){
             parityRaid++;
         }
-        return to_string(parityRaid);
-
+        if(parityRaid > 3){
+            parityRaid = 0;
+        }
+        string resultPath;
+        resultPath = path+to_string(parityRaid)+"/Block"+j+"/"+name+to_string(parityRaid)+".dat";
+        return resultPath;
     }
 };
 
