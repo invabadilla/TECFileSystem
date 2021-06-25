@@ -312,8 +312,6 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
     cout<<convertido<<endl;
     ui->textEdit->setText(QString::fromStdString(convertido));
 
-
-
 }
 
 /*!
