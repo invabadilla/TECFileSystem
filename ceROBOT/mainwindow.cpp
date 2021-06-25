@@ -10,6 +10,8 @@
 #include "Client.h"
 #include "json.hpp"
 #include "Huffman.h"
+#include <fstream>
+#include <sstream>
 
 using json = nlohmann::json;
 using namespace filesystem;
@@ -153,7 +155,122 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
+string convert(string input_){
+    ifstream input(input_, ios::binary);
+    vector<char> bytes(
+            (istreambuf_iterator<char>(input)),
+            (istreambuf_iterator<char>()));
+    input.close();
 
+    string texto;
+    for (int i = 0; i < bytes.size(); i++) {
+        texto+=bytes.at(i);
+    }
+    return texto;
+
+}
+
+string readData(string path, string name, string j){
+
+    divider divider;
+
+    int numError = -1;
+    string firstPath;
+    string firstBin;
+    string secondPath;
+    string secondBin;
+    string thirdPath;
+    string thirdBin;
+    string fourthPath;
+    string fourthBin;
+
+    int i;
+    for (i = 0; i < 3; ++i) {
+        string pathToRead = path+to_string(i)+"/Block"+j+"/"+name+to_string(i)+".dat";
+        ifstream my_file(pathToRead);
+        if (my_file.good())
+        {
+            switch(i){
+                case 0:
+                    firstPath = pathToRead;
+                    firstBin = convert(pathToRead);
+                    break;
+                case 1:
+                    secondPath = pathToRead;
+                    secondBin = convert(pathToRead);
+                    break;
+                case 2:
+                    thirdPath = pathToRead;
+                    thirdBin = convert(pathToRead);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        else{
+            cout<<"El "<<i<<" no existe"<<endl;
+            numError = i;
+        }
+    }
+    fourthPath = path+to_string(3)+"/Block"+j+"/"+name+to_string(3)+".dat";
+    fourthBin = convert(fourthPath);
+
+
+    string convertido = "";
+    if(numError == -1){
+        cout<<"Resultado: ";
+        convertido += divider.readData(firstPath);
+        convertido.pop_back();
+        convertido += divider.readData(secondPath);
+        convertido.pop_back();
+        convertido += divider.readData(thirdPath);
+        convertido.pop_back();
+        return convertido;
+    }else{
+        string paridad;
+        switch(numError){
+            case 0:
+                paridad = divider.XoR(secondBin, thirdBin);
+                paridad = divider.XoR(paridad, fourthBin);
+                cout<<"Mensaje recuperado: ";
+                convertido += divider.BinToS(paridad);
+                convertido.pop_back();
+                convertido += divider.readData(secondPath);
+                convertido.pop_back();
+                convertido += divider.readData(thirdPath);
+                convertido.pop_back();
+                return convertido;
+                break;
+            case 1:
+                paridad = divider.XoR(firstBin, thirdBin);
+                paridad = divider.XoR(paridad, fourthBin);
+                cout<<"Mensaje recuperado: ";
+                convertido += divider.readData(firstPath);
+                convertido.pop_back();
+                convertido += divider.BinToS(paridad);
+                convertido.pop_back();
+                convertido += divider.readData(thirdPath);
+                convertido.pop_back();
+                return convertido;
+                break;
+            case 2:
+                paridad = divider.XoR(firstBin, secondBin);
+                paridad = divider.XoR(paridad, fourthBin);
+                cout<<"Mensaje recuperado: ";
+                convertido += divider.readData(firstPath);
+                convertido.pop_back();
+                convertido += divider.readData(secondPath);
+                convertido.pop_back();
+                convertido += divider.BinToS(paridad);
+                convertido.pop_back();
+                return convertido;
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 void MainWindow::on_tableWidget_cellClicked(int row, int column)
 {
@@ -188,6 +305,12 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
     }
     cout<<"message: "<<strDecode<<endl;
 
+    List<string> for_read = StoL(strDecode, '#');
+
+    string convertido = readData(for_read.find(0)->getValue(), name, for_read.find(1)->getValue());
+
+    cout<<convertido<<endl;
+    ui->textEdit->setText(QString::fromStdString(convertido));
 
 
 
